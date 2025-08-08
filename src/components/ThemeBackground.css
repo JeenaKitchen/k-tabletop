@@ -1,0 +1,79 @@
+.theme-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.theme-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 1;
+}
+
+.theme-video.loaded {
+  opacity: 1;
+}
+
+.theme-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.theme-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Mobile optimization for 1078 × 768 videos */
+@media (max-width: 768px) {
+  .theme-video {
+    /* Maintain aspect ratio while covering the container */
+    object-fit: cover;
+    /* Ensure videos scale properly on mobile */
+    min-width: 100%;
+    min-height: 100%;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .theme-video {
+    /* Ensure crisp video on retina displays */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Specific handling for 1078 × 768 aspect ratio */
+@media (min-width: 769px) {
+  .theme-video {
+    /* For desktop, ensure the video covers the full viewport */
+    object-fit: cover;
+    /* Center the video content */
+    object-position: center;
+  }
+} 
