@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ThemeBackground.css';
 
-const ThemeBackground = ({ background, video }) => {
+const ThemeBackground = ({ background, video, isTransitioning, transitionDirection }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [showLoading, setShowLoading] = useState(false);
+  const [loadingStartTime, setLoadingStartTime] = useState(null);
   const videoRef = useRef(null);
 
   // Reset state when video prop changes (theme switch)
@@ -11,7 +13,22 @@ const ThemeBackground = ({ background, video }) => {
     console.log('ThemeBackground: video prop changed:', video);
     setIsVideoLoaded(false);
     setIsVideoPlaying(false);
+    setShowLoading(false);
+    setLoadingStartTime(Date.now());
   }, [video]);
+
+  // Show loading after 1 second
+  useEffect(() => {
+    if (loadingStartTime && !isVideoLoaded) {
+      const timer = setTimeout(() => {
+        if (!isVideoLoaded) {
+          setShowLoading(true);
+        }
+      }, 1000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [loadingStartTime, isVideoLoaded]);
 
   useEffect(() => {
     if (videoRef.current && video) {
@@ -21,6 +38,7 @@ const ThemeBackground = ({ background, video }) => {
         console.log('Video loaded successfully:', video);
         setIsVideoLoaded(true);
         setIsVideoPlaying(true);
+        setShowLoading(false);
       };
       
       const handleCanPlay = () => {
@@ -34,6 +52,7 @@ const ThemeBackground = ({ background, video }) => {
       const handleError = (error) => {
         console.error('Video error:', error);
         setIsVideoPlaying(false);
+        setShowLoading(false);
       };
 
       videoElement.addEventListener('loadeddata', handleLoadedData);
@@ -49,28 +68,36 @@ const ThemeBackground = ({ background, video }) => {
   }, [video]);
 
   return (
-    <div className="theme-background">
+    <div className={`theme-background ${isTransitioning ? 'transitioning' : ''} ${isTransitioning ? `transition-${transitionDirection}` : ''}`}>
       {video && (
         <video 
           key={video} // Force re-render when video changes
           ref={videoRef}
-          className={`theme-video ${isVideoLoaded ? 'loaded' : ''}`}
+          className={`theme-video ${isVideoLoaded ? 'loaded' : ''} ${isTransitioning ? 'transitioning' : ''}`}
           autoPlay 
           muted 
           loop 
           playsInline
-          poster={background}
         >
           <source src={video} type="video/mp4" />
-          <img src={background} alt="theme background" />
         </video>
       )}
       
-      {(!video || !isVideoPlaying) && (
-        <div 
-          className="theme-background-image" 
-          style={{ backgroundImage: `url(${background})` }} 
-        />
+      {/* Apple-style loading overlay */}
+      {showLoading && !isVideoLoaded && (
+        <div className="apple-loading-overlay">
+          <div className="apple-loading-content">
+            <div className="apple-spinner">
+              <div className="apple-spinner-ring"></div>
+              <div className="apple-spinner-ring"></div>
+              <div className="apple-spinner-ring"></div>
+            </div>
+            <div className="apple-loading-text">
+              <span className="apple-loading-title">Loading Theme</span>
+              <span className="apple-loading-subtitle">Please wait...</span>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

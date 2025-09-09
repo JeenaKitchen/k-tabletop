@@ -5,8 +5,8 @@ import ThemeSwitcher from './components/ThemeSwitcher';
 import DishDock from './components/DishDock';
 import RecipeModal from './components/RecipeModal';
 import AudioManager from './components/AudioManager';
-import SoundControl from './components/SoundControl';
-import ThemeAccordion from './components/ThemeAccordion';
+import TopControls from './components/TopControls';
+import AboutJeenaModal from './components/AboutJeenaModal';
 import themeService from './services/themeService';
 
 function App() {
@@ -16,11 +16,16 @@ function App() {
   const [isMuted, setIsMuted] = useState(false);
   const [volume, setVolume] = useState(0.5);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  const [isAboutModalOpen, setIsAboutModalOpen] = useState(false);
   
   // Theme integration state
   const [themes, setThemes] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  // Theme transition state
+  const [isThemeTransitioning, setIsThemeTransitioning] = useState(false);
+  const [transitionDirection, setTransitionDirection] = useState('next');
 
   // Load themes on component mount
   useEffect(() => {
@@ -60,13 +65,25 @@ function App() {
   const currentTheme = themes && themes.length > 0 ? themes[currentThemeIndex] : null;
 
   const handleThemeChange = (direction) => {
-    if (!themes || themes.length === 0) return;
+    if (!themes || themes.length === 0 || isThemeTransitioning) return;
     
+    // Start transition
+    setIsThemeTransitioning(true);
+    setTransitionDirection(direction);
+    
+    // Calculate new index
+    let newIndex;
     if (direction === 'next') {
-      setCurrentThemeIndex((prev) => (prev + 1) % themes.length);
+      newIndex = (currentThemeIndex + 1) % themes.length;
     } else {
-      setCurrentThemeIndex((prev) => (prev - 1 + themes.length) % themes.length);
+      newIndex = (currentThemeIndex - 1 + themes.length) % themes.length;
     }
+    
+    // Delay the actual theme change to allow for transition animation
+    setTimeout(() => {
+      setCurrentThemeIndex(newIndex);
+      setIsThemeTransitioning(false);
+    }, 400); // Match the CSS transition duration (0.4s)
   };
 
   const handleDishClick = (dish) => {
@@ -89,6 +106,14 @@ function App() {
 
   const handleAccordionToggle = () => {
     setIsAccordionOpen(!isAccordionOpen);
+  };
+
+  const handleAboutModalOpen = () => {
+    setIsAboutModalOpen(true);
+  };
+
+  const handleAboutModalClose = () => {
+    setIsAboutModalOpen(false);
   };
 
   // Loading state
@@ -137,8 +162,13 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <ThemeBackground background={currentTheme?.background || ''} video={currentTheme?.video || ''} />
+    <div className={`App ${isThemeTransitioning ? 'theme-transitioning' : ''} ${isThemeTransitioning ? `transition-${transitionDirection}` : ''}`}>
+      <ThemeBackground 
+        background={currentTheme?.background || ''} 
+        video={currentTheme?.video || ''} 
+        isTransitioning={isThemeTransitioning}
+        transitionDirection={transitionDirection}
+      />
       
       <div className="content">
         <ThemeSwitcher 
@@ -153,13 +183,11 @@ function App() {
         />
       </div>
 
-      <ThemeAccordion
+      <TopControls
         currentTheme={currentTheme}
-        isOpen={isAccordionOpen}
-        onToggle={handleAccordionToggle}
-      />
-
-      <SoundControl
+        isAccordionOpen={isAccordionOpen}
+        onAccordionToggle={handleAccordionToggle}
+        onAboutModalOpen={handleAboutModalOpen}
         isMuted={isMuted}
         volume={volume}
         onMuteToggle={handleMuteToggle}
@@ -176,6 +204,11 @@ function App() {
         isOpen={isModalOpen}
         dish={selectedDish}
         onClose={closeModal}
+      />
+
+      <AboutJeenaModal
+        isOpen={isAboutModalOpen}
+        onClose={handleAboutModalClose}
       />
 
       {/* Error banner for non-critical errors */}

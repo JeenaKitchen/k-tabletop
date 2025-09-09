@@ -177,7 +177,7 @@ export const themes = [
         description: "Spicy kimchi stew with pork and vegetables. A warming dish that's perfect for cold weather.",
         cookingTime: "30 mins",
         categories: ["Stew & Soup", "Main Dish"],
-        recipeUrl: "https://www.jeenaskitchen.store/"
+        recipeUrl: "https://youtu.be/JMe9f_1cDXU"
       },
       {
         name: "Gyeran Jjim",
@@ -191,7 +191,7 @@ export const themes = [
     ]
   },
   {
-    name: "Korean Cafe in Seong Su",
+    name: "Cafe in Seoul",
     background: "/Themes/korean-cafe.jpg",
     video: "/Videos/korean-cafe.mp4",
     sound: "/Sounds/korean-cafe.mp3",
@@ -253,7 +253,7 @@ export const themes = [
     ]
   },
   {
-    name: "Korean Retro Dining Room",
+    name: "Korean Dining Room",
     background: "/Themes/korean-dining-room.jpg",
     video: "/Videos/korean-dining-room.mp4",
     sound: "/Sounds/korean-dining-room.mp3",
@@ -306,7 +306,7 @@ export const themes = [
     ]
   },
   {
-    name: "Korean Grandmother House",
+    name: "Grandmother's House",
     background: "/Themes/korean-grandmother-house.jpg",
     video: "/Videos/grandmother-house.mp4",
     sound: "/Sounds/korean-grandmother-house.mp3",
@@ -492,7 +492,7 @@ export const themes = [
     ]
   },
   {
-    name: "Hangang (Han River)",
+    name: "Han River",
     background: "/Themes/han-gang.jpg",
     video: "/Videos/han-gang.mp4",
     sound: "/Sounds/han-gang.mp3",

@@ -1,0 +1,90 @@
+.about-jeena-button-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: rgba(71, 71, 71, 0.177);
+  backdrop-filter: blur(10px);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-width: 300px;
+}
+
+.about-jeena-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.about-jeena-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.about-jeena-title-section {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  width: 100%;
+}
+
+.about-jeena-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  flex: 1;
+  text-align: center;
+}
+
+.about-jeena-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-jeena-icon img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Makes the SVG white */
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .about-jeena-button-container {
+    top: 15px;
+    right: 15px;
+    max-width: 250px;
+  }
+  
+  .about-jeena-button {
+    padding: 8px 8px;
+  }
+  
+  .about-jeena-title {
+    font-size: 1.1rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .about-jeena-button-container {
+    /* Ensure crisp rendering on retina displays */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
