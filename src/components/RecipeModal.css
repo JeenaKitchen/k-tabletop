@@ -41,7 +41,7 @@
 /* Sticky Modal Header */
 .modal-header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
   padding: 8px 8px;
   flex-shrink: 0;
@@ -60,12 +60,12 @@
 }
 
 .modal-close {
-  background: #f5f5f5;
-  color: #666;
-  border: none;
-  font-size: 1.5rem;
-  width: 20px;
-  height: 20px;
+  background: #ff6b6b;
+  color: #ff6b6b;
+  border: 1px solid #ff4343;
+  font-size: 1.2rem;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -76,8 +76,8 @@
 }
 
 .modal-close:hover {
-  background: #e0e0e0;
-  color: #333;
+  background: #ff6b6b;
+  color: #3a3a3a;
 }
 
 /* Scrollable Content Area */

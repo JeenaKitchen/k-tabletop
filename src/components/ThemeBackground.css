@@ -16,7 +16,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.3s ease-in-out;
   z-index: 1;
 }
 
@@ -33,7 +33,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   z-index: 1;
 }
 
@@ -44,7 +44,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
@@ -75,5 +75,113 @@
     object-fit: cover;
     /* Center the video content */
     object-position: center;
+  }
+}
+
+/* Apple-style Loading Overlay */
+.apple-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3); /* REDUCED OPACITY: Changed from 0.85 to 0.3 */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  animation: appleFadeIn 0.1s ease-out;
+}
+
+.apple-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 40px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Apple-style Spinner */
+.apple-spinner {
+  position: relative;
+  width: 48px;
+  height: 48px;
+}
+
+.apple-spinner-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  animation: appleSpin 1.2s linear infinite;
+}
+
+.apple-spinner-ring:nth-child(1) {
+  border-top-color: #007AFF;
+  animation-delay: 0s;
+}
+
+.apple-spinner-ring:nth-child(2) {
+  border-right-color: #34C759;
+  animation-delay: 0.4s;
+}
+
+.apple-spinner-ring:nth-child(3) {
+  border-bottom-color: #FF9500;
+  animation-delay: 0.8s;
+}
+
+/* Apple-style Loading Text */
+.apple-loading-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.apple-loading-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: -0.01em;
+}
+
+.apple-loading-subtitle {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.01em;
+}
+
+/* Animations */
+@keyframes appleFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes appleSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 } 
