@@ -138,7 +138,13 @@ class MarkdownService {
 
   // Get all recipe files for a theme
   async getRecipeFiles(themeName) {
-    const themeFolder = themeName.toLowerCase().replace(/\s+/g, '-');
+    // Map theme names to folder names
+    const themeNameToFolder = {
+      'Cafe in Seoul': 'korean-cafe',
+      'Grandmother\'s House': 'korean-grandmother\'s-house'
+    };
+    
+    const themeFolder = themeNameToFolder[themeName] || themeName.toLowerCase().replace(/\s+/g, '-');
     
     try {
       // Since we can't directly read directory contents in browser,
@@ -221,7 +227,13 @@ class MarkdownService {
 
   // Fetch and parse a single recipe file
   async getRecipe(themeName, recipeFileName) {
-    const themeFolder = themeName.toLowerCase().replace(/\s+/g, '-');
+    // Map theme names to folder names
+    const themeNameToFolder = {
+      'Cafe in Seoul': 'korean-cafe',
+      'Grandmother\'s House': 'korean-grandmother\'s-house'
+    };
+    
+    const themeFolder = themeNameToFolder[themeName] || themeName.toLowerCase().replace(/\s+/g, '-');
     const cacheKey = `${themeFolder}/${recipeFileName}`;
     
     // Check cache first
