@@ -1,0 +1,364 @@
+.top-controls {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.top-controls-left {
+  flex: 0 0 auto;
+}
+
+.left-buttons-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.top-controls-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.top-controls-right {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Theme Accordion Styles (moved from ThemeAccordion.css) */
+.theme-accordion {
+  background: rgba(71, 71, 71, 0.177);
+  backdrop-filter: blur(10px);
+  border-radius: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-width: 250px;
+}
+
+.theme-accordion:hover {
+  transform: scale(1.05);
+}
+
+.theme-accordion-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.theme-accordion-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.theme-title-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.theme-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  flex: 1;
+}
+
+.caret-icon {
+  transition: transform 0.3s ease;
+  color: white;
+  flex-shrink: 0;
+}
+
+.caret-icon.open {
+  transform: rotate(180deg);
+}
+
+.theme-description {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+}
+
+.theme-description.open {
+  max-height: 200px;
+  padding: 15px 20px 20px 20px;
+}
+
+.theme-description p {
+  margin: 0;
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  opacity: 0.9;
+}
+
+/* About Jeena Button Styles (moved from AboutJeenaButton.css) */
+.about-jeena-button-container {
+  background: rgba(71, 71, 71, 0.177);
+  backdrop-filter: blur(10px);
+  border-radius: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  max-width: 250px;
+}
+
+.about-jeena-button-container:hover {
+  transform: scale(1.05);
+}
+
+.about-jeena-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.about-jeena-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.about-jeena-title-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.about-jeena-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-jeena-title {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+  flex: 1;
+  text-align: left;
+  margin-left: 10px;
+}
+
+/* Sound Control Styles (moved from SoundControl.css) */
+.sound-control {
+  background: rgba(71, 71, 71, 0.177);
+  backdrop-filter: blur(10px);
+  padding: 15px 20px;
+  border-radius: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  max-width: 250px;
+}
+
+.sound-control:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: scale(1.05);
+}
+
+.sound-button {
+  background: none;
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.sound-button:hover {
+  transform: scale(1.05);
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.sound-button.muted {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.sound-button.muted:hover {
+  color: rgb(255, 255, 255);
+}
+
+.volume-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 180px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.volume-slider::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.volume-slider::-webkit-slider-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+}
+
+.volume-slider::-moz-range-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  height: 4px;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .top-controls {
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    gap: 15px;
+  }
+  
+  .theme-accordion {
+    max-width: 250px;
+  }
+  
+  .theme-accordion-button {
+    padding: 12px 15px;
+  }
+  
+  .theme-title {
+    font-size: 1.1rem;
+  }
+  
+  .theme-description.open {
+    padding: 12px 15px 15px 15px;
+  }
+  
+  .theme-description p {
+    font-size: 0.85rem;
+  }
+  
+  .about-jeena-button-container {
+    max-width: 250px;
+  }
+  
+  .about-jeena-button {
+    padding: 12px 15px;
+  }
+  
+  .about-jeena-title {
+    font-size: 1.1rem;
+  }
+  
+  .sound-control {
+    padding: 12px 8px;
+  }
+  
+  .sound-button {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .volume-slider {
+    width: 80px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .top-controls-left,
+  .top-controls-center,
+  .top-controls-right {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .theme-accordion,
+  .about-jeena-button-container,
+  .sound-control {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .top-controls {
+    /* Ensure crisp rendering on retina displays */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
