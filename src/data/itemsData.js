@@ -125,7 +125,7 @@ export const itemsData = [
   {
     id: 16,
     name: 'Essteele Per Vita Copper Base Stainless Steel Sautéuse 28cm/5.2L',
-    image: '/items-images/Essteele Per Vita Copper Base Stainless Steel Sautéuse 28cm.jpg',
+    image: '/items-images/Essteele Per Vita Copper Base Stainless Steel Sauteuse 28cm.jpg',
     category: 'cookware',
     tags: ['sautéuse', 'Essteele'],
     link: 'https://amzn.to/46Jl46H'
@@ -245,7 +245,7 @@ export const itemsData = [
   {
     id: 31,
     name: 'Ninja Detect Kitchen System Power Blender + Processor Pro',
-    image: '/items-images/Ninja Detect Kitchen System Power Blender + Processor Pro.jpg',
+    image: '/items-images/Ninja Detect Kitchen System Power Blender.jpg',
     category: 'appliances',
     tags: ['placeholder'],
     link: 'https://amzn.to/4q1yPoB'
@@ -493,7 +493,7 @@ export const itemsData = [
   {
     id: 62,
     name: 'IKEA 365+ Food container with lid, rectangular stainless steel/plastic',
-    image: '/items-images/IKEA 365+ Food container with lid, rectangular stainless steel/plastic, 1.0 l.jpg',
+    image: '/items-images/IKEA 365+ Food container with lid-rectangular stainless steel plastic-1.0 L.jpg',
     category: 'storage',
     tags: ['stainless steelcontainer', 'IKEA', 'storage'],
     link: 'https://www.ikea.com/au/en/p/ikea-365-food-container-with-lid-rectangular-stainless-steel-plastic-s89437507/?utm_source=google&utm_medium=organic-shopping&utm_campaign=shopping_feed&utm_content=free_google_shopping_clicks_Cooking'
