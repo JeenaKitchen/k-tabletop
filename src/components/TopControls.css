@@ -327,7 +327,7 @@
   }
   
   .volume-slider {
-    width: 80px;
+    width: 200px;
   }
 }
 
@@ -361,4 +361,8 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+.k-tabletop-page .top-controls {
+  top: 100px; /* Account for fixed navigation bar height + margin */
 }

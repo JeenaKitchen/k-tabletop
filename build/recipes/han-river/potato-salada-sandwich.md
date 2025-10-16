@@ -22,7 +22,7 @@ theme: "Han River"
 - Optional: Additional mayo or jam (for bread spread)
 
 ## Instructions
-Step 1 - Prepare the Cucumber:Slice cucumber thinly (1/8 inch), remove seeds.Mix with 1 tsp salt and let rest for 30 minutes.Squeeze out moisture using a towel.
-Step 2 - Cook the Potatoes:Steam chopped potatoes for 20 minutes (15 minutes on medium-high, check for doneness).Mash while hot for smooth texture.
-Step 3 - Make the Salad:Add mashed boiled eggs to potatoes.Mix in cucumbers, chopped carrots.Stir in mayo and mustard. Season with salt and pepper.Mix thoroughly and adjust to taste.
-Step 4 - Assemble the Sandwich:Lightly spread mayo or jam on bread slices.Add generous spoonfuls of salad on one slice.Top with another slice, press gently, and cut in half.Toasting optional, but recommended for brioche.
+Step 1 - Prepare the Cucumber: Slice cucumber thinly (1/8 inch), remove seeds.Mix with 1 tsp salt and let rest for 30 minutes.Squeeze out moisture using a towel.
+Step 2 - Cook the Potatoes: Steam chopped potatoes for 20 minutes (15 minutes on medium-high, check for doneness).Mash while hot for smooth texture.
+Step 3 - Make the Salad: Add mashed boiled eggs to potatoes.Mix in cucumbers, chopped carrots.Stir in mayo and mustard. Season with salt and pepper.Mix thoroughly and adjust to taste.
+Step 4 - Assemble the Sandwich: Lightly spread mayo or jam on bread slices.Add generous spoonfuls of salad on one slice.Top with another slice, press gently, and cut in half.Toasting optional, but recommended for brioche.

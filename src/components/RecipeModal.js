@@ -22,7 +22,7 @@ const RecipeModal = ({ isOpen, dish, onClose }) => {
     return videoId ? `https://www.youtube.com/embed/${videoId[1]}` : '';
   };
 
-  // Early return after all hooks are declared
+  // Early return after all hooks are declared₩ 
   if (!dish) return null;
 
   return (

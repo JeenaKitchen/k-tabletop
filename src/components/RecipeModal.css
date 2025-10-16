@@ -1,6 +1,6 @@
 .recipe-modal-overlay {
   position: fixed;
-  top: 0;
+  top: 70px; /* Start below navigation bar */
   left: 0;
   right: 0;
   bottom: 0;
@@ -11,6 +11,7 @@
   justify-content: center;
   align-items: center;
   padding: 20px;
+  overflow-y: auto;
   /* Fade in animation for overlay */
   animation: fadeIn 0.3s ease-out;
 }
@@ -18,14 +19,14 @@
 .recipe-modal {
   background: white;
   border-radius: 12px;
-  max-width: 600px;
+  max-width: 584px;
   width: 90vw;
-  height: 90vh;
-  max-height: 90vh;
+  height: 85vh;
+  max-height: 85vh;
   position: relative;
   outline: none;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   /* Fade + scale animation for modal */
   animation: modalSlideIn 0.4s ease-out;
   transform-origin: center;
@@ -83,9 +84,12 @@
 /* Scrollable Content Area */
 .modal-content-body {
   flex: 1;
-  overflow-y: auto;
+  overflow-y: scroll;
   overflow-x: hidden;
   min-height: 0; /* Important for flex child to be scrollable */
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  touch-action: pan-y;
 }
 
 
@@ -317,11 +321,32 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
+  .recipe-modal-overlay {
+    top: 0px; /* Account for mobile navigation bar - positioned higher */
+    padding: 10px;
+    align-items: flex-start;
+  }
+  
   .recipe-modal {
     width: 95vw;
     max-width: 95vw;
-    height: 95vh;
+    height: auto;
     max-height: 95vh;
+    margin: 60px auto;
+  }
+  
+  .modal-image-container {
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    position: relative;
+  }
+  
+  .modal-dish-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   
   .modal-info {
@@ -360,7 +385,7 @@
   }
   
   .modal-header {
-    padding: 15px 15px 0 15px;
+    padding: 10px 15px 10px 15px;
   }
   
   
