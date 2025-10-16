@@ -297,7 +297,7 @@
   }
 }
 
-/* Dark mode support */
+/* Dark mode support
 @media (prefers-color-scheme: dark) {
   .navigation-bar {
     background: rgba(0, 0, 0, 0.8);
@@ -327,3 +327,4 @@
     color: #007aff;
   }
 }
+ */
