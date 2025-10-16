@@ -1,0 +1,17 @@
+/* KTabletopPage.css */
+
+.k-tabletop-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: visible;
+  overflow-y: hidden;
+}
+
+/* Ensure the page takes full height and the navigation doesn't interfere */
+.k-tabletop-page .theme-background {
+  height: 100vh;
+}
+
+.k-tabletop-page .top-controls {
+  top: 50px; /* Account for fixed navigation bar */
+}

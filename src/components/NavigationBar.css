@@ -1,0 +1,329 @@
+/* NavigationBar.css - Apple Glass UI Style */
+
+.navigation-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1002;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 9px 0;
+}
+
+.navigation-bar.compact {
+  padding: 6px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Home Button */
+.home-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.home-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.home-button:hover .logo {
+  transform: scale(1.05);
+}
+
+.brand-name {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: -0.01em;
+}
+
+/* Desktop Navigation */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #1d1d1f;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.nav-item.active {
+  font-weight: 600;
+}
+
+/* Removed the underline */
+.nav-item.active::before {
+  display: none;
+}
+
+/* Social Media Buttons */
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px !important;
+  min-width: 44px;
+}
+
+.social-button svg {
+  color: #1d1d1f;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-button:hover svg {
+  color: #393939;
+  transform: scale(1.1);
+}
+
+/* Mobile Navigation */
+.mobile-nav {
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+
+.mobile-nav-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  color: #1d1d1f;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+.mobile-nav-item.active {
+  font-weight: 600;
+}
+
+/* Hamburger Menu Button */
+.hamburger-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 12px;
+  color: #1d1d1f;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-button:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Hide logo and social buttons when menu is open */
+.navigation-bar.menu-open .home-button,
+.navigation-bar.menu-open .mobile-nav .social-button {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+/* Mobile Menu Container - Apple Style */
+.mobile-menu-container {
+  position: fixed;
+  top: 60px; /* Start below the navigation bar */
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: calc(100vh - 60px); /* Full height minus navbar */
+  background: white;
+  z-index: 1001;
+  overflow-y: auto;
+  animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-top: 4px;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Mobile Menu - Apple Style */
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 48px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Mobile Menu Items - Apple Style */
+.mobile-menu-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 16px;
+  text-align: left;
+  font-size: 28px;
+  font-weight: 600;
+  color: #1d1d1f;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(0, 0, 0, 0);
+  letter-spacing: -0.02em;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.mobile-menu-item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0);
+}
+
+.mobile-menu-item:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #6e6e73;
+}
+
+.mobile-menu-item.active {
+  color: #000000;
+  font-weight: 700;
+}
+
+.mobile-menu-item.active:hover {
+  color: #000000;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 0 16px;
+  }
+  
+  .desktop-nav {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: flex;
+  }
+  
+  .brand-name {
+    font-size: 16px;
+  }
+  
+  .logo {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .navigation-bar {
+    padding: 6px 0;
+  }
+  
+  .navigation-bar.compact {
+    padding: 5px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 12px;
+  }
+  
+  .brand-name {
+    font-size: 14px;
+  }
+  
+  .logo {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .mobile-nav-item {
+    padding: 10px;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .navigation-bar {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .navigation-bar.compact {
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
+  .brand-name,
+  .nav-item {
+    color: #f5f5f7;
+  }
+  
+  .home-button:hover,
+  .nav-item:hover,
+  .mobile-nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .social-button svg {
+    color: #f5f5f7;
+  }
+  
+  .social-button:hover svg {
+    color: #007aff;
+  }
+}

@@ -1,0 +1,344 @@
+/* ItemsPage.css */
+
+.items-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-top: 60px; /* Account for fixed navigation */
+  display: flex;
+  flex-direction: column;
+}
+
+.items-page-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 60px 24px;
+}
+
+/* Page Header */
+.items-header {
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.items-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.items-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+  max-width: 600px;
+  margin: 0;
+}
+
+/* Filter Section */
+.filter-section {
+  margin-bottom: 40px;
+}
+
+.filter-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+/* Filter Pills Container - Horizontal Scroll */
+.filter-pills-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  scrollbar-width: none;
+  &:hover {
+    scrollbar-width: thin;
+  }
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Hide scrollbar on webkit browsers but keep functionality */
+.filter-pills-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.filter-pills-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.filter-pills-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 99px;
+}
+
+.filter-pills-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Filter Pill Button */
+.filter-pill {
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #1d1d1f;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.filter-pill:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
+}
+
+.filter-pill.active {
+  background: #1d1d1f;
+  color: white;
+  font-weight: 600;
+}
+
+.filter-pill.active:hover {
+  background: #000000;
+}
+
+/* Results Count */
+.results-count {
+  margin-bottom: 32px;
+}
+
+.results-count p {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Items Grid - 4 columns */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+/* Item Card */
+.item-card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+.item-card:hover {
+  transform: translateY(-8px);
+}
+
+/* Remove default link styling for item cards */
+a.item-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+a.item-card:visited {
+  color: inherit;
+}
+
+/* Item Image */
+.item-image-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item-card:hover .item-image {
+  transform: scale(1.05);
+}
+
+/* Item Info */
+.item-info {
+  padding: 20px;
+  text-align: center;
+  background: white;
+}
+
+.item-name {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  text-align: left;
+}
+
+/* Items Count */
+.items-count {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.items-count p {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+/* Responsive Design */
+
+/* Tablet - 3 columns */
+@media (max-width: 1024px) {
+  .items-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .items-title {
+    font-size: 2.5rem;
+  }
+
+  .items-page-content {
+    padding: 40px 20px;
+  }
+
+  .filter-label {
+    font-size: 1rem;
+  }
+
+  .filter-pill {
+    font-size: 13px;
+    padding: 8px 16px;
+  }
+}
+
+/* Mobile - 2 columns */
+@media (max-width: 768px) {
+  .items-page {
+    padding-top: 80px;
+  }
+
+  .items-page-content {
+    padding: 40px 16px;
+  }
+
+  .items-header {
+    margin-bottom: 40px;
+  }
+
+  .items-title {
+    font-size: 2rem;
+  }
+
+  .items-description {
+    font-size: 1rem;
+  }
+
+  .filter-section {
+    margin-bottom: 32px;
+  }
+
+  .filter-label {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+
+  .filter-pill {
+    font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  .filter-pills-container {
+    gap: 8px;
+  }
+
+  .results-count {
+    margin-bottom: 24px;
+  }
+
+  .results-count p {
+    font-size: 0.9rem;
+  }
+
+  .items-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .item-info {
+    padding: 16px;
+  }
+
+  .item-name {
+    font-size: 13px;
+  }
+}
+
+/* Small Mobile - 2 columns (narrower) */
+@media (max-width: 480px) {
+  .items-page-content {
+    padding: 30px 24px;
+  }
+
+  .items-title {
+    font-size: 1.75rem;
+  }
+
+  .items-description {
+    font-size: 0.95rem;
+  }
+
+  .filter-label {
+    font-size: 0.9rem;
+  }
+
+  .filter-pill {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  .results-count p {
+    font-size: 0.85rem;
+  }
+
+  .items-grid {
+    gap: 16px;
+  }
+
+  .item-info {
+    padding: 12px;
+  }
+
+  .item-name {
+    font-size: 12px;
+  }
+}
+

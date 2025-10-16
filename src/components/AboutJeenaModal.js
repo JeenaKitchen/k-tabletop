@@ -124,8 +124,17 @@ const AboutJeenaModal = ({ isOpen, onClose }) => {
             {/* Description */}
             <div className="about-jeena-description">
               <p>
-                <strong>Jeena living in Australia</strong><br/>
-                Hi, I'm Jeena's Kitchen started as a way for me to reconnect with myself through Korean food, and to find healthier, more meaningful ways of communicating with the world around me.
+              Hello, and welcome to Jeena's Kitchen.
+
+I was born and raised in Korea, and I moved to Australia 11 years ago.
+
+For me, sharing the food I cook is more than just a conversation — it feels like a deep connection.
+
+A meal prepared with care can be an act of self-love, a source of comfort, and at the same time, a tender expression of affection toward family and friends.
+
+Even with cultural differences, food has allowed me to build bridges — to grow closer to friends and colleagues, and to create a sense of intimacy.
+
+No matter how tough the day was, cooking has always been a moment of healing for me.
               </p>
               
               <p>
@@ -140,7 +149,7 @@ const AboutJeenaModal = ({ isOpen, onClose }) => {
               </p>
               
               <p>
-                <strong>My answer started to take shape in the kitchen</strong><br/>
+                <strong>Connect with myself through cooking</strong><br/>
                 Through cooking Korean food, I found a way to reconnect with my roots. I also found new ways of telling stories — not just to others, but to myself. Jeena's Kitchen is like a small lab where I explore how to relate to myself, to others, and to society in a healthier way. It's a space where I build my own little universe — through food.
               </p>
               

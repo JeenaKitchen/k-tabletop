@@ -10,8 +10,8 @@
 }
 
 .dock-container {
+  position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 15px;
   background: rgba(255, 255, 255, 0.1);
@@ -20,13 +20,59 @@
   border-radius: 20px;
   padding: 15px 25px;
   max-width: 90vw;
+  overflow-x: scroll;
   overflow-y: visible; 
   flex-wrap: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  touch-action: pan-x;
+  cursor: grab;
+}
+
+/* Hide scrollbar on webkit browsers but keep scrolling */
+.dock-container::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.dock-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dock-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Fade indicators at edges */
+.dock-container::before,
+.dock-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 40px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.dock-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 20px 0 0 20px;
+}
+
+.dock-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.1), transparent);
+  border-radius: 0 20px 20px 0;
 }
 
 .dock-item-wrapper {
   position: relative;
   flex-shrink: 0;
+  touch-action: none;
 }
 
 .dock-item {
@@ -58,6 +104,7 @@
   .dock-container {
     gap: 10px;
     padding: 10px 15px;
+    max-width: 359px; /* Show 4.5 items: (70px × 4.5) + (10px × 4) + (15px × 2) */
   }
   
   .dish-image {

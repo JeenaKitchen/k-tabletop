@@ -1,13 +1,11 @@
 import React from 'react';
 import './TopControls.css';
 import { themeConfig } from '../data/themeConfig';
-import ShareButton from './ShareButton';
 
 const TopControls = ({ 
   currentTheme, 
   isAccordionOpen, 
   onAccordionToggle, 
-  onAboutModalOpen, 
   isMuted, 
   volume, 
   onMuteToggle, 
@@ -20,28 +18,6 @@ const TopControls = ({
   return (
     <div className="top-controls">
       <div className="top-controls-left">
-        <div className="left-buttons-container">
-          <div className="about-jeena-button-container">
-            <button 
-              className="about-jeena-button"
-              onClick={onAboutModalOpen}
-              aria-label="Jeena's Kitchen"
-            >
-              <div className="about-jeena-title-section">
-                <div className="about-jeena-icon">
-                  <img 
-                    src="/icons/jeena-logo.svg" 
-                    alt="Jeena's Kitchen" 
-                    width="42" 
-                    height="42"
-                  />
-                </div>
-                <h2 className="about-jeena-title">Jeena's Kitchen</h2>
-              </div>
-            </button>
-          </div>
-          <ShareButton />
-        </div>
       </div>
 
       <div className="top-controls-center">

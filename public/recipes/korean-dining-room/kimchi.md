@@ -20,7 +20,10 @@ theme: "Korean Dining Room"
 - 1 small daikon radish, julienned
 
 ## Instructions
-Step 1 - Salt cabbage: Cut cabbage, salt thoroughly, let sit 2 hours until wilted.
-Step 2 - Make paste: Mix gochugaru, garlic, ginger, and fish sauce into paste.
-Step 3 - Rinse and mix: Rinse cabbage, squeeze dry, mix with paste and vegetables.
-Step 4 - Ferment: Pack in jar, ferment at room temperature 1-3 days, then refrigerate.
+Step 1 - 1. Prepare the Cabbage: Cut the cabbage into quarters by hand for even seasoning. Save leftover cabbage leaves for dishes like cabbage soup.
+Step 2 - Salt the Cabbage: Soak cabbage in water, then apply a handful of salt per quarter. Let sit for 3-4 hours, flipping every 30 minutes and pressing with a heavy object.
+Step 3 - Prepare the Kimchi Paste: Slice Radish (daikon), green onions, chives, carrots. And cook 400ml water with 2 tbsp rice/all-purpose flour. And then blend with onion, ginger, garlic, chili flakes, fish sauce, salted shrimp, and the flour paste for the paste.
+Step 4 - Rinse the Cabbage: Rinse thoroughly to remove excess salt and drain.
+Step 5 - Assemble the Kimchi: Spread paste thinly on each leaf, adding filling between layers. Fold cabbage and place in a container.
+Step 6 - Ferment the Kimchi: Let it ferment at room temperature for 24-36 hours, checking every 12 hours. Once bubbles appear, transfer to the fridge. In summer time, you can let it for less than 24hours at room temperature.
+Step 7 - Serve and Store: Pair kimchi with grilled pork belly for a perfect combination. Leftover cabbage can be used for dishes like Geotjeori (fresh kimchi salad) or Soybean cabbage soup
