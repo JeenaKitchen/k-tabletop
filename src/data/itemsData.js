@@ -492,8 +492,8 @@ export const itemsData = [
   },
   {
     id: 62,
-    name: 'IKEA 365+ Food container with lid, rectangular stainless steel/plastic',
-    image: '/items-images/IKEA 365+ Food container with lid-rectangular stainless steel plastic-1.0 L.jpg',
+    name: 'IKEA 365+ Food container with lid, rectangular stainless steel 1L',
+    image: '/items-images/IKEA-365-Food container-1.0L.jpg',
     category: 'storage',
     tags: ['stainless steelcontainer', 'IKEA', 'storage'],
     link: 'https://www.ikea.com/au/en/p/ikea-365-food-container-with-lid-rectangular-stainless-steel-plastic-s89437507/?utm_source=google&utm_medium=organic-shopping&utm_campaign=shopping_feed&utm_content=free_google_shopping_clicks_Cooking'
