@@ -69,11 +69,13 @@ const KTabletopPage = () => {
         setCurrentThemeIndex(themeIndex);
       }
     }
-  }, [theme, themes, currentThemeIndex]);
+  }, [theme, themes]); // Removed currentThemeIndex from dependencies
 
-  // Handle dish parameter to open modal
+  // Handle dish parameter to open modal (runs after theme is set)
   useEffect(() => {
-    if (!currentTheme || !dish) return;
+    if (!currentTheme || !dish || !currentTheme.dishes || currentTheme.dishes.length === 0) {
+      return;
+    }
 
     const dishName = dish.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
     const foundDish = currentTheme.dishes?.find(d => 
@@ -90,15 +92,18 @@ const KTabletopPage = () => {
   useEffect(() => {
     if (!currentTheme || !themes || themes.length === 0) return;
     
+    // Don't update URL if we're processing URL parameters
+    if (theme) return;
+    
     const themeName = currentTheme.name.toLowerCase().replace(/\s+/g, '-');
     const currentPath = window.location.pathname;
     const expectedPath = `/k-tabletop/${themeName}`;
     
     // Only update URL if we're not already on the correct path
     if (currentPath !== expectedPath && currentPath !== `/k-tabletop`) {
-      navigate(`/k-tabletop/${themeName}`, { replace: true });
+      window.history.pushState({}, '', `/k-tabletop/${themeName}`);
     }
-  }, [currentTheme, themes, navigate]);
+  }, [currentTheme, themes, theme]);
 
   // Refresh themes
   const handleRefresh = async () => {
