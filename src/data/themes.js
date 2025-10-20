@@ -543,5 +543,56 @@ export const themes = [
         recipeUrl: "https://www.jeenaskitchen.store/"
       }
     ]
+  },
+  {
+    name: "Chuseok",
+    background: "/Themes/chuseok.jpg",
+    dishes: [
+      {
+        name: "Nabak Kimchi",
+        image: "/Dishes/nabakkimchi.png",
+        modalImage: "/modal-images/nabakkimchi.jpg",
+        description: "Refreshing water kimchi with radish and cabbage in light brine. A cooling side dish for Chuseok feasts.",
+        cookingTime: "60 mins",
+        categories: ["Kimchi & Pickle", "Side Dish"],
+        recipeUrl: "https://www.jeenaskitchen.store/"
+      },
+      {
+        name: "Modeum Jeon",
+        image: "/Dishes/modeumjeon.png",
+        modalImage: "/modal-images/modeumjeon.jpg",
+        description: "Assorted Korean pancakes with vegetables, meat, and seafood. Essential for Chuseok ancestral rituals.",
+        cookingTime: "45 mins",
+        categories: ["Side Dish", "Entree"],
+        recipeUrl: "https://www.jeenaskitchen.store/"
+      },
+      {
+        name: "Galbijjim",
+        image: "/Dishes/galbijjim.png",
+        modalImage: "/modal-images/galbijjim.jpg",
+        description: "Braised beef short ribs with vegetables in sweet soy sauce. A festive centerpiece for Chuseok table.",
+        cookingTime: "90 mins",
+        categories: ["Main Dish", "Entree"],
+        recipeUrl: "https://www.jeenaskitchen.store/"
+      },
+      {
+        name: "Gujeolpan",
+        image: "/Dishes/gujeolpan.png",
+        modalImage: "/modal-images/gujeolpan.jpg",
+        description: "Nine-sectioned dish with colorful vegetables and meat wrapped in thin crepes. A royal Korean delicacy.",
+        cookingTime: "60 mins",
+        categories: ["Main Dish", "Entree"],
+        recipeUrl: "https://www.jeenaskitchen.store/"
+      },
+      {
+        name: "Japchae",
+        image: "/Dishes/japchae.png",
+        modalImage: "/modal-images/japchae.jpg",
+        description: "Korean sweet potato starch noodles with vegetables and beef. A popular dish for celebrations and family gatherings.",
+        cookingTime: "45 mins",
+        categories: ["Noodles", "Main Dish", "Celebration"],
+        recipeUrl: "https://www.jeenaskitchen.store/"
+      }
+    ]
   }
 ]; 

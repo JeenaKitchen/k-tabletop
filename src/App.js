@@ -16,6 +16,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/k-tabletop" element={<KTabletopPage />} />
+          <Route path="/k-tabletop/:theme" element={<KTabletopPage />} />
+          <Route path="/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
           <Route path="/items" element={<ItemsPage />} />
         </Routes>
       </div>

@@ -64,5 +64,12 @@ export const themeConfig = [
     /*background: "/Themes/pocha.jpg",*/
     video: "/Videos/pocha-night.mp4",
     sound: "/Sounds/pocha-night.mp3"
+  },
+  {
+    name: "Chuseok",
+    notionThemeName: "Chuseok",
+    description: "Chuseok is a major Korean harvest festival celebrated with family gatherings, traditional foods, and ancestral rituals.\nIt's often called the Korean Thanksgiving, honoring gratitude for the year's harvest.",
+    background: "/Themes/chuseok.jpg",
+    sound: "/Sounds/chuseok.mp3"
   }
 ];

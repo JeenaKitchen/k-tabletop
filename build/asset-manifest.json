@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/k-tabletop/static/css/main.0f14c8cf.css",
-    "main.js": "/k-tabletop/static/js/main.0f63b0c0.js",
-    "index.html": "/k-tabletop/index.html",
-    "main.0f14c8cf.css.map": "/k-tabletop/static/css/main.0f14c8cf.css.map",
-    "main.0f63b0c0.js.map": "/k-tabletop/static/js/main.0f63b0c0.js.map"
+    "main.css": "/static/css/main.055ba70e.css",
+    "main.js": "/static/js/main.691156f4.js",
+    "index.html": "/index.html",
+    "main.055ba70e.css.map": "/static/css/main.055ba70e.css.map",
+    "main.691156f4.js.map": "/static/js/main.691156f4.js.map"
   },
   "entrypoints": [
-    "static/css/main.0f14c8cf.css",
-    "static/js/main.0f63b0c0.js"
+    "static/css/main.055ba70e.css",
+    "static/js/main.691156f4.js"
   ]
 }

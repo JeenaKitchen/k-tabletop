@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './KTabletopPage.css';
 import ThemeBackground from './ThemeBackground';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -10,6 +11,9 @@ import AboutJeenaModal from './AboutJeenaModal';
 import themeService from '../services/themeService';
 
 const KTabletopPage = () => {
+  const { theme, dish } = useParams();
+  const navigate = useNavigate();
+  
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const [selectedDish, setSelectedDish] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,6 +50,55 @@ const KTabletopPage = () => {
     loadThemes();
   }, []);
 
+  // Fixed null-safe current theme access
+  const currentTheme = themes && themes.length > 0 ? themes[currentThemeIndex] : null;
+
+  // Handle URL parameters for theme and dish
+  useEffect(() => {
+    if (!themes || themes.length === 0) return;
+
+    // Find theme by name (URL-friendly format)
+    if (theme) {
+      const themeName = theme.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+      const themeIndex = themes.findIndex(t => 
+        t.name.toLowerCase() === themeName.toLowerCase()
+      );
+      
+      if (themeIndex !== -1 && themeIndex !== currentThemeIndex) {
+        setCurrentThemeIndex(themeIndex);
+      }
+    }
+  }, [theme, themes, currentThemeIndex]);
+
+  // Handle dish parameter to open modal
+  useEffect(() => {
+    if (!currentTheme || !dish) return;
+
+    const dishName = dish.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    const foundDish = currentTheme.dishes?.find(d => 
+      d.name.toLowerCase() === dishName.toLowerCase()
+    );
+
+    if (foundDish && !isModalOpen) {
+      setSelectedDish(foundDish);
+      setIsModalOpen(true);
+    }
+  }, [dish, currentTheme, isModalOpen]);
+
+  // Update URL when theme changes (but not from URL params)
+  useEffect(() => {
+    if (!currentTheme || !themes || themes.length === 0) return;
+    
+    const themeName = currentTheme.name.toLowerCase().replace(/\s+/g, '-');
+    const currentPath = window.location.pathname;
+    const expectedPath = `/k-tabletop/${themeName}`;
+    
+    // Only update URL if we're not already on the correct path
+    if (currentPath !== expectedPath && currentPath !== `/k-tabletop`) {
+      navigate(`/k-tabletop/${themeName}`, { replace: true });
+    }
+  }, [currentTheme, themes, navigate]);
+
   // Refresh themes
   const handleRefresh = async () => {
     try {
@@ -60,9 +113,6 @@ const KTabletopPage = () => {
       setIsLoading(false);
     }
   };
-
-  // Fixed null-safe current theme access
-  const currentTheme = themes && themes.length > 0 ? themes[currentThemeIndex] : null;
 
   const handleThemeChange = (direction) => {
     if (!themes || themes.length === 0 || isThemeTransitioning) return;
@@ -83,17 +133,33 @@ const KTabletopPage = () => {
     setTimeout(() => {
       setCurrentThemeIndex(newIndex);
       setIsThemeTransitioning(false);
+      
+      // Update URL
+      const themeName = themes[newIndex].name.toLowerCase().replace(/\s+/g, '-');
+      const newUrl = `/k-tabletop/${themeName}`;
+      window.history.pushState({}, '', newUrl);
     }, 400); // Match the CSS transition duration (0.4s)
   };
 
   const handleDishClick = (dish) => {
     setSelectedDish(dish);
     setIsModalOpen(true);
+    
+    // Update URL with dish parameter
+    const themeName = currentTheme.name.toLowerCase().replace(/\s+/g, '-');
+    const dishName = dish.name.toLowerCase().replace(/\s+/g, '-');
+    const newUrl = `/k-tabletop/${themeName}/${dishName}`;
+    window.history.pushState({}, '', newUrl);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedDish(null);
+    
+    // Update URL to remove dish parameter
+    const themeName = currentTheme.name.toLowerCase().replace(/\s+/g, '-');
+    const newUrl = `/k-tabletop/${themeName}`;
+    window.history.pushState({}, '', newUrl);
   };
 
   const handleMuteToggle = (muted) => {

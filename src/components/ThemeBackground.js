@@ -11,15 +11,23 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
   // Reset state when video prop changes (theme switch)
   useEffect(() => {
     console.log('ThemeBackground: video prop changed:', video);
-    setIsVideoLoaded(false);
-    setIsVideoPlaying(false);
-    setShowLoading(false);
-    setLoadingStartTime(Date.now());
+    // If there's no video, mark as loaded immediately
+    if (!video) {
+      setIsVideoLoaded(true);
+      setIsVideoPlaying(false);
+      setShowLoading(false);
+      setLoadingStartTime(null);
+    } else {
+      setIsVideoLoaded(false);
+      setIsVideoPlaying(false);
+      setShowLoading(false);
+      setLoadingStartTime(Date.now());
+    }
   }, [video]);
 
-  // Show loading after 1 second
+  // Show loading after 1 second (only for video themes)
   useEffect(() => {
-    if (loadingStartTime && !isVideoLoaded) {
+    if (video && loadingStartTime && !isVideoLoaded) {
       const timer = setTimeout(() => {
         if (!isVideoLoaded) {
           setShowLoading(true);
@@ -28,7 +36,7 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
 
       return () => clearTimeout(timer);
     }
-  }, [loadingStartTime, isVideoLoaded]);
+  }, [video, loadingStartTime, isVideoLoaded]);
 
   useEffect(() => {
     if (videoRef.current && video) {
@@ -69,7 +77,7 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
 
   return (
     <div className={`theme-background ${isTransitioning ? 'transitioning' : ''} ${isTransitioning ? `transition-${transitionDirection}` : ''}`}>
-      {video && (
+      {video ? (
         <video 
           key={video} // Force re-render when video changes
           ref={videoRef}
@@ -81,10 +89,15 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
         >
           <source src={video} type="video/mp4" />
         </video>
-      )}
+      ) : background ? (
+        <div 
+          className="theme-background-image loaded"
+          style={{ backgroundImage: `url(${background})` }}
+        />
+      ) : null}
       
-      {/* Apple-style loading overlay */}
-      {showLoading && !isVideoLoaded && (
+      {/* Apple-style loading overlay (only show for video themes) */}
+      {video && showLoading && !isVideoLoaded && (
         <div className="apple-loading-overlay">
           <div className="apple-loading-content">
             <div className="apple-spinner">

@@ -221,6 +221,13 @@ class MarkdownService {
         'japchae.md',
         'korean-fried-chicken.md',
         'tteokbokki.md'
+      ],
+      'chuseok': [
+        'nabak-kimchi.md',
+        'modeum-jeon.md',
+        'galbijjim.md',
+        'gujeolpan.md',
+        'japchae.md'
       ]
     };
   }

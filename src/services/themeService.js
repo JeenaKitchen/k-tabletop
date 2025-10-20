@@ -1,4 +1,5 @@
 import { themeConfig } from '../data/themeConfig';
+import { themes as staticThemes } from '../data/themes';
 import markdownService from './markdownService';
 
 class ThemeService {
@@ -22,10 +23,14 @@ class ThemeService {
         });
       } catch (error) {
         console.error(`Error loading recipes for theme ${themeConfigItem.name}:`, error);
-        // Add theme with empty dishes if recipes fail to load
+        
+        // Try to find static dishes as fallback
+        const staticTheme = staticThemes.find(theme => theme.name === themeConfigItem.name);
+        const fallbackDishes = staticTheme ? staticTheme.dishes : [];
+        
         themes.push({
           ...themeConfigItem,
-          dishes: []
+          dishes: fallbackDishes
         });
       }
     }
