@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './LandingPage.css';
 
 const LandingPage = () => {
@@ -39,11 +40,25 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="landing-page">
-      <div className="landing-content">
-        {/* Hero Section */}
-        <div 
-          className="landing-hero"
+    <>
+      <Helmet>
+        <title>Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide</title>
+        <meta name="description" content="Discover authentic Korean recipes with Jeena's Kitchen. Learn to cook Korean BBQ, tteokbokki, kimchi, and more with interactive themed cooking experiences and video tutorials." />
+        <meta property="og:title" content="Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide" />
+        <meta property="og:description" content="Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences." />
+        <meta property="og:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
+        <meta property="og:url" content="https://www.jeenaskitchen.store/" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jeena's Kitchen - Korean Recipe Videos" />
+        <meta name="twitter:description" content="Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences." />
+        <meta name="twitter:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
+      </Helmet>
+      <div className="landing-page">
+        <div className="landing-content">
+          {/* Hero Section */}
+          <div 
+            className="landing-hero"
           style={{
             backgroundImage: 'url(/hero-image/hero-custome-image.png)'
           }}
@@ -202,6 +217,7 @@ const LandingPage = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

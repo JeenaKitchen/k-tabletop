@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import './KTabletopPage.css';
 import ThemeBackground from './ThemeBackground';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -227,14 +228,47 @@ const KTabletopPage = () => {
     );
   }
 
+  // Generate SEO meta tags
+  const pageTitle = selectedDish 
+    ? `${selectedDish.name} Recipe - ${currentTheme.name} | Jeena's Kitchen`
+    : `${currentTheme.name} Recipes | Jeena's Kitchen`;
+  
+  const pageDescription = selectedDish
+    ? selectedDish.description
+    : currentTheme.description || `Explore authentic Korean recipes from ${currentTheme.name}. Learn to cook traditional Korean dishes with video tutorials.`;
+  
+  const pageImage = selectedDish
+    ? `https://www.jeenaskitchen.store${selectedDish.modalImage || selectedDish.image}`
+    : currentTheme.background 
+      ? `https://www.jeenaskitchen.store${currentTheme.background}`
+      : 'https://www.jeenaskitchen.store/hero-image/hero-custome-image.png';
+  
+  const pageUrl = selectedDish
+    ? `https://www.jeenaskitchen.store/k-tabletop/${currentTheme.name.toLowerCase().replace(/\s+/g, '-')}/${selectedDish.name.toLowerCase().replace(/\s+/g, '-')}`
+    : `https://www.jeenaskitchen.store/k-tabletop/${currentTheme.name.toLowerCase().replace(/\s+/g, '-')}`;
+
   return (
-    <div className={`k-tabletop-page ${isThemeTransitioning ? 'theme-transitioning' : ''} ${isThemeTransitioning ? `transition-${transitionDirection}` : ''}`}>
-      <ThemeBackground 
-        background={currentTheme?.background || ''} 
-        video={currentTheme?.video || ''} 
-        isTransitioning={isThemeTransitioning}
-        transitionDirection={transitionDirection}
-      />
+    <>
+      <Helmet>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={pageImage} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={pageImage} />
+      </Helmet>
+      <div className={`k-tabletop-page ${isThemeTransitioning ? 'theme-transitioning' : ''} ${isThemeTransitioning ? `transition-${transitionDirection}` : ''}`}>
+        <ThemeBackground 
+          background={currentTheme?.background || ''} 
+          video={currentTheme?.video || ''} 
+          isTransitioning={isThemeTransitioning}
+          transitionDirection={transitionDirection}
+        />
       
       <div className="content">
         <ThemeSwitcher 
@@ -286,6 +320,7 @@ const KTabletopPage = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 

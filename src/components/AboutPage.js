@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import './AboutPage.css';
 
 const AboutPage = () => {
@@ -36,10 +37,20 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="about-page">
-      <div className="about-page-content">
-        {/* Hero Section with Background Image */}
-        <div className="about-hero" style={{ backgroundImage: 'url(/about-image/hero-about.jpg)' }}>
+    <>
+      <Helmet>
+        <title>About Jeena - Korean Cooking Journey | Jeena's Kitchen</title>
+        <meta name="description" content="Learn about Jeena's journey from Korea to Australia, sharing authentic Korean recipes and building connections through food. Discover the story behind Jeena's Kitchen." />
+        <meta property="og:title" content="About Jeena - Korean Cooking Journey" />
+        <meta property="og:description" content="Learn about Jeena's journey from Korea to Australia, sharing authentic Korean recipes and building connections through food." />
+        <meta property="og:image" content="https://www.jeenaskitchen.store/about-image/hero-about.jpg" />
+        <meta property="og:url" content="https://www.jeenaskitchen.store/about" />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="about-page">
+        <div className="about-page-content">
+          {/* Hero Section with Background Image */}
+          <div className="about-hero" style={{ backgroundImage: 'url(/about-image/hero-about.jpg)' }}>
           <div className="about-hero-overlay"></div>
         </div>
 
@@ -161,6 +172,7 @@ Whether you’re missing your mom’s food, looking for comfort in a solo meal, 
         </div>
       </div>
     </div>
+    </>
   );
 };
 
