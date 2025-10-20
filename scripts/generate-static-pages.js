@@ -33,6 +33,9 @@ function generateHTML(title, description, image, url, redirectUrl) {
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${image}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="${title}">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
@@ -40,6 +43,7 @@ function generateHTML(title, description, image, url, redirectUrl) {
   <meta property="twitter:title" content="${title}">
   <meta property="twitter:description" content="${description}">
   <meta property="twitter:image" content="${image}">
+  <meta property="twitter:image:alt" content="${title}">
   
   <!-- Redirect to actual page -->
   <meta http-equiv="refresh" content="0; url=${redirectUrl}">
@@ -64,7 +68,8 @@ let pageCount = 0;
 // Generate pages for each theme
 themeConfig.forEach(theme => {
   const themeSlug = createSlug(theme.name);
-  const themeUrl = `${BASE_URL}/k-tabletop/${themeSlug}`;
+  const staticPageUrl = `${BASE_URL}/static-pages/${themeSlug}.html`;
+  const reactAppUrl = `${BASE_URL}/k-tabletop/${themeSlug}`;
   const themeTitle = `${theme.name} Recipes | Jeena's Kitchen`;
   const themeDescription = theme.description || `Explore authentic Korean recipes from ${theme.name}. Learn to cook traditional Korean dishes with video tutorials.`;
   const themeImage = theme.background ? `${BASE_URL}${theme.background}` : `${BASE_URL}/hero-image/hero-custome-image.png`;
@@ -74,8 +79,8 @@ themeConfig.forEach(theme => {
     themeTitle,
     themeDescription,
     themeImage,
-    themeUrl,
-    themeUrl
+    staticPageUrl,
+    reactAppUrl
   );
   
   const themeFilePath = path.join(staticPagesDir, `${themeSlug}.html`);
@@ -90,7 +95,8 @@ themes.forEach(theme => {
   
   theme.dishes.forEach(dish => {
     const dishSlug = createSlug(dish.name);
-    const recipeUrl = `${BASE_URL}/k-tabletop/${themeSlug}/${dishSlug}`;
+    const staticPageUrl = `${BASE_URL}/static-pages/${themeSlug}-${dishSlug}.html`;
+    const reactAppUrl = `${BASE_URL}/k-tabletop/${themeSlug}/${dishSlug}`;
     const recipeTitle = `${dish.name} Recipe - ${theme.name} | Jeena's Kitchen`;
     const recipeDescription = dish.description || `Learn to cook ${dish.name} with this authentic Korean recipe from ${theme.name}.`;
     const recipeImage = dish.modalImage ? `${BASE_URL}${dish.modalImage}` : `${BASE_URL}${dish.image}`;
@@ -100,8 +106,8 @@ themes.forEach(theme => {
       recipeTitle,
       recipeDescription,
       recipeImage,
-      recipeUrl,
-      recipeUrl
+      staticPageUrl,
+      reactAppUrl
     );
     
     const recipeFilePath = path.join(staticPagesDir, `${themeSlug}-${dishSlug}.html`);
