@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './KTabletopPage.css';
 import ThemeBackground from './ThemeBackground';
@@ -13,7 +13,6 @@ import themeService from '../services/themeService';
 
 const KTabletopPage = () => {
   const { theme, dish } = useParams();
-  const navigate = useNavigate();
   
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const [selectedDish, setSelectedDish] = useState(null);
@@ -69,7 +68,7 @@ const KTabletopPage = () => {
         setCurrentThemeIndex(themeIndex);
       }
     }
-  }, [theme, themes]); // Removed currentThemeIndex from dependencies
+  }, [theme, themes, currentThemeIndex]); // Added currentThemeIndex back but with proper logic
 
   // Handle dish parameter to open modal (runs after theme is set)
   useEffect(() => {
