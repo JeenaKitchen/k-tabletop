@@ -14,7 +14,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap",
+    "postbuild": "react-snap || echo 'react-snap failed, continuing...' && node scripts/copy-static-pages.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
