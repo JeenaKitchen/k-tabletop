@@ -68,7 +68,7 @@ const KTabletopPage = () => {
         setCurrentThemeIndex(themeIndex);
       }
     }
-  }, [theme, themes, currentThemeIndex]); // Added currentThemeIndex back but with proper logic
+  }, [theme, themes]); // Removed currentThemeIndex from dependencies
 
   // Handle dish parameter to open modal (runs after theme is set)
   useEffect(() => {

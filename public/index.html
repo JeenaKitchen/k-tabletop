@@ -16,6 +16,19 @@
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
     <title>Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide</title>
+    
+    <!-- GitHub Pages SPA redirect handler -->
+    <script>
+      // This script handles redirects from 404.html for GitHub Pages SPA routing
+      (function() {
+        var redirect = sessionStorage.getItem('redirect');
+        if (redirect && redirect !== location.pathname) {
+          sessionStorage.removeItem('redirect');
+          history.replaceState(null, null, redirect);
+        }
+      })();
+    </script>
+    
     <script async src="//www.instagram.com/embed.js"></script>
   </head>
   <body>

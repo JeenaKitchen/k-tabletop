@@ -27,4 +27,17 @@ files.forEach(file => {
 
 console.log(`✅ Copied ${copiedCount} static pages to build directory`);
 console.log(`📁 Build directory: ${buildDir}`);
+
+// Copy 404.html for GitHub Pages SPA routing
+console.log('\n📁 Copying 404.html for GitHub Pages SPA routing...');
+const source404 = path.join(__dirname, '../public/404.html');
+const build404 = path.join(__dirname, '../build/404.html');
+
+if (fs.existsSync(source404)) {
+  fs.copyFileSync(source404, build404);
+  console.log('✅ Copied 404.html to build directory');
+} else {
+  console.log('⚠️  Warning: public/404.html not found');
+}
+
 console.log('\n🎉 Static pages are ready for deployment!');
