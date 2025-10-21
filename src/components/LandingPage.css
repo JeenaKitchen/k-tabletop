@@ -367,6 +367,11 @@
   position: relative;
   width: 100%;
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.youtube-embed-item:hover {
+  transform: scale(1.02);
 }
 
 .youtube-embed-item iframe {
@@ -375,7 +380,11 @@
   border: none;
   border-radius: 12px;
   display: block;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.youtube-embed-item:hover iframe {
+  transform: scale(1.01);
 }
 
 /* Hide default YouTube play button by overlaying a transparent div */
@@ -445,7 +454,7 @@
 }
 
 .instagram-reel-item:hover .reel-thumbnail {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 .reel-overlay {
