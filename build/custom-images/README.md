@@ -19,6 +19,6 @@ This folder is for your own custom images that you want to use in the K-tabletop
 - **File size**: Under 2MB for optimal loading
 
 ## Current default image:
-The K-tabletop preview section currently uses `/Themes/pocha.jpg` as the default image.
+The K-tabletop preview section currently uses `/Themes/korean-netflix-night.jpg` as the default image.
 
 To change it, update the `src` attribute in the `k-tabletop-image` div in `LandingPage.js`.

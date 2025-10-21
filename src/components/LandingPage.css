@@ -301,8 +301,9 @@
 }
 
 .social-media-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0px 80px 0px 80px;
+  padding: 0;
   text-align: left;
   background: transparent !important;
   background-color: transparent !important;
@@ -365,6 +366,7 @@
 .youtube-embed-item {
   position: relative;
   width: 100%;
+  cursor: pointer;
 }
 
 .youtube-embed-item iframe {
@@ -373,7 +375,23 @@
   border: none;
   border-radius: 12px;
   display: block;
+  transition: opacity 0.3s ease;
 }
+
+/* Hide default YouTube play button by overlaying a transparent div */
+.youtube-embed-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 2;
+  pointer-events: none;
+}
+
+
 
 /* Instagram Reels Section with Custom Thumbnails */
 .instagram-reels-section {
@@ -554,7 +572,7 @@
 /* Responsive Design */
 @media (max-width: 1024px) {
   .landing-content {
-    padding: 32px 16px;
+    padding: 32px 0;
   }
   
   .landing-hero {
@@ -569,7 +587,7 @@
   
   .hero-content {
     flex-direction: column;
-    padding: 0 40px;
+    padding: 0 24px;
     text-align: left;
     gap: 40px;
   }
@@ -645,7 +663,7 @@
 
 @media (max-width: 480px) {
   .landing-content {
-    padding: 40px 12px;
+    padding: 40px 0;
   }
   
   .hero-title {
@@ -691,7 +709,13 @@
   }
   
   .social-media-section {
-    padding: 0 12px 40px 12px; /* Top: 0, Right: 12px, Bottom: 40px, Left: 12px */
+    padding: 0 0px 40px 0px; /* Top: 0, Right: 12px, Bottom: 40px, Left: 12px */
+    margin-top: 0 !important;
+    margin: 0 0 0 0 !important;
+  }
+  
+  .social-media-container {
+    padding: 0px 14px 0px 14px !important;
   }
   
   .k-tabletop-preview {
@@ -700,7 +724,7 @@
   }
   
   .k-tabletop-preview-content {
-    padding: 0 40px;
+    padding: 0 24px;
     flex-direction: column;
     gap: 40px;
     text-align: left;
@@ -734,12 +758,33 @@
 /* Kitchen Items Section */
 .kitchen-items-section {
   padding: 0px 80px;
-  margin: 0px 30.5px;
+  margin: 0px 30.5px 90px 30.5px;
   background: transparent;
 }
 
+/* Responsive design for Kitchen Items Section */
+@media (max-width: 1200px) {
+  .kitchen-items-section {
+    margin: 0px 100px 100px 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .kitchen-items-section {
+    margin: 0px 40px 80px 40px;
+    padding: 0px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .kitchen-items-section {
+    margin: 0px 0px 60px 0px;
+    padding: 0px 24px;
+  }
+}
+
 .kitchen-items-container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   text-align: left;
 }
@@ -748,6 +793,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 24px;
   margin-bottom: 32px;
 }
 
@@ -836,19 +882,20 @@
   }
   
   .kitchen-items-header {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     gap: 16px;
   }
   
   .kitchen-items-cta {
-    align-self: flex-end;
+    align-self: auto;
   }
 }
 
 @media (max-width: 480px) {
   .kitchen-items-section {
-    padding: 40px 16px;
+    /* margin and padding already set above */
   }
   
   .kitchen-items-row {

@@ -127,7 +127,7 @@ const LandingPage = () => {
                     <iframe
                       width="100%"
                       height="auto"
-                      src="https://www.youtube.com/embed/bJgz1qTa8Cg"
+                      src="https://www.youtube.com/embed/bJgz1qTa8Cg?modestbranding=1&rel=0&showinfo=0&controls=0"
                       title="Korean Gimbap Video"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -138,7 +138,7 @@ const LandingPage = () => {
                     <iframe
                       width="100%"
                       height="auto"
-                      src="https://www.youtube.com/embed/WjNX3pNa9Oo"
+                      src="https://www.youtube.com/embed/WjNX3pNa9Oo?modestbranding=1&rel=0&showinfo=0&controls=0"
                       title="Korean Cooking Video 2"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -153,7 +153,7 @@ const LandingPage = () => {
                     <iframe
                       width="100%"
                       height="auto"
-                      src="https://www.youtube.com/embed/naS9csQ4inA"
+                      src="https://www.youtube.com/embed/naS9csQ4inA?modestbranding=1&rel=0&showinfo=0&controls=0"
                       title="Korean Cooking Video 3"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -164,7 +164,7 @@ const LandingPage = () => {
                     <iframe
                       width="100%"
                       height="auto"
-                      src="https://www.youtube.com/embed/w_QVOV3VJwY"
+                      src="https://www.youtube.com/embed/w_QVOV3VJwY?modestbranding=1&rel=0&showinfo=0&controls=0"
                       title="Korean Cooking Video 4"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
