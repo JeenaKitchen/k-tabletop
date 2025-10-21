@@ -4,9 +4,11 @@
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 16px 0;
+  padding: 16px 0; /* Normal padding */
   display: flex;
   justify-content: center;
+  overflow: visible;
+  pointer-events: none; /* Allow clicks through empty space */
 }
 
 .dock-container {
@@ -21,13 +23,14 @@
   padding: 15px 25px;
   max-width: 90vw;
   overflow-x: scroll;
-  overflow-y: visible; 
+  overflow-y: clip; /* Changed to clip - allows overflow in the padding area */
   flex-wrap: nowrap;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   scroll-behavior: smooth;
   touch-action: pan-x;
   cursor: grab;
+  pointer-events: auto; /* Re-enable pointer events on the container */
 }
 
 /* Hide scrollbar on webkit browsers but keep scrolling */
@@ -82,10 +85,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: visible;
 }
 
 .dock-item:hover {
-  transform: scale(1.2) translateY(-6px);
+  transform: scale(1.1);
 }
 
 .dish-image {
@@ -103,7 +107,7 @@
 @media (max-width: 768px) {
   .dock-container {
     gap: 10px;
-    padding: 10px 15px;
+    padding: 10px 15px 10px 15px; /* Top padding for mobile tooltips */
     max-width: 359px; /* Show 4.5 items: (70px × 4.5) + (10px × 4) + (15px × 2) */
   }
   

@@ -1,9 +1,15 @@
 import React from 'react';
 import './DishTooltip.css';
 
-const DishTooltip = ({ name }) => {
+const DishTooltip = ({ name, position }) => {
   return (
-    <div className="dish-tooltip">
+    <div 
+      className="dish-tooltip dish-tooltip-visible"
+      style={{
+        left: `${position.x}px`,
+        top: `${position.y}px`
+      }}
+    >
       {name}
     </div>
   );

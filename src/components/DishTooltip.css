@@ -1,19 +1,23 @@
 .dish-tooltip {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  transform: translate(-50%, calc(-100% - 12px)); /* Center horizontally, position above */
+  background: rgba(0, 0, 0, 0.95);
   color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
-  font-size: 0.9rem;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
   white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
   pointer-events: none;
-  margin-bottom: 10px;
   backdrop-filter: blur(10px);
+  z-index: 10000; /* Higher than dish-dock (z-index: 100) */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.dish-tooltip-visible {
+  opacity: 1;
 }
 
 .dish-tooltip::after {
@@ -22,6 +26,14 @@
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  border: 5px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.8);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.95);
+}
+
+/* Hide tooltips on mobile to preserve scroll */
+@media (max-width: 768px) {
+  .dish-tooltip-visible {
+    opacity: 0;
+    display: none;
+  }
 } 
