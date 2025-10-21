@@ -46,8 +46,13 @@ function generateHTML(title, description, image, url, redirectUrl) {
   <meta property="twitter:image:alt" content="${title}">
   
   <!-- Redirect to actual page -->
-  <meta http-equiv="refresh" content="0; url=${redirectUrl}">
-  <script>window.location.href = '${redirectUrl}';</script>
+  <meta http-equiv="refresh" content="3; url=${redirectUrl}">
+  <script>
+    // Delay redirect to allow social media crawlers to read meta tags
+    setTimeout(function() {
+      window.location.href = '${redirectUrl}';
+    }, 3000);
+  </script>
 </head>
 <body>
   <p>Redirecting to <a href="${redirectUrl}">${title}</a>...</p>

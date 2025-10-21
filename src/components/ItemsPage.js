@@ -40,10 +40,6 @@ const ItemsPage = () => {
           </div>
         </div>
 
-        {/* Results Count */}
-        <div className="results-count">
-          <p>Showing {filteredItems.length} of {items.length} items</p>
-        </div>
 
         {/* Items Grid - 4 columns × dynamic rows */}
         <div className="items-grid">

@@ -236,7 +236,7 @@
   max-width: 600px;
   height: auto;
   border-radius: 0px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .k-tabletop-title {
@@ -728,5 +728,149 @@
   .k-tabletop-cta {
     font-size: 1rem;
     padding: 14px 28px;
+  }
+}
+
+/* Kitchen Items Section */
+.kitchen-items-section {
+  padding: 0px 80px;
+  margin: 0px 30.5px;
+  background: transparent;
+}
+
+.kitchen-items-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.kitchen-items-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.kitchen-items-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.kitchen-items-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.kitchen-items-cta:hover {
+  background: rgb(66, 66, 66);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.kitchen-items-cta:active {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(0px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.kitchen-items-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.kitchen-items-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.kitchen-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.kitchen-item-image-container {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 16px;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kitchen-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Responsive Design for Kitchen Items */
+@media (max-width: 1024px) {
+  .kitchen-items-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .kitchen-items-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .kitchen-items-cta {
+    align-self: flex-end;
+  }
+}
+
+@media (max-width: 480px) {
+  .kitchen-items-section {
+    padding: 40px 16px;
+  }
+  
+  .kitchen-items-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .kitchen-items-header h3 {
+    font-size: 1.25rem;
+  }
+  
+  .kitchen-items-cta {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+  
+  .kitchen-item-image-container {
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .kitchen-item-name {
+    font-size: 0.85rem;
   }
 }

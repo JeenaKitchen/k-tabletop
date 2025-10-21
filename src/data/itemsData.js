@@ -633,7 +633,7 @@ export const categories = [
   { value: 'all', label: 'All Items' },
   { value: 'appliances', label: 'Appliances' },
   { value: 'cookware', label: 'Cookware' },
-  { value: 'cooking utensils & tools', label: 'Cooking Utensils & Tools' },
+  { value: 'cooking utensils & tools', label: 'Utensils & Tools' },
   { value: 'tableware', label: 'Tableware' },
   { value: 'drinkware', label: 'Drinkware' },
   { value: 'accessories', label: 'Accessories' },

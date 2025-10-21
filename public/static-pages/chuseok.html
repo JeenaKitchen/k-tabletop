@@ -28,8 +28,13 @@ It's often called the Korean Thanksgiving, honoring gratitude for the year's har
   <meta property="twitter:image:alt" content="Chuseok Recipes | Jeena's Kitchen">
   
   <!-- Redirect to actual page -->
-  <meta http-equiv="refresh" content="0; url=https://www.jeenaskitchen.store/k-tabletop/chuseok">
-  <script>window.location.href = 'https://www.jeenaskitchen.store/k-tabletop/chuseok';</script>
+  <meta http-equiv="refresh" content="3; url=https://www.jeenaskitchen.store/k-tabletop/chuseok">
+  <script>
+    // Delay redirect to allow social media crawlers to read meta tags
+    setTimeout(function() {
+      window.location.href = 'https://www.jeenaskitchen.store/k-tabletop/chuseok';
+    }, 3000);
+  </script>
 </head>
 <body>
   <p>Redirecting to <a href="https://www.jeenaskitchen.store/k-tabletop/chuseok">Chuseok Recipes | Jeena's Kitchen</a>...</p>

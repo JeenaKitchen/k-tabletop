@@ -53,53 +53,37 @@
   letter-spacing: -0.01em;
 }
 
-/* Filter Pills Container - Horizontal Scroll */
+/* Filter Pills Container - 2 rows layout */
 .filter-pills-container {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  max-width: 100%;
   padding-top: 8px;
   padding-bottom: 8px;
-  scrollbar-width: none;
-  &:hover {
-    scrollbar-width: thin;
-  }
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
 }
 
-/* Hide scrollbar on webkit browsers but keep functionality */
-.filter-pills-container::-webkit-scrollbar {
-  height: 6px;
-}
-
-.filter-pills-container::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.filter-pills-container::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 99px;
-}
-
-.filter-pills-container::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
 
 /* Filter Pill Button */
 .filter-pill {
   background: rgba(0, 0, 0, 0.05);
   border: none;
   border-radius: 20px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
   color: #1d1d1f;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
-  flex-shrink: 0;
+  white-space: normal;
+  text-align: center;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .filter-pill:hover {
@@ -117,17 +101,6 @@
   background: #000000;
 }
 
-/* Results Count */
-.results-count {
-  margin-bottom: 32px;
-}
-
-.results-count p {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.6);
-  margin: 0;
-  font-weight: 500;
-}
 
 /* Items Grid - 4 columns */
 .items-grid {
@@ -234,9 +207,15 @@ a.item-card:visited {
     font-size: 1rem;
   }
 
+  .filter-pills-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+
   .filter-pill {
     font-size: 13px;
-    padding: 8px 16px;
+    padding: 8px 14px;
+    min-height: 36px;
   }
 }
 
@@ -271,21 +250,15 @@ a.item-card:visited {
     margin-bottom: 12px;
   }
 
-  .filter-pill {
-    font-size: 12px;
-    padding: 8px 14px;
-  }
-
   .filter-pills-container {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 8px;
   }
 
-  .results-count {
-    margin-bottom: 24px;
-  }
-
-  .results-count p {
-    font-size: 0.9rem;
+  .filter-pill {
+    font-size: 12px;
+    padding: 8px 12px;
+    min-height: 32px;
   }
 
   .items-grid {
@@ -320,13 +293,15 @@ a.item-card:visited {
     font-size: 0.9rem;
   }
 
-  .filter-pill {
-    font-size: 11px;
-    padding: 6px 12px;
+  .filter-pills-container {
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 6px;
   }
 
-  .results-count p {
-    font-size: 0.85rem;
+  .filter-pill {
+    font-size: 11px;
+    padding: 6px 10px;
+    min-height: 28px;
   }
 
   .items-grid {

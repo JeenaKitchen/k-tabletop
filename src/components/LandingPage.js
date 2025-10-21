@@ -93,7 +93,7 @@ const LandingPage = () => {
           loop 
           playsInline
         >
-          <source src="/Videos/pocha-night.mp4" type="video/mp4" />
+          <source src="/Videos/korean-drama-night.mp4" type="video/mp4" />
         </video>
         <div className="k-tabletop-preview-content">
           <div className="k-tabletop-text">
@@ -212,6 +212,107 @@ const LandingPage = () => {
                 ))}
               </div>
               
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Kitchen Items Section */}
+      <div className="kitchen-items-section">
+        <div className="kitchen-items-container">
+          <div className="kitchen-items-header">
+            <h3>Our Kitchen Items</h3>
+            <button className="kitchen-items-cta" onClick={() => navigate('/items')}>
+              <span>View All Items</span>
+              <div className="button-shine"></div>
+            </button>
+          </div>
+          
+          <div className="kitchen-items-grid">
+            {/* Row 1 */}
+            <div className="kitchen-items-row">
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Stagg EKG Electric Kettle.jpg" 
+                    alt="Stagg EKG Electric Kettle"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Nespresso Vertuo Pop Solo Coconut White.jpg" 
+                    alt="Nespresso Vertuo Pop Solo Coconut White"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Staub Round Cocotte 18cm Black.jpg" 
+                    alt="Staub Round Cocotte 18cm Black"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Zwilling Four Star 6 Set.jpg" 
+                    alt="Zwilling Four Star 6 Set"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Row 2 */}
+            <div className="kitchen-items-row">
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Mino Pottery Mino Ware Curio 210 Deep Plate.jpg" 
+                    alt="Mino Pottery Mino Ware Curio 210 Deep Plate"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Kinto Cast Iced Tea Glass.jpg" 
+                    alt="Kinto Cast Iced Tea Glass"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/Dusen Dusen Everybody Timer.png" 
+                    alt="Dusen Dusen Everybody Timer"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
+              
+              <div className="kitchen-item">
+                <div className="kitchen-item-image-container">
+                  <img 
+                    src="/items-images/airrmade ceramic butter mug.jpg" 
+                    alt="Airrmade Ceramic Butter Mug"
+                    className="kitchen-item-image"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

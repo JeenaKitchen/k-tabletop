@@ -28,8 +28,13 @@ Discover simple, shareable Korean foods perfect for a riverside picnic.">
   <meta property="twitter:image:alt" content="Han River Recipes | Jeena's Kitchen">
   
   <!-- Redirect to actual page -->
-  <meta http-equiv="refresh" content="0; url=https://www.jeenaskitchen.store/k-tabletop/han-river">
-  <script>window.location.href = 'https://www.jeenaskitchen.store/k-tabletop/han-river';</script>
+  <meta http-equiv="refresh" content="3; url=https://www.jeenaskitchen.store/k-tabletop/han-river">
+  <script>
+    // Delay redirect to allow social media crawlers to read meta tags
+    setTimeout(function() {
+      window.location.href = 'https://www.jeenaskitchen.store/k-tabletop/han-river';
+    }, 3000);
+  </script>
 </head>
 <body>
   <p>Redirecting to <a href="https://www.jeenaskitchen.store/k-tabletop/han-river">Han River Recipes | Jeena's Kitchen</a>...</p>
