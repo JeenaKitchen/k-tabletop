@@ -24,7 +24,7 @@
 .search-dropdown-content {
   background: rgba(0, 0, 0, 0.33);
   backdrop-filter: blur(20px);
-  border-radius: 23px;
+  border-radius: 13px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   overflow: hidden;
@@ -99,6 +99,7 @@
 .search-results-list {
   overflow-y: auto;
   max-height: 450px;
+  padding: 8px;
 }
 
 /* Custom Scrollbar */
@@ -109,6 +110,7 @@
 .search-results-list::-webkit-scrollbar-track {
   background: transparent;
   border-radius: 4px;
+  margin-right: 4px;
 }
 
 .search-results-list::-webkit-scrollbar-thumb {
@@ -119,11 +121,11 @@
 
 /* Show scrollbar on hover (desktop) */
 .search-results-list:hover::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.503);
 }
 
 .search-results-list:hover::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.503);
 }
 
 /* Show scrollbar on mobile scroll gesture */
@@ -156,10 +158,16 @@
 .search-result-item:hover,
 .search-result-item.selected {
   background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 8px;
+  margin: 0 8px;
 }
 
 .search-result-item:active {
   background: rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  padding: 8px;
+  margin: 0 8px;
 }
 
 /* Result Image */
@@ -222,9 +230,10 @@
 /* Results Footer */
 .search-results-footer {
   padding: 12px 20px;
-  text-align: center;
+  text-align: left;
   background: rgba(0, 0, 0, 0);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+
 }
 
 .search-results-footer p {
