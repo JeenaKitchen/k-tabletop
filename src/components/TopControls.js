@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './TopControls.css';
 import { themeConfig } from '../data/themeConfig';
+import SearchDropdown from './SearchDropdown';
+import searchService from '../services/searchService';
 
 const TopControls = ({ 
   currentTheme, 
@@ -11,13 +13,160 @@ const TopControls = ({
   onMuteToggle, 
   onVolumeChange 
 }) => {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
+  const searchContainerRef = useRef(null);
+  const searchInputRef = useRef(null);
+  const searchTimeoutRef = useRef(null);
+
   const getThemeDescription = (themeName) => {
     const theme = themeConfig.find(t => t.name === themeName);
     return theme?.description || "Experience the authentic Korean dining atmosphere.";
   };
+
+  // Handle search
+  const handleSearch = async (query) => {
+    const searchTerm = query || searchQuery;
+    
+    if (!searchTerm.trim()) {
+      setSearchResults([]);
+      setIsSearchOpen(false);
+      return;
+    }
+
+    setIsSearching(true);
+    setIsSearchOpen(true);
+    
+    try {
+      const results = await searchService.searchRecipes(searchTerm);
+      setSearchResults(results);
+      setSelectedResultIndex(-1);
+    } catch (error) {
+      console.error('Search error:', error);
+      setSearchResults([]);
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  // Handle Enter key
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSearch();
+    } else if (e.key === 'Escape') {
+      setIsSearchOpen(false);
+      setSearchQuery('');
+      setSelectedResultIndex(-1);
+    } else if (e.key === 'ArrowDown' && isSearchOpen && searchResults.length > 0) {
+      e.preventDefault();
+      setSelectedResultIndex((prev) => 
+        prev < searchResults.length - 1 ? prev + 1 : prev
+      );
+    } else if (e.key === 'ArrowUp' && isSearchOpen && searchResults.length > 0) {
+      e.preventDefault();
+      setSelectedResultIndex((prev) => (prev > 0 ? prev - 1 : -1));
+    }
+  };
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+        setIsSearchOpen(false);
+      }
+    };
+
+    if (isSearchOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isSearchOpen]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (searchTimeoutRef.current) {
+        clearTimeout(searchTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  // Handle input change - search as user types with debounce
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setSearchQuery(value);
+    
+    // Clear existing timeout
+    if (searchTimeoutRef.current) {
+      clearTimeout(searchTimeoutRef.current);
+    }
+    
+    // If input is empty, clear immediately
+    if (!value.trim()) {
+      setSearchResults([]);
+      setIsSearchOpen(false);
+      setIsSearching(false);
+      return;
+    }
+    
+    // Show loading state immediately
+    setIsSearching(true);
+    setIsSearchOpen(true);
+    
+    // Debounce search by 300ms
+    searchTimeoutRef.current = setTimeout(() => {
+      handleSearch(value);
+    }, 300);
+  };
+
+  const handleResultClick = () => {
+    setIsSearchOpen(false);
+    setSearchQuery('');
+    setSelectedResultIndex(-1);
+  };
+
   return (
     <div className="top-controls">
       <div className="top-controls-left">
+        <div className="search-control" ref={searchContainerRef}>
+          <div className="search-input-container">
+            <button 
+              className="search-button"
+              onClick={handleSearch}
+              aria-label="Search recipes"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+              </svg>
+            </button>
+            <input
+              ref={searchInputRef}
+              type="text"
+              className="search-input"
+              placeholder="Search recipes..."
+              value={searchQuery}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              aria-label="Search recipes"
+            />
+          </div>
+          <SearchDropdown
+            results={searchResults}
+            isLoading={isSearching}
+            isOpen={isSearchOpen}
+            onClose={() => setIsSearchOpen(false)}
+            onResultClick={handleResultClick}
+            selectedIndex={selectedResultIndex}
+          />
+        </div>
       </div>
 
       <div className="top-controls-center">
