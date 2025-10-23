@@ -3,6 +3,7 @@ import './TopControls.css';
 import { themeConfig } from '../data/themeConfig';
 import SearchDropdown from './SearchDropdown';
 import searchService from '../services/searchService';
+import { useTranslation } from '../hooks/useTranslation';
 
 const TopControls = ({ 
   currentTheme, 
@@ -13,6 +14,7 @@ const TopControls = ({
   onMuteToggle, 
   onVolumeChange 
 }) => {
+  const { t } = useTranslation('common');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -140,7 +142,7 @@ const TopControls = ({
             <button 
               className="search-button"
               onClick={handleSearch}
-              aria-label="Search recipes"
+              aria-label={t('accessibility.searchRecipes')}
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="11" cy="11" r="8"></circle>
@@ -151,11 +153,11 @@ const TopControls = ({
               ref={searchInputRef}
               type="text"
               className="search-input"
-              placeholder="Search recipes..."
+              placeholder={t('search.placeholder')}
               value={searchQuery}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
-              aria-label="Search recipes"
+              aria-label={t('accessibility.searchRecipes')}
             />
           </div>
           <SearchDropdown
@@ -177,7 +179,7 @@ const TopControls = ({
           <button 
             className="theme-accordion-button"
             onClick={onAccordionToggle}
-            aria-label={`${isAccordionOpen ? 'Collapse' : 'Expand'} theme information`}
+            aria-label={`${isAccordionOpen ? t('accessibility.collapse') : t('accessibility.expand')} ${t('accessibility.themeInfo')}`}
           >
             <div className="theme-title-section">
               <h2 className="theme-title">{currentTheme.name}</h2>
@@ -206,7 +208,7 @@ const TopControls = ({
           <button 
             className={`sound-button ${isMuted ? 'muted' : ''}`}
             onClick={() => onMuteToggle(!isMuted)}
-            aria-label={isMuted ? 'Unmute' : 'Mute'}
+            aria-label={isMuted ? t('buttons.unmute') : t('buttons.mute')}
           >
             {isMuted ? (
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

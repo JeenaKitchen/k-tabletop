@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "welcome": "Welcome to",
+    "title": "Jeena's Kitchen",
+    "koreanTitle": "지나키친",
+
+    "subtitle": "Eat. Play. Experience Korea on Your Table",
+    "description": "Jeena's Kitchen is where I share Korean flavors, stories, and a love for cooking that connects people across cultures.",
+    "ctaButton": "Explore Themes"
+  },
+  "sections": {
+    "followInstagram": "Follow on Instagram",
+    "ourKitchenItems": "Our Kitchen Items",
+    "kTabletopPreview": "K-Tabletop Preview",
+    "watchLatestVideos": "Watch My Latest Videos"
+  },
+  "reel1": {
+    "title": "Tteokbokki(Spicy Rice Cakes)",
+    "description": "Korean street food for Movie Nights"
+  },
+  "reel2": {
+    "title": "Potato Salada Sandwich",
+    "description": "Childhood Nostalgia Snack"
+  },
+  "reel3": {
+    "title": "Tofu Injeolmi (Rice Cake with Tofu)",
+    "description": "Low calorie, high protein, and easy to make"
+  },
+  "seo": {
+    "title": "Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide",
+    "description": "Discover authentic Korean recipes with Jeena's Kitchen. Learn to cook Korean BBQ, tteokbokki, kimchi, and more with interactive themed cooking experiences and video tutorials.",
+    "ogTitle": "Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide",
+    "ogDescription": "Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences.",
+    "twitterTitle": "Jeena's Kitchen - Korean Recipe Videos",
+    "twitterDescription": "Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences."
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from '../hooks/useTranslation';
 import './KTabletopPage.css';
 import ThemeBackground from './ThemeBackground';
 import ThemeSwitcher from './ThemeSwitcher';
@@ -13,6 +14,7 @@ import themeService from '../services/themeService';
 
 const KTabletopPage = () => {
   const { theme, dish } = useParams();
+  const { t } = useTranslation('common');
   
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
   const [selectedDish, setSelectedDish] = useState(null);

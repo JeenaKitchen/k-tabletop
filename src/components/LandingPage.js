@@ -1,10 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from '../hooks/useTranslation';
 import './LandingPage.css';
 
 const LandingPage = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation('landing');
 
   const handleExploreThemes = () => {
     navigate('/k-tabletop');
@@ -16,22 +18,22 @@ const LandingPage = () => {
       id: 'C-5Pb10h-WQ',
       url: 'https://www.instagram.com/reel/DGxHU5uRHfd/?utm_source=ig_web_copy_link&igsh=dnBhdzg4c2g2ZDY=',
       thumbnail: '/modal-images/tteokbokki.jpg',
-      title: 'Tteokbokki(Spicy Rice Cakes)',
-      description: 'Korean street food for Movie Nights'
+      titleKey: 'reel1.title',
+      descriptionKey: 'reel1.description'
     },
     {
       id: 'C93-oOxx_yP', 
       url: 'https://www.instagram.com/p/C93-oOxx_yP/',
       thumbnail: '/modal-images/potato-salada-sandwich.jpg',
-      title: 'Potato Salada Sandwich',
-      description: 'Childhood Nostalgia Snack'
+      titleKey: 'reel2.title',
+      descriptionKey: 'reel2.description'
     },
     {
       id: 'DGxHU5uRHfd',
       url: 'https://www.instagram.com/reel/DIiF1FuRqQY/?utm_source=ig_web_copy_link&igsh=MXZwYzJicGhubWo4bA==',
       thumbnail: '/modal-images/tofu-inseolmi.jpg',
-      title: 'Tofu Injeolmi (Rice Cake with Tofu)',
-      description: 'Low calorie, high protein, and easy to make'
+      titleKey: 'reel3.title',
+      descriptionKey: 'reel3.description'
     }
   ];
 
@@ -42,16 +44,16 @@ const LandingPage = () => {
   return (
     <>
       <Helmet>
-        <title>Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide</title>
-        <meta name="description" content="Discover authentic Korean recipes with Jeena's Kitchen. Learn to cook Korean BBQ, tteokbokki, kimchi, and more with interactive themed cooking experiences and video tutorials." />
-        <meta property="og:title" content="Jeena's Kitchen - Korean Recipe Videos & Interactive Cooking Guide" />
-        <meta property="og:description" content="Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences." />
+        <title>{t('seo.title')}</title>
+        <meta name="description" content={t('seo.description')} />
+        <meta property="og:title" content={t('seo.ogTitle')} />
+        <meta property="og:description" content={t('seo.ogDescription')} />
         <meta property="og:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
         <meta property="og:url" content="https://www.jeenaskitchen.store/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Jeena's Kitchen - Korean Recipe Videos" />
-        <meta name="twitter:description" content="Discover authentic Korean recipes with video tutorials and interactive themed cooking experiences." />
+        <meta name="twitter:title" content={t('seo.twitterTitle')} />
+        <meta name="twitter:description" content={t('seo.twitterDescription')} />
         <meta name="twitter:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
       </Helmet>
       <div className="landing-page">
@@ -66,14 +68,14 @@ const LandingPage = () => {
           <div className="hero-content">
             <div className="hero-text">
               <h1 className="hero-title">
-                Welcome to<br/>
-                <span className="highlight">Jeena's Kitchen<br/>지나키친</span>
+                {t('hero.welcome')}<br/>
+                <span className="highlight">{t('hero.title')}</span>
               </h1>
               <p className="hero-description">
-                Jeena's Kitchen is where I share Korean flavors, stories, and a love for cooking that connects people across cultures.
+                {t('hero.description')}
               </p>
               <button className="cta-button" onClick={handleExploreThemes}>
-                <span>Explore Themes</span>
+                <span>{t('hero.ctaButton')}</span>
                 <div className="button-shine"></div>
               </button>
             </div>
@@ -97,12 +99,12 @@ const LandingPage = () => {
         </video>
         <div className="k-tabletop-preview-content">
           <div className="k-tabletop-text">
-            <h2 className="k-tabletop-title">Eat. Play. Experience Korea on Your Table</h2>
+            <h2 className="k-tabletop-title">{t('hero.subtitle')}</h2>
             <p className="k-tabletop-description">
-            Immerse yourself in interactive dining themes, authentic Jeena’s Kitchen recipes, and cultural stories — from cozy Netflix nights to bustling market scenes, experience the rich world of Korean food culture on your table.
+              {t('hero.description')}
             </p>
             <button className="k-tabletop-cta" onClick={() => navigate('/k-tabletop')}>
-              <span>Enter K-Tabletop</span>
+              <span>{t('hero.ctaButton')}</span>
               <div className="button-shine"></div>
             </button>
           </div>
@@ -119,7 +121,7 @@ const LandingPage = () => {
           <div className="embeds-grid">
             {/* YouTube Videos Grid */}
             <div className="youtube-videos-section">
-              <h3>Watch My Latest Videos</h3>
+              <h3>{t('sections.watchLatestVideos')}</h3>
               <div className="youtube-grid">
                 {/* Row 1 */}
                 <div className="youtube-row">
@@ -177,7 +179,7 @@ const LandingPage = () => {
             
             {/* Instagram Reels with Custom Thumbnails */}
             <div className="instagram-reels-section">
-              <h3>Follow on Instagram</h3>
+              <h3>{t('sections.followInstagram')}</h3>
               <div className="instagram-reels-grid">
                 {instagramReels.map((reel, index) => (
                   <div 
@@ -205,8 +207,8 @@ const LandingPage = () => {
                       </div>
                     </div>
                     <div className="reel-info">
-                      <h4 className="reel-title">{reel.title}</h4>
-                      <p className="reel-description">{reel.description}</p>
+                      <h4 className="reel-title">{t(reel.titleKey)}</h4>
+                      <p className="reel-description">{t(reel.descriptionKey)}</p>
                     </div>
                   </div>
                 ))}
@@ -221,9 +223,9 @@ const LandingPage = () => {
       <div className="kitchen-items-section">
         <div className="kitchen-items-container">
           <div className="kitchen-items-header">
-            <h3>Our Kitchen Items</h3>
+            <h3>{t('sections.ourKitchenItems')}</h3>
             <button className="kitchen-items-cta" onClick={() => navigate('/items')}>
-              <span>View All Items</span>
+              <span>{t('buttons.viewAll')}</span>
               <div className="button-shine"></div>
             </button>
           </div>

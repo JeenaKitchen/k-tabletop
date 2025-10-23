@@ -3,7 +3,6 @@
 .about-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
-  padding-top: 120px; /* Account for fixed navigation */
   display: flex;
   flex-direction: column;
 }
@@ -15,13 +14,13 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  padding: 60px 24px;
+  padding: 24px 24px;
 }
 
 /* Hero Section with Background Image */
 .about-hero {
   position: relative;
-  min-height: 500px;
+  min-height: 650px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -29,7 +28,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -52,23 +50,13 @@
 }
 
 .about-title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.2;
   color: rgb(0, 0, 0);
   margin: 0 0 48px 0;
   letter-spacing: -0.01em;
   text-align: left;
-}
-
-.korean-title {
-  color: rgb(0, 0, 0);
-  display: block;
-  margin-top: 4px;
-  font-size: 3.5rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
 }
 
 /* Main Content */
@@ -157,7 +145,7 @@
 
 .carousel-track {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   width: 100%;
 }
@@ -603,7 +591,6 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .about-page {
-    padding-top: 64px;
   }
   
   .about-page-content {
@@ -614,7 +601,7 @@
   .about-hero {
     grid-template-columns: 1fr;
     gap: 32px;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
     text-align: left;
   }
   
@@ -624,10 +611,6 @@
     margin: 0 0 16px 0;
   }
   
-  .korean-title {
-    font-size: 2.25rem;
-    font-weight: 500;
-  }
   
   .about-hero-text {
     max-width: 100%;
@@ -636,13 +619,16 @@
 
   .about-hero-image {
     order: 2;
+    width: 90%;
+    height: 180px;
+    object-fit: cover;
+    margin: 0 auto;
   }
   
   /* About Sections Mobile - One Column */
   .about-section {
     grid-template-columns: 1fr;
     gap: 32px;
-    margin-bottom: 60px;
   }
   
   .about-section .about-text {
@@ -745,7 +731,6 @@
 
 @media (max-width: 480px) {
   .about-page {
-    padding-top: 64px;
   }
   
   .about-page-content {
@@ -753,15 +738,11 @@
   }
   
   .about-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: left;
     margin: 0 0 32px 0;
   }
   
-  .korean-title {
-    font-size: 1.75rem;
-    font-weight: 400;
-  }
   
   .about-hero-text {
     max-width: 100%;

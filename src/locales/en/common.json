@@ -1,0 +1,39 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "items": "Items",
+    "kTabletop": "K-Tabletop"
+  },
+  "buttons": {
+    "search": "Search",
+    "close": "Close",
+    "tryAgain": "Try Again",
+    "refresh": "Refresh",
+    "viewAll": "View All Items",
+    "mute": "Mute",
+    "unmute": "Unmute"
+  },
+  "search": {
+    "placeholder": "Search recipes...",
+    "loading": "Searching...",
+    "noResults": "No results found",
+    "tryDifferent": "Try a different recipe name or ingredient.",
+    "poweredBy": "Powered by Jeena's Kitchen"
+  },
+  "errors": {
+    "loadingRecipes": "Loading Korean recipes...",
+    "somethingWentWrong": "Oops! Something went wrong",
+    "failedToLoad": "Failed to load recipes:",
+    "fallbackInfo": "Info: Using fallback data -",
+    "noThemesAvailable": "No themes available",
+    "noRecipesFound": "No recipes found."
+  },
+  "accessibility": {
+    "searchRecipes": "Search recipes",
+    "themeInfo": "theme information",
+    "collapse": "Collapse",
+    "expand": "Expand",
+    "volumeControl": "Volume control"
+  }
+}

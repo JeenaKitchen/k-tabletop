@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import './i18n'; // Initialize i18n
 import './App.css';
 import NavigationBar from './components/NavigationBar';
 import LandingPage from './components/LandingPage';

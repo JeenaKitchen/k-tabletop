@@ -1,0 +1,42 @@
+{
+  "navigation": {
+    "home": "홈",
+    "about": "소개",
+    "items": "아이템",
+    "kTabletop": "K-테이블탑"
+  },
+  "buttons": {
+    "search": "검색",
+    "close": "닫기",
+    "tryAgain": "다시 시도",
+    "refresh": "새로고침",
+    "viewAll": "모든 아이템 보기",
+    "mute": "음소거",
+    "unmute": "음소거 해제"
+  },
+  "search": {
+    "placeholder": "레시피 검색...",
+    "noResults": "검색 결과가 없습니다",
+    "noResultsDescription": "다른 요리나 재료로 검색해보세요",
+    "searching": "레시피 검색 중...",
+    "poweredBy": "지나키친에서 제공"
+  },
+  "loading": {
+    "loadingRecipes": "한국 레시피 로딩 중...",
+    "searching": "검색 중..."
+  },
+  "errors": {
+    "somethingWrong": "앗! 문제가 발생했습니다",
+    "failedToLoad": "레시피를 불러오는데 실패했습니다",
+    "fallbackData": "문제가 지속되면 앱이 정적 데이터로 대체됩니다.",
+    "noThemes": "사용 가능한 테마가 없습니다",
+    "noRecipes": "레시피를 찾을 수 없습니다."
+  },
+  "accessibility": {
+    "searchRecipes": "레시피 검색",
+    "themeInfo": "테마 정보",
+    "collapse": "접기",
+    "expand": "펼치기",
+    "volumeControl": "볼륨 조절"
+  }
+}

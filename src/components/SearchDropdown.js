@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../hooks/useTranslation';
 import './SearchDropdown.css';
 
 const SearchDropdown = ({ 
@@ -12,6 +13,7 @@ const SearchDropdown = ({
   maxResults = 10 
 }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation('common');
 
   if (!isOpen) {
     return null;
@@ -44,7 +46,7 @@ const SearchDropdown = ({
         {isLoading ? (
           <div className="search-loading">
             <div className="search-loading-spinner"></div>
-            <p>Searching recipes...</p>
+            <p>{t('search.loading')}</p>
           </div>
         ) : results.length === 0 ? (
           <div className="search-no-results">
@@ -52,8 +54,8 @@ const SearchDropdown = ({
               <circle cx="11" cy="11" r="8"></circle>
               <path d="m21 21-4.35-4.35"></path>
             </svg>
-            <p>No recipes found</p>
-            <span>Try searching for a different dish or ingredient</span>
+            <p>{t('search.noResults')}</p>
+            <span>{t('search.tryDifferent')}</span>
           </div>
         ) : (
           <>

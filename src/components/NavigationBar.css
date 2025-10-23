@@ -190,7 +190,6 @@
   z-index: 1001;
   overflow-y: auto;
   animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  padding-top: 4px;
 }
 
 @keyframes slideDown {
@@ -206,7 +205,7 @@
 .mobile-menu {
   display: flex;
   flex-direction: column;
-  padding: 24px 48px;
+  padding: 24px 24px;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -222,7 +221,7 @@
   font-weight: 600;
   color: #1d1d1f;
   transition: all 0.2s ease;
-  border-bottom: 1px solid rgba(0, 0, 0, 0);
+ 
   letter-spacing: -0.02em;
   border-radius: 12px;
   width: fit-content;
@@ -244,6 +243,11 @@
 
 .mobile-menu-item.active:hover {
   color: #000000;
+}
+
+/* Mobile Language Switcher */
+.mobile-language-switcher {
+  margin-top: 16px;
 }
 
 /* Responsive Design */

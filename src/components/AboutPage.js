@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from '../hooks/useTranslation';
 import './AboutPage.css';
 
 const AboutPage = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const { t } = useTranslation('about');
   
   // Carousel images
   const carouselImages = [
@@ -20,15 +22,15 @@ const AboutPage = () => {
 
   const nextSlide = () => {
     setCurrentSlide((prev) => {
-      const nextIndex = prev + 3;
+      const nextIndex = prev + 2;
       return nextIndex >= carouselImages.length ? 0 : nextIndex;
     });
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => {
-      const prevIndex = prev - 3;
-      return prevIndex < 0 ? Math.max(0, carouselImages.length - 3) : prevIndex;
+      const prevIndex = prev - 2;
+      return prevIndex < 0 ? Math.max(0, carouselImages.length - 2) : prevIndex;
     });
   };
 
@@ -39,7 +41,7 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>About Jeena - Korean Cooking Journey | Jeena's Kitchen</title>
+        <title>{t('seo.title')}</title>
         <meta name="description" content="Learn about Jeena's journey from Korea to Australia, sharing authentic Korean recipes and building connections through food. Discover the story behind Jeena's Kitchen." />
         <meta property="og:title" content="About Jeena - Korean Cooking Journey" />
         <meta property="og:description" content="Learn about Jeena's journey from Korea to Australia, sharing authentic Korean recipes and building connections through food." />
@@ -48,33 +50,22 @@ const AboutPage = () => {
         <meta property="og:type" content="website" />
       </Helmet>
       <div className="about-page">
-        <div className="about-page-content">
-          {/* Hero Section with Background Image */}
-          <div className="about-hero" style={{ backgroundImage: 'url(/about-image/hero-about.jpg)' }}>
+        {/* Hero Section with Background Image */}
+        <div className="about-hero" style={{ backgroundImage: 'url(/about-image/hero-about.jpg)' }}>
           <div className="about-hero-overlay"></div>
         </div>
 
         {/* Main Content */}
-        <div className="about-main-content">
+        <div className="about-page-content">
+          <div className="about-main-content">
           {/* Paragraph 1 - Text Left, Image Right */}
           <div className="about-section text-left">
             <div className="about-text">
               <h1 className="about-title">
-                Welcome to<br/>
-                <span className="korean-title">Jeena's Kitchen 지나키친</span>
+                {t('hero.title')}
               </h1>
               <p>
-                Hello, and welcome to Jeena's Kitchen.
-
-I was born and raised in Korea, and I moved to Australia 11 years ago.
-
-For me, sharing the food I cook is more than just a conversation — it feels like a deep connection.
-
-A meal prepared with care can be an act of self-love, a source of comfort, and at the same time, a tender expression of affection toward family and friends.
-
-Even with cultural differences, food has allowed me to build bridges — to grow closer to friends and colleagues, and to create a sense of intimacy.
-
-No matter how tough the day was, cooking has always been a moment of healing for me.
+                {t('intro.paragraph1')}
               </p>
             </div>
             <div className="about-image">
@@ -89,10 +80,8 @@ No matter how tough the day was, cooking has always been a moment of healing for
             </div>
             <div className="about-text">
               <p>
-                <strong>Rediscover myself through cooking</strong><br/>
-                Jeena's Kitchen is a space where I explore the thoughts, stories, and flavors that have shaped me.
-
-Through cooking, I found a way to reconnect with the roots of my identity. At the same time, I discovered new ways of speaking to myself — learning what I truly enjoy and what brings me comfort.
+                <strong>{t('intro.paragraph2Title')}</strong><br/>
+                {t('intro.paragraph2')}
               </p>
             </div>
           </div>
@@ -101,10 +90,8 @@ Through cooking, I found a way to reconnect with the roots of my identity. At th
           <div className="about-section text-left">
             <div className="about-text">
               <p>
-                <strong>Connect with the world</strong><br/>
-                To me, Jeena’s Kitchen is like a little lab — a place to reflect on how I can build healthier relationships with myself, with others, and with society, through food.
-
-I hope to continue learning and growing as a humble member of a multicultural community, while sharing the beauty of Korean food here in Australia. And through cooking, I wish to create a positive impact, both as a Korean and as part of the society I now call home.
+                <strong>{t('intro.paragraph3Title')}</strong><br/>
+                {t('intro.paragraph3')}
               </p>
             </div>
             <div className="about-image">
@@ -119,14 +106,8 @@ I hope to continue learning and growing as a humble member of a multicultural co
             </div>
             <div className="about-text">
               <p>
-                <strong>Joy and Healing Through Cooking</strong><br/>
-                Cooking can be playful, and in those moments of joy, the weight of a long or difficult day often fades away.
-
-I hope it can become that way for you too — a source of fun, healing, and inspiration.
-
-If you ever find yourself thinking, “I want to taste that,” or “I want to try making this,” that would be the greatest happiness for me.
-
-Whether you’re missing your mom’s food, looking for comfort in a solo meal, or simply moving at your own pace — I hope Jeena’s Kitchen can be a gentle pause, a warm space for you to rest.
+                <strong>{t('intro.paragraph4Title')}</strong><br/>
+                {t('intro.paragraph4')}
               </p>
             </div>
           </div>
@@ -142,7 +123,7 @@ Whether you’re missing your mom’s food, looking for comfort in a solo meal, 
               </button>
               
               <div className="carousel-track">
-                {carouselImages.slice(currentSlide, currentSlide + 3).map((image, index) => (
+                {carouselImages.slice(currentSlide, currentSlide + 2).map((image, index) => (
                   <div
                     key={currentSlide + index}
                     className="carousel-slide"
@@ -160,7 +141,7 @@ Whether you’re missing your mom’s food, looking for comfort in a solo meal, 
             </div>
             
             <div className="carousel-dots">
-              {[0, 3, 6].map((startIndex) => (
+              {[0, 2, 4, 6, 8].map((startIndex) => (
                 <button
                   key={startIndex}
                   className={`carousel-dot ${currentSlide === startIndex ? 'active' : ''}`}
@@ -169,9 +150,9 @@ Whether you’re missing your mom’s food, looking for comfort in a solo meal, 
               ))}
             </div>
           </div>
+          </div>
         </div>
       </div>
-    </div>
     </>
   );
 };

@@ -114,7 +114,7 @@
   color: rgba(0, 0, 0, 0.9);
   margin-bottom: 40px;
   font-weight: 500;
-
+  max-width: 550px; /* Adjust this value to control width */
 }
 
 .cta-button {
