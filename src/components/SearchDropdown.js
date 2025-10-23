@@ -18,8 +18,11 @@ const SearchDropdown = ({
   }
 
   const handleResultClick = (result) => {
+    console.log('SearchDropdown - handleResultClick:', result);
     const themeName = result.themeName.toLowerCase().replace(/\s+/g, '-');
-    const dishName = result.recipe.name.toLowerCase().replace(/\s+/g, '-');
+    const dishName = result.name.toLowerCase().replace(/\s+/g, '-');
+    
+    console.log('SearchDropdown - Generated URL:', `/k-tabletop/${themeName}/${dishName}`);
     
     // Navigate to the recipe
     navigate(`/k-tabletop/${themeName}/${dishName}`);
@@ -57,21 +60,21 @@ const SearchDropdown = ({
             <div className="search-results-list">
               {displayResults.map((result, index) => (
                 <div
-                  key={`${result.themeName}-${result.recipe.name}-${index}`}
+                  key={`${result.themeName}-${result.name}-${index}`}
                   className={`search-result-item ${selectedIndex === index ? 'selected' : ''}`}
                   onClick={() => handleResultClick(result)}
                 >
                   <div className="search-result-image">
-                    <img src={result.recipe.image} alt={result.recipe.name} />
+                    <img src={result.image} alt={result.name} />
                   </div>
                   <div className="search-result-info">
-                    <h4 className="search-result-name">{result.recipe.name}</h4>
+                    <h4 className="search-result-name">{result.name}</h4>
                     <p className="search-result-theme">{result.themeName}</p>
-                    {result.recipe.description && (
+                    {result.description && (
                       <p className="search-result-description">
-                        {result.recipe.description.length > 80
-                          ? `${result.recipe.description.substring(0, 80)}...`
-                          : result.recipe.description}
+                        {result.description.length > 80
+                          ? `${result.description.substring(0, 80)}...`
+                          : result.description}
                       </p>
                     )}
                   </div>

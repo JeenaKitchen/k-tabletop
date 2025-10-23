@@ -72,20 +72,30 @@ const KTabletopPage = () => {
 
   // Handle dish parameter to open modal (runs after theme is set)
   useEffect(() => {
+    console.log('KTabletopPage - Dish parameter effect:', { dish, currentTheme: currentTheme?.name, dishesCount: currentTheme?.dishes?.length, isModalOpen });
+    
     if (!currentTheme || !dish || !currentTheme.dishes || currentTheme.dishes.length === 0) {
+      console.log('KTabletopPage - Missing requirements for dish modal');
       return;
     }
 
     const dishName = dish.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
+    console.log('KTabletopPage - Looking for dish:', dishName);
+    console.log('KTabletopPage - Available dishes:', currentTheme.dishes.map(d => d.name));
+    
     const foundDish = currentTheme.dishes?.find(d => 
       d.name.toLowerCase() === dishName.toLowerCase()
     );
 
-    if (foundDish && !isModalOpen) {
+    console.log('KTabletopPage - Found dish:', foundDish?.name);
+
+    if (foundDish) {
+      // Always update the selected dish and open modal when dish parameter changes
+      console.log('KTabletopPage - Opening modal for:', foundDish.name);
       setSelectedDish(foundDish);
       setIsModalOpen(true);
     }
-  }, [dish, currentTheme, isModalOpen]);
+  }, [dish, currentTheme]);
 
   // Update URL when theme changes (but not from URL params)
   useEffect(() => {
