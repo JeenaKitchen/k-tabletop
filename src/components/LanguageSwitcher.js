@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
 import './LanguageSwitcher.css';
 
@@ -6,6 +7,8 @@ const LanguageSwitcher = () => {
   const { currentLanguage, changeLanguage } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
 
   const languages = [
@@ -18,6 +21,36 @@ const LanguageSwitcher = () => {
   const handleLanguageChange = (lng) => {
     changeLanguage(lng);
     setIsOpen(false);
+    
+    // Navigate to the correct language URL
+    const currentPath = location.pathname;
+    let newPath;
+    
+    if (lng === 'ko') {
+      // Switch to Korean URLs
+      if (currentPath === '/' || currentPath === '/en') {
+        newPath = '/kr';
+      } else if (currentPath.startsWith('/en/')) {
+        newPath = currentPath.replace('/en', '/kr');
+      } else if (!currentPath.startsWith('/kr/')) {
+        newPath = '/kr' + currentPath;
+      } else {
+        newPath = currentPath; // Already Korean
+      }
+    } else {
+      // Switch to English URLs
+      if (currentPath === '/kr' || currentPath === '/') {
+        newPath = '/';
+      } else if (currentPath.startsWith('/kr/')) {
+        newPath = currentPath.replace('/kr', '');
+      } else if (!currentPath.startsWith('/en/')) {
+        newPath = currentPath; // Already English
+      } else {
+        newPath = currentPath.replace('/en', '');
+      }
+    }
+    
+    navigate(newPath);
   };
 
   // Close dropdown when clicking outside

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import './i18n'; // Initialize i18n
 import './App.css';
@@ -8,22 +8,58 @@ import LandingPage from './components/LandingPage';
 import AboutPage from './components/AboutPage';
 import KTabletopPage from './components/KTabletopPage';
 import ItemsPage from './components/ItemsPage';
+import { useTranslation } from './hooks/useTranslation';
+
+// Language wrapper component to handle language detection from URL
+const LanguageWrapper = ({ children }) => {
+  const { changeLanguage } = useTranslation();
+  const location = useLocation();
+  
+  React.useEffect(() => {
+    // Extract language from URL path
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const language = pathSegments[0];
+    
+    // If first segment is a language code, set it
+    if (language === 'kr' || language === 'ko') {
+      changeLanguage('ko');
+    } else if (language === 'en') {
+      changeLanguage('en');
+    } else {
+      // Default to English if no language in URL
+      changeLanguage('en');
+    }
+  }, [location.pathname, changeLanguage]);
+  
+  return children;
+};
 
 function App() {
   return (
     <HelmetProvider>
       <Router>
-        <div className="App">
-          <NavigationBar />
-          <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/k-tabletop" element={<KTabletopPage />} />
-            <Route path="/k-tabletop/:theme" element={<KTabletopPage />} />
-            <Route path="/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
-            <Route path="/items" element={<ItemsPage />} />
-          </Routes>
-        </div>
+        <LanguageWrapper>
+          <div className="App">
+            <NavigationBar />
+            <Routes>
+              {/* English routes (default) */}
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/k-tabletop" element={<KTabletopPage />} />
+              <Route path="/k-tabletop/:theme" element={<KTabletopPage />} />
+              <Route path="/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
+              <Route path="/items" element={<ItemsPage />} />
+              
+              {/* Korean routes */}
+              <Route path="/kr" element={<LandingPage />} />
+              <Route path="/kr/about" element={<AboutPage />} />
+              <Route path="/kr/k-tabletop" element={<KTabletopPage />} />
+              <Route path="/kr/k-tabletop/:theme" element={<KTabletopPage />} />
+              <Route path="/kr/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
+              <Route path="/kr/items" element={<ItemsPage />} />
+            </Routes>
+          </div>
+        </LanguageWrapper>
       </Router>
     </HelmetProvider>
   );
