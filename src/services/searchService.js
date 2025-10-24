@@ -59,19 +59,55 @@ class SearchService {
         return true;
       }
 
+      // Search in Korean name
+      if (recipe.koreanName && recipe.koreanName.includes(query)) {
+        return true;
+      }
+
       // Search in description
       if (recipe.description && recipe.description.toLowerCase().includes(normalizedQuery)) {
         return true;
       }
 
+      // Search in Korean description
+      if (recipe.koreanDescription && recipe.koreanDescription.includes(query)) {
+        return true;
+      }
+
       // Search in ingredients
       if (recipe.ingredients && Array.isArray(recipe.ingredients)) {
-        return recipe.ingredients.some((ingredient) => {
+        const hasIngredientMatch = recipe.ingredients.some((ingredient) => {
           if (typeof ingredient === 'string') {
             return ingredient.toLowerCase().includes(normalizedQuery);
           }
           return false;
         });
+        if (hasIngredientMatch) return true;
+      }
+
+      // Search in Korean ingredients
+      if (recipe.koreanIngredients && Array.isArray(recipe.koreanIngredients)) {
+        const hasKoreanIngredientMatch = recipe.koreanIngredients.some((ingredient) => {
+          if (typeof ingredient === 'string') {
+            return ingredient.includes(query);
+          }
+          return false;
+        });
+        if (hasKoreanIngredientMatch) return true;
+      }
+
+      // Search in Korean instructions
+      if (recipe.instructions && Array.isArray(recipe.instructions)) {
+        const hasKoreanInstructionMatch = recipe.instructions.some((instruction) => {
+          if (instruction.koreanStepName && instruction.koreanStepName.includes(query)) {
+            return true;
+          }
+          if (instruction.koreanDescription && instruction.koreanDescription.includes(query)) {
+            return true;
+          }
+          return false;
+        });
+        if (hasKoreanInstructionMatch) return true;
       }
 
       return false;

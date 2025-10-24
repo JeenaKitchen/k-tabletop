@@ -15,11 +15,21 @@ class ThemeService {
 
     for (const themeConfigItem of themeConfig) {
       try {
-        const dishes = await markdownService.getRecipesForTheme(themeConfigItem.name);
+        // First try to get markdown dishes
+        const markdownDishes = await markdownService.getRecipesForTheme(themeConfigItem.name);
+        
+        // Check if we have static dishes with Korean translations
+        const staticTheme = staticThemes.find(theme => theme.name === themeConfigItem.name);
+        const staticDishes = staticTheme ? staticTheme.dishes : [];
+        
+        // Use static dishes if they have Korean translations, otherwise use markdown dishes
+        const dishesToUse = staticDishes.length > 0 && staticDishes.some(dish => dish.koreanName) 
+          ? staticDishes 
+          : markdownDishes;
         
         themes.push({
           ...themeConfigItem,
-          dishes: dishes
+          dishes: dishesToUse
         });
       } catch (error) {
         console.error(`Error loading recipes for theme ${themeConfigItem.name}:`, error);

@@ -5,13 +5,18 @@
   right: 20px;
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
   gap: 20px;
+  
+  padding: 0 12px;
 }
 
 .top-controls-left {
   flex: 0 0 auto;
+  display: flex;
+  align-items: left;
+  max-width: 340px;
 }
 
 .left-buttons-container {
@@ -43,7 +48,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transition: all 0.3s ease;
-  max-width: 250px;
+  max-width: 340px;
   min-height: 60px;
 }
 
@@ -198,7 +203,7 @@
   gap: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
-  max-width: 250px;
+  max-width: 340px;
   min-height: 60px;
 }
 
@@ -241,7 +246,7 @@
 .volume-slider {
   -webkit-appearance: none;
   appearance: none;
-  width: 240px;
+  width: 260px;
   height: 4px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.3);
@@ -284,8 +289,10 @@
 /* Search Control Styles */
 .search-control {
   position: relative;
-  max-width: 400px;
-  width: 100%;
+  max-width: 340px;
+  width: auto;
+  display: flex;
+  align-items: center;
 }
 
 .search-input-container {
@@ -295,7 +302,7 @@
   border-radius: 23px;
   border: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
-  align-items: center;
+  align-items: left;
   gap: 12px;
   transition: all 0.3s ease;
   min-height: 60px;
@@ -360,7 +367,7 @@
 }
 
 /* Mobile optimization */
-@media (max-width: 768px) {
+@media (max-width: 340px) {
   .top-controls {
     top: 16px;
     left: 16px;
@@ -369,16 +376,16 @@
   }
   
   .theme-accordion {
-    max-width: 270px;
+    max-width: 340px;
   }
   
   .sound-control {
-    max-width: 270px;
+    max-width: 340px;
   }
   
   .theme-accordion-button {
     padding: 16px 16px;
-    min-height: 50px;
+    min-height: 60px;
   }
   
   .theme-title {
@@ -421,6 +428,7 @@
 
   .search-control {
     max-width: 270px;
+    width: auto;
   }
 
   .search-input-container {
@@ -443,6 +451,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    padding: 0 4px;
   }
   
   .top-controls-left,
@@ -458,7 +467,7 @@
   .sound-control,
   .search-control {
     max-width: 340px;
-    width: 100%;
+    width: auto;
   }
 }
 

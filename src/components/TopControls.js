@@ -14,7 +14,7 @@ const TopControls = ({
   onMuteToggle, 
   onVolumeChange 
 }) => {
-  const { t } = useTranslation('common');
+  const { t, currentLanguage } = useTranslation('common');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -26,6 +26,10 @@ const TopControls = ({
 
   const getThemeDescription = (themeName) => {
     const theme = themeConfig.find(t => t.name === themeName);
+    
+    if ((currentLanguage === 'ko' || currentLanguage === 'ko-KR') && theme?.koreanDescription) {
+      return theme.koreanDescription;
+    }
     return theme?.description || "Experience the authentic Korean dining atmosphere.";
   };
 

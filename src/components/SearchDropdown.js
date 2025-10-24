@@ -13,7 +13,7 @@ const SearchDropdown = ({
   maxResults = 10 
 }) => {
   const navigate = useNavigate();
-  const { t } = useTranslation('common');
+  const { t, currentLanguage } = useTranslation('common');
 
   if (!isOpen) {
     return null;
@@ -70,13 +70,21 @@ const SearchDropdown = ({
                     <img src={result.image} alt={result.name} />
                   </div>
                   <div className="search-result-info">
-                    <h4 className="search-result-name">{result.name}</h4>
+                    <h4 className="search-result-name">
+                      {(currentLanguage === 'ko' || currentLanguage === 'ko-KR') && result.koreanName 
+                        ? result.koreanName 
+                        : result.name}
+                    </h4>
                     <p className="search-result-theme">{result.themeName}</p>
                     {result.description && (
                       <p className="search-result-description">
-                        {result.description.length > 80
-                          ? `${result.description.substring(0, 80)}...`
-                          : result.description}
+                        {(currentLanguage === 'ko' || currentLanguage === 'ko-KR') && result.koreanDescription 
+                          ? (result.koreanDescription.length > 80
+                              ? `${result.koreanDescription.substring(0, 80)}...`
+                              : result.koreanDescription)
+                          : (result.description.length > 80
+                              ? `${result.description.substring(0, 80)}...`
+                              : result.description)}
                       </p>
                     )}
                   </div>

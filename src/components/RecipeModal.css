@@ -252,6 +252,31 @@
   border-radius: 8px;
 }
 
+/* Recipe Link Button */
+.recipe-link-container {
+  margin: 16px 0;
+  text-align: center;
+}
+
+.recipe-link-button {
+  display: inline-block;
+  background: #ff0000;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.recipe-link-button:hover {
+  background: #cc0000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.3);
+}
+
 /* Additional Images */
 .additional-images {
   display: grid;
@@ -374,6 +399,11 @@
   
   .additional-images {
     grid-template-columns: 1fr;
+  }
+  
+  .recipe-link-button {
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
 

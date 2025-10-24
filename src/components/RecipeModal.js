@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
+import { useTranslation } from '../hooks/useTranslation';
 import './RecipeModal.css';
 
 const RecipeModal = ({ isOpen, dish, onClose }) => {
+  const { currentLanguage } = useTranslation();
   const [isClosing, setIsClosing] = useState(false);
 
 
@@ -18,8 +20,14 @@ const RecipeModal = ({ isOpen, dish, onClose }) => {
 
   const getYouTubeEmbedUrl = (url) => {
     if (!url) return '';
+    // Handle both youtube.com and youtu.be formats
     const videoId = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\n?#]+)/);
     return videoId ? `https://www.youtube.com/embed/${videoId[1]}` : '';
+  };
+
+  const getYouTubeUrl = () => {
+    // Check for youtubeUrl first, then recipeUrl
+    return dish.youtubeUrl || dish.recipeUrl;
   };
 
   // Early return after all hooks are declared₩ 
@@ -53,12 +61,18 @@ const RecipeModal = ({ isOpen, dish, onClose }) => {
           
           <div className="modal-info">
             {/* Section 1: Basic Info */}
-            <div className="cooking-time-text"> {dish.cookingTime} </div>
+            <div className="cooking-time-text">
+              {currentLanguage === 'ko' && dish.koreanCookingTime ? dish.koreanCookingTime : dish.cookingTime}
+            </div>
             {/* Section 2: Title, Description & Categories (Keep existing styling) */}
-              <h2 className="modal-title">{dish.name}</h2>
-              <p className="modal-dish-description">{dish.description}</p>
+              <h2 className="modal-title">
+                {currentLanguage === 'ko' && dish.koreanName ? dish.koreanName : dish.name}
+              </h2>
+              <p className="modal-dish-description">
+                {currentLanguage === 'ko' && dish.koreanDescription ? dish.koreanDescription : dish.description}
+              </p>
             <div className="category-tags">
-              {dish.categories?.map((category, index) => (
+              {(currentLanguage === 'ko' && dish.koreanCategories ? dish.koreanCategories : dish.categories)?.map((category, index) => (
                 <span key={index} className="category-tag">
                   {category}
                 </span>
@@ -66,21 +80,24 @@ const RecipeModal = ({ isOpen, dish, onClose }) => {
             </div>
             
             {/* Section 3: Time & Portion */}
-            {dish.timePortion && (
+            {(currentLanguage === 'ko' && dish.koreanTimePortion ? dish.koreanTimePortion : dish.timePortion) && (
               <>
                 <hr className="section-separator" />
                 <h3 className="sub-h1">Time & Portion</h3>
-                <p className="modal-time-portion-description">{dish.timePortion}</p>
+                <p className="modal-time-portion-description">
+                  {currentLanguage === 'ko' && dish.koreanTimePortion ? dish.koreanTimePortion : dish.timePortion}
+                </p>
               </>
             )}
             
             {/* Section 4: Ingredients */}
-            {dish.ingredients && dish.ingredients.length > 0 && (
+            {(currentLanguage === 'ko' && dish.koreanIngredients ? dish.koreanIngredients : dish.ingredients) && 
+             (currentLanguage === 'ko' && dish.koreanIngredients ? dish.koreanIngredients : dish.ingredients).length > 0 && (
               <>
                 <hr className="section-separator" />
                 <h3 className="sub-h1">Ingredients</h3>
                 <ul className="modal-ingredients-description">
-                  {dish.ingredients?.map((ingredient, index) => (
+                  {(currentLanguage === 'ko' && dish.koreanIngredients ? dish.koreanIngredients : dish.ingredients)?.map((ingredient, index) => (
                     <li key={index}>{ingredient}</li>
                   ))}
                 </ul>
@@ -94,25 +111,46 @@ const RecipeModal = ({ isOpen, dish, onClose }) => {
                 <h3 className="sub-h1">Instructions</h3>
                 {dish.instructions?.map((step, index) => (
                   <div key={index} className="instruction-step">
-                    <h4 className="sub-h2">Step {index + 1} - {step.stepName}</h4>
-                    <p className="modal-each-step-description">{step.description}</p>
+                    <h4 className="sub-h2">
+                      Step {index + 1} - {(currentLanguage === 'ko' || currentLanguage === 'ko-KR') && step.koreanStepName 
+                        ? step.koreanStepName 
+                        : step.stepName}
+                    </h4>
+                    <p className="modal-each-step-description">
+                      {(currentLanguage === 'ko' || currentLanguage === 'ko-KR') && step.koreanDescription 
+                        ? step.koreanDescription 
+                        : step.description}
+                    </p>
                   </div>
                 ))}
               </>
             )}
             
             {/* YouTube Video (if available) */}
-            {dish.youtubeUrl && (
+            {getYouTubeUrl() && (
               <>
                 <hr className="section-separator" />
                 <h3 className="sub-h1">Video Tutorial</h3>
-                <div className="youtube-container">
-                  <iframe 
-                    src={getYouTubeEmbedUrl(dish.youtubeUrl)}
-                    title="Recipe Video Tutorial"
-                    allowFullScreen
-                  />
-                </div>
+                {getYouTubeEmbedUrl(getYouTubeUrl()) ? (
+                  <div className="youtube-container">
+                    <iframe 
+                      src={getYouTubeEmbedUrl(getYouTubeUrl())}
+                      title="Recipe Video Tutorial"
+                      allowFullScreen
+                    />
+                  </div>
+                ) : (
+                  <div className="recipe-link-container">
+                    <a 
+                      href={getYouTubeUrl()} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="recipe-link-button"
+                    >
+                      Watch Recipe Video
+                    </a>
+                  </div>
+                )}
               </>
             )}
             
