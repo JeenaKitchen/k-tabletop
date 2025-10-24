@@ -7,8 +7,6 @@ const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Debug: Log when component renders
-  console.log('LanguageSwitcher rendered, currentLanguage:', currentLanguage);
 
   const languages = [
     { code: 'en', flag: '/icons/flags/australia-flag.svg', name: 'English', alt: 'Australia Flag' },
@@ -41,32 +39,11 @@ const LanguageSwitcher = () => {
 
   return (
     <div className="language-switcher" ref={dropdownRef}>
-      {/* Debug: Very visible indicator */}
-      <div style={{
-        position: 'fixed',
-        top: '10px',
-        right: '10px',
-        background: 'red',
-        color: 'white',
-        padding: '10px',
-        zIndex: 9999,
-        fontSize: '12px'
-      }}>
-        DEBUG: LanguageSwitcher is working! Current: {currentLanguage}
-      </div>
-      
       <button
         className="language-dropdown-button"
         onClick={() => setIsOpen(!isOpen)}
         aria-label="Select language"
         aria-expanded={isOpen}
-        style={{ 
-          border: '3px solid red', 
-          backgroundColor: 'yellow',
-          padding: '10px',
-          fontSize: '16px',
-          fontWeight: 'bold'
-        }}
       >
         <img 
           src={currentLang.flag} 
