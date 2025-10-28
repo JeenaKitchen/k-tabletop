@@ -10,7 +10,6 @@ const LanguageSwitcher = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-
   const languages = [
     { code: 'en', flag: '/icons/flags/australia-flag.svg', name: 'English', alt: 'Australia Flag' },
     { code: 'ko', flag: '/icons/flags/korea-flag.svg', name: '한국어', alt: 'Korea Flag' }
