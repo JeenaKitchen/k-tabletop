@@ -4,11 +4,7 @@ import { useTranslation } from '../hooks/useTranslation';
 import './LanguageSwitcher.css';
 
 const LanguageSwitcher = () => {
-  // Temporary fallback for debugging
-  const translationHook = useTranslation();
-  const currentLanguage = translationHook?.currentLanguage || 'en';
-  const changeLanguage = translationHook?.changeLanguage || (() => {});
-  
+  const { currentLanguage, changeLanguage } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
@@ -22,6 +18,7 @@ const LanguageSwitcher = () => {
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
 
   const handleLanguageChange = (lng) => {
+    console.log('Language change requested:', lng);
     changeLanguage(lng);
     setIsOpen(false);
     
