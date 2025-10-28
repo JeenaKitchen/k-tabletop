@@ -17,7 +17,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "react-snap || echo 'react-snap failed, continuing...' && node scripts/copy-static-pages.js",
+    "postbuild": "echo 'Skipping react-snap for clean deployment' && node scripts/copy-static-pages.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
