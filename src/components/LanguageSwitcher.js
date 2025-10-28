@@ -18,7 +18,6 @@ const LanguageSwitcher = () => {
   const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
 
   const handleLanguageChange = (lng) => {
-    console.log('Language change requested:', lng);
     changeLanguage(lng);
     setIsOpen(false);
     

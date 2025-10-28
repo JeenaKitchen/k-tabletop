@@ -19,7 +19,6 @@ const NavigationBar = () => {
   };
 
   const handleNavigate = (path) => {
-    console.log('Navigating to:', path);
     navigate(path);
     setIsMenuOpen(false); // Close menu after navigation
   };
