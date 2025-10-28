@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
-import LanguageSwitcher from './LanguageSwitcher';
+import LanguageSwitcher from './SimpleLanguageSwitcher';
 import './NavigationBar.css';
 
 const NavigationBar = () => {

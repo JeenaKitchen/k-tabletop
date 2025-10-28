@@ -4,7 +4,11 @@ import { useTranslation } from '../hooks/useTranslation';
 import './LanguageSwitcher.css';
 
 const LanguageSwitcher = () => {
-  const { currentLanguage, changeLanguage } = useTranslation();
+  // Temporary fallback for debugging
+  const translationHook = useTranslation();
+  const currentLanguage = translationHook?.currentLanguage || 'en';
+  const changeLanguage = translationHook?.changeLanguage || (() => {});
+  
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
