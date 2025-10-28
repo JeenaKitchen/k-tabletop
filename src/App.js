@@ -12,7 +12,7 @@ import { useTranslation } from './hooks/useTranslation';
 
 // Language wrapper component to handle language detection from URL
 const LanguageWrapper = ({ children }) => {
-  const { changeLanguage } = useTranslation();
+  const { changeLanguage, currentLanguage } = useTranslation();
   const location = useLocation();
   
   React.useEffect(() => {
@@ -20,16 +20,20 @@ const LanguageWrapper = ({ children }) => {
     const pathSegments = location.pathname.split('/').filter(Boolean);
     const language = pathSegments[0];
     
-    // If first segment is a language code, set it
+    // Determine target language from URL
+    let targetLanguage = 'en'; // default
     if (language === 'kr' || language === 'ko') {
-      changeLanguage('ko');
+      targetLanguage = 'ko';
     } else if (language === 'en') {
-      changeLanguage('en');
-    } else {
-      // Default to English if no language in URL
-      changeLanguage('en');
+      targetLanguage = 'en';
     }
-  }, [location.pathname, changeLanguage]);
+    
+    // Only change language if it's different from current
+    if (targetLanguage !== currentLanguage) {
+      changeLanguage(targetLanguage);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname]); // Intentionally exclude changeLanguage and currentLanguage to prevent infinite loop
   
   return children;
 };

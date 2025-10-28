@@ -1,11 +1,12 @@
 import { useTranslation as useI18nTranslation } from 'react-i18next';
+import { useCallback } from 'react';
 
 export const useTranslation = (namespace = 'common') => {
   const { t, i18n } = useI18nTranslation(namespace);
   
-  const changeLanguage = (lng) => {
+  const changeLanguage = useCallback((lng) => {
     i18n.changeLanguage(lng);
-  };
+  }, [i18n]);
   
   const currentLanguage = i18n.language;
   
