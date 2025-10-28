@@ -35,6 +35,7 @@ i18n
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
       caches: ['localStorage'],
+      lookupLocalStorage: 'i18nextLng',
     },
     
     interpolation: {
@@ -44,6 +45,10 @@ i18n
     react: {
       useSuspense: false, // Disable suspense for better compatibility
     },
+    
+    // Ensure language persists across page navigation
+    saveMissing: false,
+    debug: false,
   });
 
 export default i18n;

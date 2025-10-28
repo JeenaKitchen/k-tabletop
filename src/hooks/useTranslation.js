@@ -5,6 +5,8 @@ export const useTranslation = (namespace = 'common') => {
   const { t, i18n } = useI18nTranslation(namespace);
   
   const changeLanguage = useCallback((lng) => {
+    // Ensure language is saved to localStorage
+    localStorage.setItem('i18nextLng', lng);
     i18n.changeLanguage(lng);
   }, [i18n]);
   

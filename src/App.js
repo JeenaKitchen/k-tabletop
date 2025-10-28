@@ -21,15 +21,16 @@ const LanguageWrapper = ({ children }) => {
     const language = pathSegments[0];
     
     // Determine target language from URL
-    let targetLanguage = 'en'; // default
+    let targetLanguage = null;
     if (language === 'kr' || language === 'ko') {
       targetLanguage = 'ko';
     } else if (language === 'en') {
       targetLanguage = 'en';
     }
+    // If no language prefix in URL, keep current language (don't change)
     
-    // Only change language if it's different from current
-    if (targetLanguage !== currentLanguage) {
+    // Only change language if URL explicitly specifies a different language
+    if (targetLanguage && targetLanguage !== currentLanguage) {
       changeLanguage(targetLanguage);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
