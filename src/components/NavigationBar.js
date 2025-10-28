@@ -1,8 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from '../hooks/useTranslation';
-import LanguageSwitcher from './SimpleLanguageSwitcher';
 import './NavigationBar.css';
+
+// Inline Language Switcher Component
+const InlineLanguageSwitcher = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [currentLanguage, setCurrentLanguage] = React.useState('en');
+
+  const languages = [
+    { code: 'en', flag: '/icons/flags/australia-flag.svg', name: 'English', alt: 'Australia Flag' },
+    { code: 'ko', flag: '/icons/flags/korea-flag.svg', name: '한국어', alt: 'Korea Flag' }
+  ];
+
+  const currentLang = languages.find(lang => lang.code === currentLanguage) || languages[0];
+
+  const handleLanguageChange = (lng) => {
+    setCurrentLanguage(lng);
+    setIsOpen(false);
+    console.log('Language changed to:', lng);
+  };
+
+  return (
+    <div className="language-switcher">
+      <button
+        className="language-dropdown-button"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Select language"
+        aria-expanded={isOpen}
+      >
+        <img 
+          src={currentLang.flag} 
+          alt={currentLang.alt} 
+          className="flag-icon"
+        />
+        <svg 
+          className={`dropdown-arrow ${isOpen ? 'open' : ''}`}
+          width="16" 
+          height="16" 
+          viewBox="0 0 24 24" 
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2.5"
+        >
+          <path d="m6 9 6 6 6-6"/>
+        </svg>
+      </button>
+      
+      {isOpen && (
+        <div className="language-dropdown">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              className={`language-option ${currentLanguage === lang.code ? 'active' : ''}`}
+              onClick={() => handleLanguageChange(lang.code)}
+              aria-label={`Switch to ${lang.name}`}
+            >
+              <img 
+                src={lang.flag} 
+                alt={lang.alt} 
+                className="flag-icon"
+              />
+              <span className="language-name">{lang.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -67,6 +133,8 @@ const NavigationBar = () => {
 
         {/* Desktop Navigation */}
         <div className="nav-items desktop-nav">
+          {/* TEST ELEMENT - Should be visible */}
+          <div style={{background: 'red', color: 'white', padding: '5px', fontSize: '12px'}}>LANG TEST</div>
           <button 
             className={`nav-item ${location.pathname === '/about' ? 'active' : ''}`}
             onClick={() => navigate('/about')}
@@ -103,7 +171,7 @@ const NavigationBar = () => {
               <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
             </svg>
           </button>
-          <LanguageSwitcher />
+          <InlineLanguageSwitcher />
         </div>
 
         {/* Mobile Navigation - Social + Language + Hamburger */}
@@ -131,7 +199,7 @@ const NavigationBar = () => {
           </button>
           
           {/* Language Switcher */}
-          <LanguageSwitcher />
+          <InlineLanguageSwitcher />
           
           {/* Hamburger Menu Button */}
           <button 
@@ -187,7 +255,7 @@ const NavigationBar = () => {
               {t('navigation.items')}
             </button>
             <div className="mobile-language-switcher">
-              <LanguageSwitcher />
+              <InlineLanguageSwitcher />
             </div>
           </div>
         </div>
