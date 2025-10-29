@@ -225,7 +225,7 @@ const LandingPage = () => {
           <div className="kitchen-items-header">
             <h3>{t('sections.ourKitchenItems')}</h3>
             <button className="kitchen-items-cta" onClick={() => navigate('/items')}>
-              <span>{t('buttons.viewAll')}</span>
+              <span>{t('View All')}</span>
               <div className="button-shine"></div>
             </button>
           </div>
