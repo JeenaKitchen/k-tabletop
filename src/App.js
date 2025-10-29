@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { Analytics } from '@vercel/analytics/react';
 import './i18n'; // Initialize i18n
 import './App.css';
 import NavigationBar from './components/NavigationBar';
@@ -66,6 +67,7 @@ function App() {
           </div>
         </LanguageWrapper>
       </Router>
+      <Analytics />
     </HelmetProvider>
   );
 }
