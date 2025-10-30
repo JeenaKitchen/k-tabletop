@@ -380,7 +380,7 @@ const LandingPage = () => {
               </button>
               
               <button className="contact-me-cta-secondary" onClick={() => window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer')}>
-                <span>Email Us</span>
+                <span>{t('contact.emailButton')}</span>
               </button>
             </div>
           </div>

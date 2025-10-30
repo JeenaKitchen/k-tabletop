@@ -89,7 +89,7 @@ const NavigationBar = () => {
             className="nav-item"
             href="/static-pages/contact.html"
           >
-            Contact
+            {t('navigation.contact')}
           </a>
           <button 
             className="nav-item social-button"
@@ -196,7 +196,7 @@ const NavigationBar = () => {
               className="mobile-menu-item"
               href="/static-pages/contact.html"
             >
-              Contact
+              {t('navigation.contact')}
             </a>
             <div className="mobile-language-switcher">
               <LanguageSwitcher />
