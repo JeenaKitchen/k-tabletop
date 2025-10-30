@@ -50,7 +50,8 @@
 .language-dropdown {
   position: absolute;
   top: calc(100% + 8px);
-  left: 0;
+  right: 0;
+  left: auto;
   background: rgb(255, 255, 255);
   backdrop-filter: blur(20px);
   border-radius: 13px;
@@ -60,6 +61,15 @@
   z-index: 1000;
   min-width: 120px;
   animation: slideDownFade 0.3s ease;
+}
+
+@media (max-width: 480px) {
+  .language-dropdown {
+    right: 0;
+    left: auto;
+    min-width: 120px;
+    max-width: 95vw;
+  }
 }
 
 @keyframes slideDownFade {
