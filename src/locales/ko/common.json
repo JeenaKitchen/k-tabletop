@@ -8,11 +8,11 @@
     "blog": "블로그"
   },
   "buttons": {
-    "search": "검색",
+    "search": "레시피 검색하기",
     "close": "닫기",
     "tryAgain": "다시 시도",
     "refresh": "새로고침",
-    "viewAll": "모든 아이템 보기",
+    "viewAll": "모두 보기",
     "mute": "음소거",
     "unmute": "음소거 해제"
   },
