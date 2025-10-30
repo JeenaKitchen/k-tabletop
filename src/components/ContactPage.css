@@ -1,0 +1,16 @@
+/* ContactPage.css - overrides specific to Contact page */
+
+/* Customize padding only for Contact page's contact section */
+.contact-page .contact-me-section {
+  padding: 140px 0px 120px 0px; /* adjust as desired */
+  background: transparent !important; /* remove landing page background color */
+}
+
+@media (max-width: 480px) {
+  .contact-page .contact-me-section {
+    padding: 90px 0px 64px 0px; /* mobile-specific override */
+    background: transparent !important;
+  }
+}
+
+
