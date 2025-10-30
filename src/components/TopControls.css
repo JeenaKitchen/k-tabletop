@@ -15,8 +15,9 @@
 .top-controls-left {
   flex: 0 0 auto;
   display: flex;
-  align-items: left;
-  max-width: 340px;
+  align-items: center;
+  justify-content: center;
+  max-width: none;
 }
 
 .left-buttons-container {
@@ -36,7 +37,8 @@
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -48,14 +50,14 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
   transition: all 0.3s ease;
-  max-width: 340px;
-  min-height: 60px;
+  width: 340px;
+  min-height: 64px; /* allow expansion for description */
+  box-sizing: border-box;
 }
 
 .theme-accordion:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.03);
 }
 
 .theme-accordion-button {
@@ -70,7 +72,7 @@
   padding: 20px 20px;
   width: 100%;
   text-align: left;
-  min-height: 60px;
+  min-height: 64px;
 }
 
 .theme-accordion-button:hover {
@@ -203,14 +205,14 @@
   gap: 15px;
   transition: all 0.3s ease;
   cursor: pointer;
-  max-width: 340px;
-  min-height: 60px;
+  width: 340px;
+  height: 64px;
+  box-sizing: border-box;
 }
 
 .sound-control:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.03);
 }
 
 .sound-button {
@@ -289,8 +291,9 @@
 /* Search Control Styles */
 .search-control {
   position: relative;
-  max-width: 340px;
-  width: auto;
+  width: 340px;
+  height: 64px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
 }
@@ -305,19 +308,19 @@
   align-items: left;
   gap: 12px;
   transition: all 0.3s ease;
-  min-height: 60px;
+  min-height: 64px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .search-input-container:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.03);
 }
 
 .search-input-container:focus-within {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
-  transform: scale(1.03);
 }
 
 .search-button {
@@ -376,16 +379,20 @@
   }
   
   .theme-accordion {
-    max-width: 340px;
+    width: 340px;
+    height: 64px;
+    box-sizing: border-box;
   }
   
   .sound-control {
-    max-width: 340px;
+    width: 340px;
+    height: 64px;
+    box-sizing: border-box;
   }
   
   .theme-accordion-button {
     padding: 16px 16px;
-    min-height: 60px;
+    min-height: 64px;
   }
   
   .theme-title {
@@ -414,7 +421,7 @@
   
   .sound-control {
     padding: 16px 16px;
-    min-height: 50px;
+    min-height: 64px;
   }
   
   .sound-button {
@@ -423,12 +430,29 @@
   }
   
   .volume-slider {
-    width: 200px;
+    width: 180px;
   }
 
   .search-control {
-    max-width: 270px;
-    width: auto;
+    width: 340px;
+    height: 64px;
+  }
+
+  /* Ensure consistent sizing for related controls on web */
+  .sound-control,
+  .theme-accordion {
+    width: 340px;
+    height: 64px;
+  }
+
+  /* Keep the same sizes on mobile view */
+  @media (max-width: 768px) {
+    .search-control,
+    .sound-control,
+    .theme-accordion {
+      width: 340px;
+      height: 64px;
+    }
   }
 
   .search-input-container {
@@ -463,11 +487,11 @@
   }
   
   .theme-accordion,
-  .about-jeena-button-container,
   .sound-control,
   .search-control {
-    max-width: 340px;
-    width: auto;
+    width: 340px;
+    height: 64px;
+    box-sizing: border-box;
   }
 }
 
