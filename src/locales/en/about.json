@@ -17,5 +17,10 @@
   },
   "seo": {
     "title": "About Jeena - Korean Cooking Journey | Jeena's Kitchen"
+  },
+  "contactBanner": {
+    "title": "Collaborate with Jeena's Kitchen!",
+    "scheduleButton": "Schedule a Chat",
+    "emailButton": "Email Us"
   }
 }

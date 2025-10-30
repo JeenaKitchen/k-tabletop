@@ -10,6 +10,7 @@ import AboutPage from './components/AboutPage';
 import KTabletopPage from './components/KTabletopPage';
 import ItemsPage from './components/ItemsPage';
 import ContactPage from './components/ContactPage';
+import BlogPage from './components/BlogPage';
 import { useTranslation } from './hooks/useTranslation';
 
 // Language wrapper component to handle language detection from URL
@@ -56,6 +57,7 @@ function App() {
               <Route path="/k-tabletop/:theme" element={<KTabletopPage />} />
               <Route path="/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
               <Route path="/items" element={<ItemsPage />} />
+            <Route path="/blog" element={<BlogPage />} />
             <Route path="/contact" element={<ContactPage />} />
               
               {/* Korean routes */}
@@ -65,6 +67,7 @@ function App() {
               <Route path="/kr/k-tabletop/:theme" element={<KTabletopPage />} />
               <Route path="/kr/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
               <Route path="/kr/items" element={<ItemsPage />} />
+            <Route path="/kr/blog" element={<BlogPage />} />
             <Route path="/kr/contact" element={<ContactPage />} />
             </Routes>
           </div>

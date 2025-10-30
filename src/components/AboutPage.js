@@ -38,6 +38,14 @@ const AboutPage = () => {
     setCurrentSlide(index);
   };
 
+  const handleContactClick = () => {
+    window.open('https://calendar.app.google/EMPURCYjrxK23eRy6', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleEmailClick = () => {
+    window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <>
       <Helmet>
@@ -150,6 +158,26 @@ const AboutPage = () => {
               ))}
             </div>
           </div>
+
+        {/* Contact Banner Section */}
+        <div className="about-contact-banner">
+          <div className="about-contact-content">
+            <div className="about-contact-text">
+              <h2 className="about-contact-title">{t('contactBanner.title')}</h2>
+              <div className="about-contact-cta-buttons">
+                <button className="about-contact-cta" onClick={handleContactClick}>
+                  <span>{t('contactBanner.scheduleButton')}</span>
+                </button>
+                <button className="about-contact-cta-secondary" onClick={handleEmailClick}>
+                  <span>{t('contactBanner.emailButton')}</span>
+                </button>
+              </div>
+            </div>
+            <div className="about-contact-image">
+              <img src="/contact-images/contact-me-landing.png" alt="Contact Jeena's Kitchen" />
+            </div>
+          </div>
+        </div>
           </div>
         </div>
       </div>

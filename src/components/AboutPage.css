@@ -136,6 +136,123 @@
   align-items: center;
 }
 
+/* Contact Banner - consistent margins with about-page-content */
+.about-contact-banner {
+  margin: 32px 0;
+  background: #fff8f0;
+  border-radius: 13px;
+  padding: 24px 48px 24px 48px;
+}
+
+.about-contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-contact-text {
+  text-align: left;
+}
+
+.about-contact-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(0, 0, 0);
+  margin: 0 0 32px 0;
+}
+
+.about-contact-cta-buttons {
+  display: flex;
+  flex-direction: row; /* row on web/desktop */
+  gap: 16px;
+  align-items: center;
+}
+
+.about-contact-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-contact-cta:hover {
+  background: rgb(66, 66, 66);
+  transform: translateY(-2px);
+}
+
+.about-contact-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-contact-cta-secondary:hover {
+  background: rgb(255, 255, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.about-contact-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-contact-image img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  border-radius: 16px;
+}
+
+@media (max-width: 768px) {
+  .about-contact-content {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .about-contact-banner {
+    padding: 48px 32px 48px 32px; /* mobile-specific padding */
+  }
+  .about-contact-cta-buttons {
+    flex-direction: column; /* stack on mobile */
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .about-contact-title {
+    font-size: 1.75rem;
+  }
+  .about-contact-description {
+    font-size: 1rem;
+  }
+  .about-contact-cta,
+  .about-contact-cta-secondary {
+    padding: 12px 24px;
+  }
+}
+
 .carousel-container {
   position: relative;
   width: 100%;

@@ -86,6 +86,12 @@ const NavigationBar = () => {
             {t('navigation.items')}
           </button>
           <button 
+            className={`nav-item ${location.pathname === '/blog' ? 'active' : ''}`}
+            onClick={() => handleNavigate('/blog')}
+          >
+            {t('navigation.blog')}
+          </button>
+          <button 
             className={`nav-item ${location.pathname === '/contact' ? 'active' : ''}`}
             onClick={() => handleNavigate('/contact')}
           >
@@ -170,6 +176,12 @@ const NavigationBar = () => {
               onClick={() => handleNavigate('/items')}
             >
               {t('navigation.items')}
+            </button>
+            <button
+              className={`mobile-menu-item ${location.pathname === '/blog' ? 'active' : ''}`}
+              onClick={() => handleNavigate('/blog')}
+            >
+              {t('navigation.blog')}
             </button>
             <button
               className={`mobile-menu-item ${location.pathname === '/contact' ? 'active' : ''}`}
