@@ -85,6 +85,7 @@
   font-size: 16px;
   font-weight: 500;
   color: #1d1d1f;
+  text-decoration: none; /* support anchors styled as nav-item */
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -102,6 +103,15 @@
 /* Removed the underline */
 .nav-item.active::before {
   display: none;
+}
+
+/* Ensure link states for anchor nav-items are consistent */
+.desktop-nav a.nav-item:visited,
+.desktop-nav a.nav-item:active,
+.desktop-nav a.nav-item:focus,
+.desktop-nav a.nav-item:hover {
+  color: #1d1d1f;
+  text-decoration: none;
 }
 
 /* Social Media Buttons */
@@ -170,9 +180,10 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
-/* Hide logo and social buttons when menu is open */
+/* Hide logo, social buttons, and language switcher when menu is open */
 .navigation-bar.menu-open .home-button,
-.navigation-bar.menu-open .mobile-nav .social-button {
+.navigation-bar.menu-open .mobile-nav .social-button,
+.navigation-bar.menu-open .mobile-nav .language-switcher {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
@@ -218,13 +229,23 @@
   padding: 8px 16px;
   text-align: left;
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 700;
   color: #1d1d1f;
+  text-decoration: none; /* ensure links have no underline */
   transition: all 0.2s ease;
  
   letter-spacing: -0.02em;
   border-radius: 12px;
   width: fit-content;
+}
+
+/* Ensure link states remain consistent with buttons */
+.mobile-menu-item:visited,
+.mobile-menu-item:active,
+.mobile-menu-item:focus {
+  color: #1d1d1f;
+  text-decoration: none;
+  outline: none;
 }
 
 .mobile-menu-item:first-child {
@@ -245,10 +266,42 @@
   color: #000000;
 }
 
-/* Mobile Language Switcher */
+/* Mobile Language Switcher pinned to bottom */
 .mobile-language-switcher {
-  margin-top: 16px;
+  margin-top: auto;
+  margin: 16px 8px 16px 8px;
 }
+
+/* Mobile menu section title removed */
+
+/* Mobile menu social + email row (above language switcher) */
+.mobile-menu-socials {
+  display: flex;
+  gap: 8px;
+  margin: 180px 8px 8px 8px;
+}
+
+/* Size adjustments for bottom-row buttons */
+.mobile-menu-socials .social-button {
+  padding: 14px !important;
+  min-width: 48px;
+  width: 48px;
+  height: 48px;
+}
+
+.mobile-menu-socials .social-button svg,
+.mobile-menu-socials .social-button img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Email button as row item in mobile menu socials */
+.mobile-menu-email {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 
 /* Responsive Design */
 @media (max-width: 768px) {

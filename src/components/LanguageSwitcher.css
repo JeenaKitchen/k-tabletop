@@ -72,6 +72,17 @@
   }
 }
 
+/* In full-screen mobile menu, open dropdown to the left of button */
+.mobile-menu .mobile-language-switcher .language-switcher {
+  width: auto;
+}
+
+.mobile-menu .mobile-language-switcher .language-dropdown {
+  left: 0;
+  right: auto;
+  top: calc(100% + 8px);
+}
+
 @keyframes slideDownFade {
   from {
     opacity: 0;
