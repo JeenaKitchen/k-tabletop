@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../hooks/useTranslation';
 import './AboutPage.css';
@@ -20,17 +20,28 @@ const AboutPage = () => {
     '/about-image/carousel-about9.jpg'
   ];
 
+  const [numVisible, setNumVisible] = useState(() => (typeof window !== 'undefined' && window.innerWidth <= 768 ? 2 : 4));
+
+  useEffect(() => {
+    const onResize = () => {
+      setNumVisible(window.innerWidth <= 768 ? 2 : 4);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
   const nextSlide = () => {
     setCurrentSlide((prev) => {
-      const nextIndex = prev + 2;
+      const nextIndex = prev + numVisible;
       return nextIndex >= carouselImages.length ? 0 : nextIndex;
     });
   };
 
   const prevSlide = () => {
     setCurrentSlide((prev) => {
-      const prevIndex = prev - 2;
-      return prevIndex < 0 ? Math.max(0, carouselImages.length - 2) : prevIndex;
+      const prevIndex = prev - numVisible;
+      const lastStart = Math.max(0, carouselImages.length - numVisible);
+      return prevIndex < 0 ? lastStart : prevIndex;
     });
   };
 
@@ -131,7 +142,7 @@ const AboutPage = () => {
               </button>
               
               <div className="carousel-track">
-                {carouselImages.slice(currentSlide, currentSlide + 2).map((image, index) => (
+                {carouselImages.slice(currentSlide, currentSlide + numVisible).map((image, index) => (
                   <div
                     key={currentSlide + index}
                     className="carousel-slide"
@@ -149,7 +160,7 @@ const AboutPage = () => {
             </div>
             
             <div className="carousel-dots">
-              {[0, 2, 4, 6, 8].map((startIndex) => (
+              {Array.from({ length: Math.ceil(carouselImages.length / numVisible) }, (_, i) => i * numVisible).map((startIndex) => (
                 <button
                   key={startIndex}
                   className={`carousel-dot ${currentSlide === startIndex ? 'active' : ''}`}
@@ -164,6 +175,7 @@ const AboutPage = () => {
           <div className="about-contact-content">
             <div className="about-contact-text">
               <h2 className="about-contact-title">{t('contactBanner.title')}</h2>
+              <p className="about-contact-description">{t('contactBanner.description')}</p>
               <div className="about-contact-cta-buttons">
                 <button className="about-contact-cta" onClick={handleContactClick}>
                   <span>{t('contactBanner.scheduleButton')}</span>

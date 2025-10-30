@@ -5,7 +5,7 @@ import { themes as staticThemes } from './themes';
 export const themeConfig = [
   {
     name: "Korean Netflix Night",
-    koreanName: "한국 넷플릭스 밤",
+    koreanName: "넷플릭스 밤",
     notionThemeName: "Korean Netflix Night", // This should match the "Theme" select value in Notion
     description: "Set the vibe for your next K-drama binge with the trendiest Korean street snacks — from tteokbokki to corn dogs — perfect for a cozy night on the couch.",
     koreanDescription: "퇴근 후 넷플릭스 K-드라마와 함께하기 좋은 길거리 음식, 간식으로 편안한 시간을 즐겨보세요 — 떡볶이부터 핫도그까지 — 오늘도 고생 많았습니다.",

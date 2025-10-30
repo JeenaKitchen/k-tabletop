@@ -33,6 +33,15 @@ const TopControls = ({
     return theme?.description || "Experience the authentic Korean dining atmosphere.";
   };
 
+  const getThemeDisplayName = (themeName) => {
+    const theme = themeConfig.find(t => t.name === themeName);
+    if (!theme) return themeName;
+    if (currentLanguage === 'ko' || currentLanguage === 'ko-KR') {
+      return theme.koreanName || theme.name;
+    }
+    return theme.name;
+  };
+
   // Handle search
   const handleSearch = async (query) => {
     const searchTerm = query || searchQuery;
@@ -186,7 +195,7 @@ const TopControls = ({
             aria-label={`${isAccordionOpen ? t('accessibility.collapse') : t('accessibility.expand')} ${t('accessibility.themeInfo')}`}
           >
             <div className="theme-title-section">
-              <h2 className="theme-title">{currentTheme.name}</h2>
+              <h2 className="theme-title">{getThemeDisplayName(currentTheme.name)}</h2>
               <svg 
                 className={`caret-icon ${isAccordionOpen ? 'open' : ''}`}
                 width="20" 

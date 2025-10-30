@@ -138,7 +138,7 @@
 
 /* Contact Banner - consistent margins with about-page-content */
 .about-contact-banner {
-  margin: 32px 0;
+  margin: 16px 0;
   background: #fff8f0;
   border-radius: 23px;
   padding: 24px 48px 24px 48px;
@@ -155,11 +155,16 @@
   text-align: left;
 }
 
+/* Control vertical spacing under the description */
+.about-contact-description {
+  margin: 24px 0 24px;
+}
+
 .about-contact-title {
   font-size: 2rem;
   font-weight: 700;
   color: rgb(0, 0, 0);
-  margin: 0 0 32px 0;
+  margin: 0 0 16px 0;
 }
 
 .about-contact-cta-buttons {
@@ -262,7 +267,7 @@
 
 .carousel-track {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 24px;
   width: 100%;
 }
@@ -778,6 +783,7 @@
   }
 
   .carousel-track {
+    grid-template-columns: repeat(2, 1fr);
     gap: 12px;
   }
 
@@ -835,8 +841,8 @@
     text-align: left;
   }
   
-  .instagram-reels-grid {
-    grid-template-columns: 1fr;
+  .about-page .instagram-reels-grid {
+    grid-template-columns: 1fr !important; /* force single column on mobile */
     gap: 20px;
   }
   
@@ -914,8 +920,8 @@
     border-radius: 8px;
   }
   
-  .instagram-reels-grid {
-    grid-template-columns: 1fr;
+  .about-page .instagram-reels-grid {
+    grid-template-columns: 1fr !important;
     gap: 16px;
   }
   
