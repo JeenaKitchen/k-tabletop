@@ -69,7 +69,7 @@ export const themes = [
             koreanDescription: "불을 끄고 바로 갈아놓은 모짜렐라 치즈를 뿌립니다. 1-2분간 뚜껑을 덮어 치즈가 녹도록 합니다. 대파를 올려서 완성합니다."
           }
         ],
-        youtubeUrl: "https://www.youtube.com/watch?v=example1"
+        youtubeUrl: "https://youtu.be/9DZShtHkBIE"
       },
       {
         name: "Corn Dog",
@@ -1281,14 +1281,14 @@ export const themes = [
           {
             stepName: "Stuff and ferment",
             koreanStepName: "양념 넣고 발효",
-            description: "Rinse cabbage, stuff with seasoning paste, and ferment for 2-3 days.",
-            koreanDescription: "배추를 헹구고 양념을 넣어 2-3일간 발효시켜주세요.(every 12 hours. Once bubbles appear, transfer to the fridge."
+            description: "Rinse cabbage, stuff with seasoning paste, and ferment for 2-3 days in the room temperature, checking every 12 hours. Once bubbles appear, transfer to the fridge.",
+            koreanDescription: "배추를 헹구고 양념을 넣어 상온에서 2-3일간 발효시켜주세요. 12시간 마다 확인하고 버블이 생기면 냉장고에 보관해주세요."
           },
           {
-            stepName: "Stuff and ferment",
-            koreanStepName: "양념 넣고 발효",
-            description: "Rinse cabbage, stuff with seasoning paste, and ferment for 2-3 days.",
-            koreanDescription: "배추를 헹구고 양념을 넣어 2-3일간 발효시켜주세요."
+            stepName: "Serve and store",
+            koreanStepName: "내놓고 보관하기",
+            description: "Serve kimchi with rice and other Korean dishes. Store in the fridge for up to 1 month.",
+            koreanDescription: "김치를 밥과 함께 내놓고 1개월 동안 냉장고에 보관해주세요."
           }
         ],
         recipeUrl: "https://youtu.be/naS9csQ4inA?si=sdRdv7zv__VmXJiS"
