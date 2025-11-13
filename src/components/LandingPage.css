@@ -1,4 +1,5 @@
 /* LandingPage.css */
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@700&display=swap');
 
 .landing-page {
   min-height: 100vh;
@@ -12,7 +13,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 1000px;
+  max-width: 1300px;
   margin: 0 auto;
   width: 100%;
   padding: 0;
@@ -52,7 +53,7 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 80px;
   width: 100%;
@@ -101,11 +102,40 @@
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
-
+  font-family: 'PT Serif', serif;
 }
 
 .highlight {
   color: rgb(0, 0, 0);
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+.landing-content h2,
+.landing-content h3,
+.k-tabletop-title,
+.section-title,
+.kitchen-items-title,
+.contact-me-title,
+.youtube-videos-section h3 {
+  font-family: 'PT Serif', serif;
+  font-weight: 700;
+}
+
+body[data-lang="ko"] .hero-title,
+body[data-lang="ko"] .section-title,
+body[data-lang="ko"] .section-title.section-title--h3,
+body[data-lang="ko"] .kitchen-items-title,
+body[data-lang="ko"] .contact-me-title,
+body[data-lang="ko"] .youtube-videos-section h3 {
+  font-family: 'Maruburi Bold', 'PT Serif', serif;
+}
+
+.section-title.section-title--h3 {
+  font-size: 1.5rem;
+  margin-bottom: 32px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .hero-description {
@@ -113,7 +143,7 @@
   line-height: 1.6;
   color: rgba(0, 0, 0, 0.9);
   margin-bottom: 40px;
-  font-weight: 500;
+  font-weight: 400;
   max-width: 550px; /* Adjust this value to control width */
 }
 
@@ -210,7 +240,7 @@
 .k-tabletop-preview-content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   padding: 0 80px;
   width: 100%;
@@ -301,9 +331,9 @@
 }
 
 .social-media-container {
-  max-width: 800px;
-  margin: 0px 80px 0px 80px;
-  padding: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
   text-align: left;
   background: transparent !important;
   background-color: transparent !important;
@@ -338,7 +368,7 @@
 .youtube-videos-section {
   text-align: left;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -406,7 +436,7 @@
 .instagram-reels-section {
   text-align: left;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1300px;
   margin: 0 auto;
 }
 
@@ -414,16 +444,40 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: rgb(0, 0, 0);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   letter-spacing: -0.01em;
   text-align: left;
 }
 
-.instagram-reels-grid {
+.instagram-reels-section + .instagram-follow-section {
+  margin-top: 40px;
+}
+
+.instagram-reels-carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.reels-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  overflow: visible;
+}
+
+.reels-carousel-track {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 24px;
-  margin-bottom: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  width: 100%;
+}
+
+.reels-carousel-slide {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
 }
 
 .instagram-reel-item {
@@ -432,6 +486,9 @@
   border-radius: 16px;
   overflow: hidden;
   background: transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .instagram-reel-item:hover {
@@ -441,7 +498,9 @@
 .reel-thumbnail-container {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
+  aspect-ratio: 9 / 18;
+  flex: 1 1 auto;
   overflow: hidden;
   border-radius: 16px;
 }
@@ -454,85 +513,87 @@
 }
 
 .instagram-reel-item:hover .reel-thumbnail {
-  transform: scale(1.04);
+  transform: scale(1.02);
 }
 
 .reel-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 0, 0.1) 0%, 
-    rgba(0, 0, 0, 0.3) 100%
-  );
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
-  /* Keep overlay hidden on hover */
 }
 
 .instagram-reel-item:hover .reel-overlay {
-  opacity: 0; /* Changed from opacity: 1 to opacity: 0 */
-}
-
-.instagram-icon {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-}
-
-.play-button {
-  width: 64px;
-  height: 64px;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
-}
-
-.instagram-reel-item:hover .play-button {
-  transform: scale(0.8); /* Changed from scale(1) to scale(0.8) to keep hidden */
-}
-
-.play-button svg {
-  margin-left: 2px;
+  opacity: 1;
 }
 
 .reel-info {
-  padding: 16px 0;
-  text-align: left;
-}
-
-.reel-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: rgb(0, 0, 0);
-  margin: 0 0 8px 0;
-  letter-spacing: -0.01em;
+  margin-top: 0;
 }
 
 .reel-description {
-  font-size: 0.95rem;
+  font-size: 1rem;
+  line-height: 1.5;
   color: rgba(0, 0, 0, 0.7);
   margin: 0;
-  line-height: 1.4;
+}
+
+.reels-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.reels-carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.reels-carousel-arrow-left {
+  left: 16px;
+}
+
+.reels-carousel-arrow-right {
+  right: 16px;
+}
+
+.reels-carousel-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.reels-carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.reels-carousel-dot.active {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.2);
+}
+
+.reels-carousel-dot:hover {
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Instagram Follow Button */
@@ -636,13 +697,17 @@
   }
   
   .section-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     margin-bottom: 40px;
     text-align: left;
   }
   
+  .social-media-container {
+    padding: 0 24px;
+  }
+  
   .embeds-grid {
-    gap: 40px;
+    gap: 48px;
   }
   
   .youtube-row {
@@ -666,7 +731,7 @@
   }
   
   .social-media-section {
-    padding: 0 16px 0px 16px; /* Top: 0, Right: 16px, Bottom: 40px, Left: 16px */
+    padding: 40px 0;
   }
 }
 
@@ -700,7 +765,7 @@
   
   .youtube-videos-section h3,
   .instagram-reels-section h3 {
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     text-align: left;
   }
   
@@ -718,13 +783,12 @@
   }
   
   .social-media-section {
-    padding: 0 0px 40px 0px; /* Top: 0, Right: 12px, Bottom: 40px, Left: 12px */
+    padding: 32px 0;
     margin-top: 0 !important;
-    margin: 0 0 0 0 !important;
   }
   
   .social-media-container {
-    padding: 0px 14px 0px 14px !important;
+    padding: 0 16px !important;
   }
   
   .k-tabletop-preview {
@@ -766,9 +830,11 @@
 
 /* Kitchen Items Section */
 .kitchen-items-section {
-  padding: 0px 80px;
-  margin: 0px 30.5px 90px 30.5px;
+  padding: 60px 24px;
+  margin: 0px 30px 0px 30px;
   background: transparent;
+  width: 100%;
+  max-width: 1600px;
 }
 
 /* Responsive design for Kitchen Items Section */
@@ -780,21 +846,33 @@
 
 @media (max-width: 768px) {
   .kitchen-items-section {
-    margin: 0px 40px 80px 40px;
-    padding: 0px 16px;
+    padding: 60px 0;
+    margin: 40px auto 0 auto;
   }
 }
 
 @media (max-width: 480px) {
-  .kitchen-items-section {
-    margin: 0px 0px 60px 0px;
-    padding: 0px 24px;
+  .kitchen-items-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  
+  .kitchen-items-header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  
+  .kitchen-items-cta {
+    align-self: auto;
   }
 }
 
 .kitchen-items-container {
-  max-width: 1000px;
-  margin: 0 auto;
+  max-width: 1600px;
+  margin: 0 5.5px;
+  padding: 0 20px;
   text-align: left;
 }
 
@@ -806,13 +884,11 @@
   margin-bottom: 32px;
 }
 
-.kitchen-items-header h3 {
-  font-size: 1.5rem;
+.kitchen-items-header .kitchen-items-title {
+  font-size: 1.5em;
   font-weight: 600;
-  color: rgb(0, 0, 0);
   margin: 0;
-  letter-spacing: -0.01em;
-  text-align: left;
+  color: rgb(0, 0, 0);
 }
 
 .kitchen-items-cta {
@@ -903,13 +979,8 @@
 }
 
 @media (max-width: 480px) {
-  .kitchen-items-section {
-    /* margin and padding already set above */
-  }
-  
-  .kitchen-items-row {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+  .kitchen-items-container {
+    padding: 0 16px;
   }
   
   .kitchen-items-header h3 {
@@ -969,10 +1040,8 @@
 .contact-me-title {
   font-size: 2.5rem;
   font-weight: 700;
-  line-height: 1.2;
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
-  letter-spacing: -0.02em;
 }
 
 .contact-me-description {

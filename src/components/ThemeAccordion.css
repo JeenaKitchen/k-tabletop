@@ -40,10 +40,12 @@
 .theme-title {
   margin: 0;
   font-size: 1.2rem;
-  font-weight: 600;
+  font-weight: 700;
   color: white;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
   flex: 1;
+  font-family: 'PT Serif', serif;
+  font-style: italic;
 }
 
 .caret-icon {

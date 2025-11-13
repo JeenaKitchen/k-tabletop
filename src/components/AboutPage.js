@@ -17,7 +17,10 @@ const AboutPage = () => {
     '/about-image/carousel-about6.jpg',
     '/about-image/carousel-about7.jpg',
     '/about-image/carousel-about8.jpg',
-    '/about-image/carousel-about9.jpg'
+    '/about-image/carousel-about9.jpg',
+    '/about-image/carousel-about11.jpg',
+    '/about-image/carousel-about11-1.jpg',
+    '/about-image/carousel-about11-2.jpg'
   ];
 
   const [numVisible, setNumVisible] = useState(() => (typeof window !== 'undefined' && window.innerWidth <= 768 ? 2 : 4));
@@ -132,43 +135,7 @@ const AboutPage = () => {
           </div>
 
           {/* Carousel Section - 3 Images Visible */}
-          <div className="carousel-section">
-            <h3>Blog in SYD</h3>
-            <div className="carousel-container">
-              <button className="carousel-arrow carousel-arrow-left" onClick={prevSlide}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                  <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                </svg>
-              </button>
-              
-              <div className="carousel-track">
-                {carouselImages.slice(currentSlide, currentSlide + numVisible).map((image, index) => (
-                  <div
-                    key={currentSlide + index}
-                    className="carousel-slide"
-                  >
-                    <img src={image} alt={`Carousel ${currentSlide + index + 1}`} />
-                  </div>
-                ))}
-              </div>
-              
-              <button className="carousel-arrow carousel-arrow-right" onClick={nextSlide}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                  <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                </svg>
-              </button>
-            </div>
-            
-            <div className="carousel-dots">
-              {Array.from({ length: Math.ceil(carouselImages.length / numVisible) }, (_, i) => i * numVisible).map((startIndex) => (
-                <button
-                  key={startIndex}
-                  className={`carousel-dot ${currentSlide === startIndex ? 'active' : ''}`}
-                  onClick={() => goToSlide(startIndex)}
-                />
-              ))}
-            </div>
-          </div>
+
 
         {/* Contact Banner Section */}
         <div className="about-contact-banner">
