@@ -130,6 +130,7 @@ body[data-lang="ko"] .kitchen-items-title,
 body[data-lang="ko"] .contact-me-title,
 body[data-lang="ko"] .youtube-videos-section h3 {
   font-family: 'Maruburi Bold', 'PT Serif', serif;
+  font-style: normal;
 }
 
 .section-title.section-title--h3 {
