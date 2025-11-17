@@ -72,9 +72,21 @@ const LandingPage = () => {
     thumbnail: image
   }));
 
-  const [reelsVisible, setReelsVisible] = useState(() => (typeof window !== 'undefined' && window.innerWidth <= 768 ? 2 : 4));
+  const [reelsVisible, setReelsVisible] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768 ? 2 : 4;
+    }
+    return 4;
+  });
   const [currentReelSlide, setCurrentReelSlide] = useState(0);
   const totalReels = instagramReels.length;
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth <= 768;
+    }
+    return false;
+  });
 
   useEffect(() => {
     if (typeof window === 'undefined') {
@@ -82,7 +94,9 @@ const LandingPage = () => {
     }
 
     const updateVisible = () => {
-      const visible = window.innerWidth <= 768 ? 2 : 4;
+      const mobile = window.innerWidth <= 768;
+      const visible = mobile ? 2 : 4;
+      setIsMobile(mobile);
       setReelsVisible(visible);
       setCurrentReelSlide((prev) => {
         const maxStart = Math.max(0, totalReels - visible);
@@ -115,6 +129,29 @@ const LandingPage = () => {
   };
 
   const reelDotIndices = Array.from({ length: Math.ceil(totalReels / reelsVisible) }, (_, i) => i * reelsVisible);
+
+  const handleReelsTouchStart = (event) => {
+    if (event.touches && event.touches.length === 1) {
+      setTouchStartX(event.touches[0].clientX);
+    }
+  };
+
+  const handleReelsTouchEnd = (event) => {
+    if (touchStartX === null || !event.changedTouches || event.changedTouches.length === 0) {
+      return;
+    }
+    const touchEndX = event.changedTouches[0].clientX;
+    const deltaX = touchEndX - touchStartX;
+    const swipeThreshold = 40;
+    if (Math.abs(deltaX) > swipeThreshold) {
+      if (deltaX < 0) {
+        handleNextReels();
+      } else {
+        handlePrevReels();
+      }
+    }
+    setTouchStartX(null);
+  };
 
   const handleInstagramClick = (url) => {
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -280,18 +317,12 @@ const LandingPage = () => {
                 <h3 className="section-title section-title--h3">{t('sections.followInstagram')}</h3>
                 <div className="section-divider"></div>
               </div>
-            <div className="instagram-reels-carousel">
+            <div
+              className="instagram-reels-carousel"
+              onTouchStart={handleReelsTouchStart}
+              onTouchEnd={handleReelsTouchEnd}
+            >
               <div className="reels-carousel-container">
-                <button
-                  className="reels-carousel-arrow reels-carousel-arrow-left"
-                  onClick={handlePrevReels}
-                  aria-label="Previous Instagram reel slide"
-                  type="button"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                  </svg>
-                </button>
                 <div className="reels-carousel-track">
                   {instagramReels.slice(currentReelSlide, currentReelSlide + reelsVisible).map((reel, index) => (
                     <div
@@ -322,29 +353,78 @@ const LandingPage = () => {
                     </div>
                   ))}
                 </div>
-                <button
-                  className="reels-carousel-arrow reels-carousel-arrow-right"
-                  onClick={handleNextReels}
-                  aria-label="Next Instagram reel slide"
-                  type="button"
-                >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                  </svg>
-                </button>
+                <div className="reels-carousel-controls">
+                  {isMobile ? (
+                    <>
+                      <div className="reels-carousel-status">
+                        <span>{Math.floor(currentReelSlide / reelsVisible) + 1} / {Math.ceil(totalReels / reelsVisible)}</span>
+                      </div>
+                      <div className="reels-carousel-arrows">
+                        <button
+                          className="reels-carousel-arrow"
+                          onClick={handlePrevReels}
+                          aria-label="Previous Instagram reel slide"
+                          type="button"
+                        >
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                          </svg>
+                        </button>
+                        <button
+                          className="reels-carousel-arrow"
+                          onClick={handleNextReels}
+                          aria-label="Next Instagram reel slide"
+                          type="button"
+                        >
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="reels-carousel-dots">
+                        {reelDotIndices.map((index) => {
+                          const currentPage = Math.floor(currentReelSlide / reelsVisible);
+                          const dotPage = index / reelsVisible;
+                          return (
+                            <button
+                              key={index}
+                              className={`reels-carousel-dot ${currentPage === dotPage ? 'active' : ''}`}
+                              onClick={() => handleGoToReels(index)}
+                              aria-label={`Go to slide ${dotPage + 1}`}
+                              type="button"
+                            />
+                          );
+                        })}
+                      </div>
+                      <div className="reels-carousel-arrows">
+                        <button
+                          className="reels-carousel-arrow"
+                          onClick={handlePrevReels}
+                          aria-label="Previous Instagram reel slide"
+                          type="button"
+                        >
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                          </svg>
+                        </button>
+                        <button
+                          className="reels-carousel-arrow"
+                          onClick={handleNextReels}
+                          aria-label="Next Instagram reel slide"
+                          type="button"
+                        >
+                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
+                          </svg>
+                        </button>
+                      </div>
+                    </>
+                  )}
+                </div>
               </div>
-              <div className="reels-carousel-dots">
-                {reelDotIndices.map((start) => (
-                  <button
-                    key={`reel-dot-${start}`}
-                    className={`reels-carousel-dot ${currentReelSlide === start ? 'active' : ''}`}
-                    onClick={() => handleGoToReels(start)}
-                    type="button"
-                    aria-label={`${t('blogCarousel.title')} slide ${start / reelsVisible + 1}`}
-                  />
-                ))}
-              </div>
-            </div>
               
             </div>
           </div>
@@ -508,6 +588,7 @@ const LandingPage = () => {
             <img src="/contact-images/contact-me-landing.png" alt="Contact Jeena's Kitchen" />
           </div>
         </div>
+      </div>
       </div>
     </div>
     </>

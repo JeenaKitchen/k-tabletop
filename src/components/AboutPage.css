@@ -50,7 +50,7 @@
 }
 
 .about-title {
-  font-size: 2.5rem;
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.2;
   color: rgb(0, 0, 0);
@@ -141,7 +141,7 @@ body[data-lang="ko"] .about-contact-title {
   margin: 16px 0;
   background: #fff8f0;
   border-radius: 23px;
-  padding: 24px 48px 24px 48px;
+  padding: 24px 24px 24px 24px;
 }
 
 .about-contact-content {
@@ -161,10 +161,10 @@ body[data-lang="ko"] .about-contact-title {
 }
 
 .about-contact-title {
-  font-size: 2rem;
+  font-size: 28px;
   font-weight: 700;
   color: rgb(0, 0, 0);
-  margin: 0 0 16px 0;
+  margin: 8px 0 16px 0;
   font-family: 'PT Serif', serif;
   font-style: italic;
 }
@@ -249,7 +249,7 @@ body[data-lang="ko"] .about-contact-title {
   }
   
   .about-title {
-    font-size: 2.5rem;
+    font-size: 32px;
     text-align: left;
     margin: 0 0 16px 0;
   }
@@ -357,8 +357,9 @@ body[data-lang="ko"] .about-contact-title {
   
   .youtube-videos-section h3,
   .instagram-reels-section h3,
-  .carousel-section h3 {
-    font-size: 1.25rem;
+  .carousel-section h3,
+  .social-media-section h3 {
+    font-size: 20px;
     text-align: left;
   }
   
@@ -371,6 +372,23 @@ body[data-lang="ko"] .about-contact-title {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+  
+  .about-contact-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .about-contact-text {
+    order: 1;
+  }
+  
+  .about-contact-image {
+    order: 2;
+  }
+  
+  .about-contact-cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
 }
 
 @media (max-width: 480px) {
@@ -379,7 +397,7 @@ body[data-lang="ko"] .about-contact-title {
   }
   
   .about-title {
-    font-size: 2.5rem;
+    font-size: 32px;
     text-align: left;
     margin: 0 0 32px 0;
   }
@@ -429,8 +447,9 @@ body[data-lang="ko"] .about-contact-title {
   
   .youtube-videos-section h3,
   .instagram-reels-section h3,
-  .carousel-section h3 {
-    font-size: 1.125rem;
+  .carousel-section h3,
+  .social-media-section h3 {
+    font-size: 20px;
     text-align: left;
   }
   

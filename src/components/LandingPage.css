@@ -96,13 +96,14 @@
 }
 
 .hero-title {
-  font-size: 3.5rem;
+  font-size: 48px;
   font-weight: 700;
   line-height: 1.2;
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   font-family: 'PT Serif', serif;
+  font-style: italic;
 }
 
 .highlight {
@@ -132,8 +133,8 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .section-title.section-title--h3 {
-  font-size: 1.5rem;
-  margin-bottom: 32px;
+  font-size: 24px;
+  margin-bottom: 16px;
   margin-left: 0;
   margin-right: 0;
 }
@@ -344,10 +345,10 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: 24px;
   font-weight: 700;
   color: rgb(0, 0, 0);
-  margin-bottom: 60px;
+  margin-bottom: 24px;
   letter-spacing: -0.02em;
   text-align: left;
   background: transparent;
@@ -441,7 +442,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .instagram-reels-section h3 {
-  font-size: 1.5rem;
+  font-size: 24px;
   font-weight: 600;
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
@@ -467,9 +468,30 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 
 .reels-carousel-track {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   width: 100%;
+}
+
+.reels-carousel-controls {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.reels-carousel-arrows {
+  display: inline-flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.reels-carousel-status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .reels-carousel-slide {
@@ -540,25 +562,21 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .reels-carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   background: rgba(0, 0, 0, 0.5);
   border: none;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 10;
   transition: all 0.3s ease;
 }
 
 .reels-carousel-arrow:hover {
   background: rgba(0, 0, 0, 0.7);
-  transform: translateY(-50%) scale(1.1);
+  transform: translateY(-2px);
 }
 
 .reels-carousel-arrow-left {
@@ -574,6 +592,14 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   gap: 12px;
   margin-top: 24px;
   justify-content: center;
+}
+
+.reels-carousel-controls .reels-carousel-dots {
+  margin-top: 0;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .reels-carousel-dot {
@@ -680,7 +706,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   }
   
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 32px;
   }
   
   .hero-description {
@@ -721,7 +747,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   
   .youtube-videos-section h3,
   .instagram-reels-section h3 {
-    font-size: 1.25rem;
+    font-size: 20px;
     text-align: left;
   }
   
@@ -741,7 +767,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   }
   
   .hero-title {
-    font-size: 2rem;
+    font-size: 32px;
   }
   
   .hero-description {
@@ -765,7 +791,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   
   .youtube-videos-section h3,
   .instagram-reels-section h3 {
-    font-size: 1.5rem;
+    font-size: 20px;
     text-align: left;
   }
   
@@ -831,27 +857,51 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 /* Kitchen Items Section */
 .kitchen-items-section {
   padding: 60px 24px;
-  margin: 0px 30px 0px 30px;
+  margin: 30px auto 0 auto;
   background: transparent;
-  width: 100%;
-  max-width: 1600px;
+  max-width: 1200px;
+  width: calc(100% - 24px);
 }
 
 /* Responsive design for Kitchen Items Section */
-@media (max-width: 1200px) {
-  .kitchen-items-section {
-    margin: 0px 100px 100px 100px;
-  }
-}
-
 @media (max-width: 768px) {
   .kitchen-items-section {
-    padding: 60px 0;
-    margin: 40px auto 0 auto;
+    padding: 12px 0;
+    margin: 12px auto 0 auto;
+    width: calc(100% - 24px);
+  }
+
+  .section-title.section-title--h3,
+  .kitchen-items-header .kitchen-items-title {
+    font-size: 20px;
+  }
+
+  .reels-carousel-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  .reels-carousel-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+ 
+  .reels-carousel-status {
+    font-size: 0.9rem;
+  }
+ 
+  .reels-carousel-dots {
+    display: none;
   }
 }
 
 @media (max-width: 480px) {
+  .section-title.section-title--h3,
+  .kitchen-items-header .kitchen-items-title {
+    font-size: 20px;
+  }
+
   .kitchen-items-row {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
@@ -860,7 +910,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   .kitchen-items-header {
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: left;
     gap: 16px;
   }
   
@@ -870,9 +920,9 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .kitchen-items-container {
-  max-width: 1600px;
-  margin: 0 5.5px;
-  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 12px;
   text-align: left;
 }
 
@@ -885,7 +935,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .kitchen-items-header .kitchen-items-title {
-  font-size: 1.5em;
+  font-size: 24px;
   font-weight: 600;
   margin: 0;
   color: rgb(0, 0, 0);
@@ -926,7 +976,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 .kitchen-items-grid {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 .kitchen-items-row {
@@ -1038,7 +1088,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 }
 
 .contact-me-title {
-  font-size: 2.5rem;
+  font-size: 32px;
   font-weight: 700;
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
