@@ -141,7 +141,7 @@ body[data-lang="ko"] .about-contact-title {
   margin: 16px 0;
   background: #fff8f0;
   border-radius: 23px;
-  padding: 24px 24px 24px 24px;
+  padding: 24px 48px 24px 48px;
 }
 
 .about-contact-content {
@@ -373,6 +373,10 @@ body[data-lang="ko"] .about-contact-title {
     gap: 40px;
   }
   
+  .about-contact-banner {
+    padding: 24px;
+  }
+
   .about-contact-content {
     grid-template-columns: 1fr;
   }
@@ -473,5 +477,197 @@ body[data-lang="ko"] .about-contact-title {
 
   .embeds-grid {
     padding: 0 12px; /* Match about-description small mobile padding */
+  }
+}
+
+/* Instagram Reels Section */
+.instagram-reels-section {
+  text-align: left;
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.instagram-reels-header {
+  margin-bottom: 24px;
+}
+
+.instagram-reels-section h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+  margin-bottom: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+}
+
+.instagram-reels-carousel {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.reels-carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  overflow: visible;
+}
+
+.reels-carousel-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+.reels-carousel-controls {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+}
+
+.reels-carousel-arrows {
+  display: inline-flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.reels-carousel-status {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.reels-carousel-slide {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.instagram-reel-item {
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  overflow: hidden;
+  background: transparent;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.instagram-reel-item:hover {
+  transform: scale(1.02);
+}
+
+.reel-thumbnail-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 9 / 18;
+  flex: 1 1 auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.reel-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.instagram-reel-item:hover .reel-thumbnail {
+  transform: scale(1.02);
+}
+
+.reel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.6) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.instagram-reel-item:hover .reel-overlay {
+  opacity: 1;
+}
+
+.reels-carousel-arrow {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reels-carousel-arrow:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-2px);
+}
+
+.reels-carousel-dots {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.reels-carousel-controls .reels-carousel-dots {
+  margin-top: 0;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.reels-carousel-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.reels-carousel-dot.active {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.2);
+}
+
+.reels-carousel-dot:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive styles for Instagram Reels Section */
+@media (max-width: 768px) {
+  .reels-carousel-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  .reels-carousel-controls {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+ 
+  .reels-carousel-status {
+    font-size: 0.9rem;
+  }
+ 
+  .reels-carousel-dots {
+    display: none;
   }
 }
