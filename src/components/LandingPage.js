@@ -217,6 +217,42 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Values Section */}
+      <div className="values-section">
+        <div className="values-container">
+          <div className="values-grid">
+            <div className="value-item">
+              <div className="value-image-container">
+                <img src="/values-images/warmth.jpg" alt={t('values.warmth.title')} className="value-image" />
+              </div>
+              <h4 className="value-title">{t('values.warmth.title')}</h4>
+              <p className="value-description">{t('values.warmth.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-image-container">
+                <img src="/values-images/connection.jpg" alt={t('values.connection.title')} className="value-image" />
+              </div>
+              <h4 className="value-title">{t('values.connection.title')}</h4>
+              <p className="value-description">{t('values.connection.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-image-container">
+                <img src="/values-images/comfort.jpg" alt={t('values.comfort.title')} className="value-image" />
+              </div>
+              <h4 className="value-title">{t('values.comfort.title')}</h4>
+              <p className="value-description">{t('values.comfort.description')}</p>
+            </div>
+            <div className="value-item">
+              <div className="value-image-container">
+                <img src="/values-images/thoughtfulness.jpg" alt={t('values.thoughtfulness.title')} className="value-image" />
+              </div>
+              <h4 className="value-title">{t('values.thoughtfulness.title')}</h4>
+              <p className="value-description">{t('values.thoughtfulness.description')}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       
       {/* K-Tabletop Preview Section */}
       {showKTabletopPreview && (

@@ -140,6 +140,67 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   margin-right: 0;
 }
 
+/* Values Section */
+.values-section {
+  width: 100%;
+  padding: 60px 80px;
+  background: transparent;
+}
+
+.values-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  align-items: start;
+}
+
+.value-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.value-image-container {
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 16px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+}
+
+.value-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.value-title {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'PT Serif', serif;
+  color: rgb(0, 0, 0);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+body[data-lang="ko"] .value-title {
+  font-family: 'Maruburi Bold', 'PT Serif', serif;
+  font-style: normal;
+}
+
+.value-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
 .hero-description {
   font-size: 1.25rem;
   line-height: 1.6;
@@ -713,6 +774,15 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   .hero-description {
     font-size: 1.125rem;
   }
+
+  .values-section {
+    padding: 40px 16px;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
   
   .cta-button {
     font-size: 1rem;
@@ -773,6 +843,15 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   
   .hero-description {
     font-size: 1rem;
+  }
+
+  .values-section {
+    padding: 32px 16px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
   }
   
   .cta-button {

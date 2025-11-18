@@ -11,6 +11,24 @@
     "kTabletopPreview": "K-Tabletop Preview",
     "watchLatestVideos": "Jeena's Perfect Recipes"
   },
+  "values": {
+    "warmth": {
+      "title": "Warmth",
+      "description": "A homey, welcoming feeling in every dish."
+    },
+    "connection": {
+      "title": "Connection",
+      "description": "Food that brings people together."
+    },
+    "comfort": {
+      "title": "Comfort",
+      "description": "Simple meals that soothe and nourish."
+    },
+    "thoughtfulness": {
+      "title": "Thoughtfulness",
+      "description": "Carefully made, down to every detail."
+    }
+  },
   "contact": {
     "title": "Collaborate with Jeena's Kitchen",
     "description": "Interested in working with Jeena's Kitchen? I collaborate with food, lifestyle, and wellness brands on sponsored content, recipe development, and events. Let's discuss how we can bring your vision to life.",

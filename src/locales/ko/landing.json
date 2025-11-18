@@ -10,6 +10,24 @@
     "kTabletopPreview": "K-테이블탑 미리보기",
     "watchLatestVideos": "최신 영상 보기"
   },
+  "values": {
+    "warmth": {
+      "title": "따뜻함",
+      "description": "모든 요리에 담긴 정겨운 환대의 마음."
+    },
+    "connection": {
+      "title": "연결",
+      "description": "사람들을 하나로 모으는 음식."
+    },
+    "comfort": {
+      "title": "편안함",
+      "description": "마음을 달래고 영양을 주는 소박한 식사."
+    },
+    "thoughtfulness": {
+      "title": "배려",
+      "description": "작은 디테일까지 신경 쓴 정성스러운 요리."
+    }
+  },
   "contact": {
     "title": "지나키친과의 협업을 원하시나요?",
     "description": "지나키친은 음식, 라이프 스타일, 웰니스 분야의 브랜드와 함께 스폰서 콘텐츠 제작, 레시피 개발, 이벤트 등을 진행하고 있습니다. 여러분의 브랜드가 가진 이야기를 맛있게 풀어갈 방법을 함께 찾아봐요.",
