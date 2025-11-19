@@ -143,9 +143,13 @@ body[data-lang="ko"] .youtube-videos-section h3 {
 /* Values Section */
 .values-section {
   width: 100%;
-  margin: 48px 30.5px;
+  max-width: 1200px;
+  margin: 48px auto;
   padding: 24px;
   background: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .values-container {
@@ -157,7 +161,7 @@ body[data-lang="ko"] .youtube-videos-section h3 {
   font-size: 24px;
   font-family: 'PT Serif', serif;
   font-weight: 700;
-  font-style: italic;
+  font-style: normal;
   text-align: left;
   margin-bottom: 40px;
   color: #1a1a1a;
@@ -401,6 +405,11 @@ body[data-lang="ko"] .value-title {
 }
 
 /* Social Media Section */
+
+.social-media-section {
+  margin: 0;
+  padding: 0;
+}
 
 .social-media-container {
   max-width: 1200px;
@@ -791,6 +800,8 @@ body[data-lang="ko"] .value-title {
 
   .values-section {
     padding: 40px 16px;
+    max-width: 1200px;
+    align-items: center;
   }
 
   .values-section-title {
@@ -816,6 +827,10 @@ body[data-lang="ko"] .value-title {
     font-size: 1.5rem;
     margin-bottom: 40px;
     text-align: left;
+  }
+
+  .kitchen-items-header .kitchen-items-title {
+    font-size: 20px;
   }
   
   .social-media-container {
@@ -1120,6 +1135,10 @@ body[data-lang="ko"] .value-title {
     align-items: center;
     gap: 16px;
   }
+
+  .kitchen-items-header .kitchen-items-title {
+    font-size: 20px;
+  }
   
   .kitchen-items-cta {
     align-self: auto;
@@ -1131,8 +1150,9 @@ body[data-lang="ko"] .value-title {
     padding: 0 16px;
   }
   
-  .kitchen-items-header h3 {
-    font-size: 1.25rem;
+  .kitchen-items-header h3,
+  .kitchen-items-header .kitchen-items-title {
+    font-size: 20px;
   }
   
   .kitchen-items-cta {
