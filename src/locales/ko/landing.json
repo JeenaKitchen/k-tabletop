@@ -16,16 +16,16 @@
       "description": "모든 요리에 담긴 정겨운 환대의 마음."
     },
     "connection": {
-      "title": "연결",
-      "description": "사람들을 하나로 모으는 음식."
+      "title": "연결고리",
+      "description": "사람들을 하나로 모으는 음식과 공감 가득한 이야기."
     },
     "comfort": {
       "title": "편안함",
-      "description": "마음을 달래고 영양을 주는 소박한 식사."
+      "description": "소박하지만 영양 가득한 한끼 식사."
     },
     "thoughtfulness": {
       "title": "배려",
-      "description": "작은 디테일까지 신경 쓴 정성스러운 요리."
+      "description": "진심이 담긴 디테일, 눈이 즐거운 식탁."
     }
   },
   "contact": {

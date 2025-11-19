@@ -53,15 +53,15 @@ const LandingPage = () => {
       url: 'https://www.instagram.com/jeenas.kitchen/'
     },
     {
+      image: '/about-image/carousel-about10.jpg',
+      url: 'https://www.instagram.com/jeenas.kitchen/'
+    },
+    {
       image: '/about-image/carousel-about11.jpg',
       url: 'https://www.instagram.com/jeenas.kitchen/'
     },
     {
-      image: '/about-image/carousel-about11-1.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about11-2.jpg',
+      image: '/about-image/carousel-about12.jpg',
       url: 'https://www.instagram.com/jeenas.kitchen/'
     }
   ];
