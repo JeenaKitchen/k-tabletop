@@ -176,13 +176,13 @@ const LandingPage = () => {
         <meta name="description" content={t('seo.description')} />
         <meta property="og:title" content={t('seo.ogTitle')} />
         <meta property="og:description" content={t('seo.ogDescription')} />
-        <meta property="og:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
+        <meta property="og:image" content="https://www.jeenaskitchen.store/hero-image/hero-image.jpg" />
         <meta property="og:url" content="https://www.jeenaskitchen.store/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={t('seo.twitterTitle')} />
         <meta name="twitter:description" content={t('seo.twitterDescription')} />
-        <meta name="twitter:image" content="https://www.jeenaskitchen.store/hero-image/hero-custome-image.png" />
+        <meta name="twitter:image" content="https://www.jeenaskitchen.store/hero-image/hero-image.jpg" />
       </Helmet>
       <div className="landing-page">
         <div className="landing-content">
@@ -190,7 +190,7 @@ const LandingPage = () => {
           <div 
             className="landing-hero"
           style={{
-            backgroundImage: 'url(/hero-image/hero-custome-image.png)'
+            backgroundImage: 'url(/hero-image/hero-image.jpg)'
           }}
         >
           <div className="hero-content">
@@ -212,7 +212,7 @@ const LandingPage = () => {
               </button>
             </div>
             <div className="hero-image">
-              <img src="/hero-image/mobile/hero-mobile.png" alt="Jeena's Kitchen" />
+              <img src="/hero-image/mobile/hero-mobile.jpg" alt="Jeena's Kitchen" />
             </div>
           </div>
         </div>
@@ -221,6 +221,7 @@ const LandingPage = () => {
       {/* Values Section */}
       <div className="values-section">
         <div className="values-container">
+          <h3 className="values-section-title">{t('values.title')}</h3>
           <div className="values-grid">
             <div className="value-item">
               <div className="value-image-container">
