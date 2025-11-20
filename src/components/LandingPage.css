@@ -22,7 +22,7 @@
 /* Hero Section */
 .landing-hero {
   position: relative;
-  min-height: 674px;
+  min-height: 620px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -98,18 +98,23 @@
 .hero-title {
   font-size: 48px;
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.6;
   color: rgb(0, 0, 0);
   margin-bottom: 24px;
   letter-spacing: -0.02em;
   font-family: 'PT Serif', serif;
-  font-style: italic;
+  
+
 }
 
 .highlight {
   color: rgb(0, 0, 0);
   font-family: inherit;
   font-weight: inherit;
+}
+
+.hero-title .highlight {
+  color: rgb(0, 0, 0);
 }
 
 .landing-content h2,
@@ -229,6 +234,7 @@ body[data-lang="ko"] .value-title {
   margin-bottom: 40px;
   font-weight: 400;
   max-width: 550px; /* Adjust this value to control width */
+
 }
 
 .cta-button {

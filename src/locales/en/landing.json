@@ -1,12 +1,12 @@
 {
   "hero": {
-    "title": "Korean Home Cooking from Sydney",
+    "title": "G'day and 안녕!",
     "koreanTitle": "시드니의 작은 부엌에서 시작된 한국 집밥 이야기",
-    "description": "Jeena's Kitchen is about Korean Home Cooking Story from my small kitchen in Sydney. Where every meal connects hearts and homes.",
-    "ctaButton": "Explore Recipes"
+    "description": "Jeena's Kitchen is about Korean Home Cooking Story from my small kitchen in Sydney where every meal connects family and community.",
+    "ctaButton": "Explore the Recipes"
   },
   "sections": {
-    "followInstagram": "Behind the Kitchen",
+    "followInstagram": "A Glimpse into My Sydney Life",
     "ourKitchenItems": "Jeena's Kitchen Items",
     "kTabletopPreview": "K-Tabletop Preview",
     "watchLatestVideos": "Jeena's Perfect Recipes"
@@ -31,8 +31,8 @@
     }
   },
   "contact": {
-    "title": "Collaborate with Jeena's Kitchen",
-    "description": "Interested in working with Jeena's Kitchen? I collaborate with food, lifestyle, and wellness brands on sponsored content, recipe development, and events. Let's discuss how we can bring your vision to life.",
+    "title": "Partner with Jeena's Kitchen to Grow Your Brand",
+    "description": "I collaborate with food, lifestyle, and wellness brands on various collaborations including:\n\nSponsored Content\n\nRecipe Development\n\nEvents\n\nLet's discuss how we can bring your brand's vision to life!",
     "ctaButton": "Schedule a Chat",
     "emailButton": "Email Us"
   },
