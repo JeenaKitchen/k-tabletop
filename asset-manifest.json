@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.1ae0557a.css",
-    "main.js": "/static/js/main.9a10a923.js",
+    "main.css": "/static/css/main.ee90bb87.css",
+    "main.js": "/static/js/main.670ccff2.js",
+    "static/media/MaruBuri-Bold.otf": "/static/media/MaruBuri-Bold.063fdc0633823c7eb7c0.otf",
     "index.html": "/index.html",
-    "main.1ae0557a.css.map": "/static/css/main.1ae0557a.css.map",
-    "main.9a10a923.js.map": "/static/js/main.9a10a923.js.map"
+    "main.ee90bb87.css.map": "/static/css/main.ee90bb87.css.map",
+    "main.670ccff2.js.map": "/static/js/main.670ccff2.js.map"
   },
   "entrypoints": [
-    "static/css/main.1ae0557a.css",
-    "static/js/main.9a10a923.js"
+    "static/css/main.ee90bb87.css",
+    "static/js/main.670ccff2.js"
   ]
 }
