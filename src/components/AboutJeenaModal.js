@@ -48,7 +48,7 @@ const AboutJeenaModal = ({ isOpen, onClose }) => {
   const getInstagramThumbnailUrl = (url) => {
     if (!url) return '';
     // Extract post ID from Instagram URL (supports both posts and reels with query parameters)
-    const postId = url.match(/instagram\.com\/(?:p|reel)\/([^\/\?#]+)/);
+    const postId = url.match(/instagram\.com\/(?:p|reel)\/([^/?#]+)/);
     console.log('Instagram URL:', url, 'Post ID:', postId ? postId[1] : 'Not found');
     if (postId) {
               // Manual mapping of post IDs to image URLs - replace with your actual image URLs

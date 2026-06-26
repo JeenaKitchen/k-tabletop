@@ -139,5 +139,6 @@ class SearchService {
   }
 }
 
-export default new SearchService();
+const searchServiceInstance = new SearchService();
+export default searchServiceInstance;
 

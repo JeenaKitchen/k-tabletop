@@ -20,7 +20,6 @@ const PARTNERSHIP_LOTTIE_SRC = '/animations/lottie/animation-15.json';
 
 const KTabletopPage = () => {
   const { theme, dish } = useParams();
-  const { t } = useTranslation('common');
   const { t: tAbout } = useTranslation('about');
   
   const [currentThemeIndex, setCurrentThemeIndex] = useState(0);
@@ -100,7 +99,7 @@ const KTabletopPage = () => {
         setCurrentThemeIndex(themeIndex);
       }
     }
-  }, [theme, themes]); // Removed currentThemeIndex from dependencies
+  }, [theme, themes, currentThemeIndex]);
 
   // Handle dish parameter to open modal (runs after theme is set)
   useEffect(() => {
@@ -127,7 +126,7 @@ const KTabletopPage = () => {
       setSelectedDish(foundDish);
       setIsModalOpen(true);
     }
-  }, [dish, currentTheme]);
+  }, [dish, currentTheme, isModalOpen]);
 
   // Update URL when theme changes (but not from URL params)
   useEffect(() => {
@@ -219,10 +218,6 @@ const KTabletopPage = () => {
 
   const handleAccordionToggle = () => {
     setIsAccordionOpen(!isAccordionOpen);
-  };
-
-  const handleAboutModalOpen = () => {
-    setIsAboutModalOpen(true);
   };
 
   const handleAboutModalClose = () => {

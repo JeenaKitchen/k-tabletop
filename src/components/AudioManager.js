@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const AudioManager = ({ currentTheme, isMuted, volume, onAudioReady }) => {
   const audioRef = useRef(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [, setIsLoading] = useState(false);
   const [currentAudioSrc, setCurrentAudioSrc] = useState('');
 
   useEffect(() => {

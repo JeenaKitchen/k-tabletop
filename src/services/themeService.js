@@ -121,4 +121,5 @@ class ThemeService {
   }
 }
 
-export default new ThemeService();
+const themeServiceInstance = new ThemeService();
+export default themeServiceInstance;

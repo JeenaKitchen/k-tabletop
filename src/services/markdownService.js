@@ -308,4 +308,5 @@ class MarkdownService {
   }
 }
 
-export default new MarkdownService();
+const markdownServiceInstance = new MarkdownService();
+export default markdownServiceInstance;
