@@ -1,7 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './ThemeBackground.css';
 
-const ThemeBackground = ({ background, video, isTransitioning, transitionDirection }) => {
+const ThemeBackground = ({
+  background,
+  video,
+  isTransitioning,
+  transitionDirection,
+  isMuted = false,
+  volume = 0.5,
+  hasSeparateSound = true,
+}) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [showLoading, setShowLoading] = useState(false);
@@ -39,6 +47,14 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
   }, [video, loadingStartTime, isVideoLoaded]);
 
   useEffect(() => {
+    if (videoRef.current && video && !hasSeparateSound) {
+      const videoElement = videoRef.current;
+      videoElement.muted = isMuted;
+      videoElement.volume = isMuted ? 0 : volume;
+    }
+  }, [video, isMuted, volume, hasSeparateSound]);
+
+  useEffect(() => {
     if (videoRef.current && video) {
       const videoElement = videoRef.current;
       
@@ -51,6 +67,10 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
       
       const handleCanPlay = () => {
         console.log('Video can play, attempting to start playback:', video);
+        if (!hasSeparateSound) {
+          videoElement.muted = isMuted;
+          videoElement.volume = isMuted ? 0 : volume;
+        }
         videoElement.play().catch((error) => {
           console.error('Failed to play video:', error);
           setIsVideoPlaying(false);
@@ -73,7 +93,7 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
         videoElement.removeEventListener('error', handleError);
       };
     }
-  }, [video]);
+  }, [video, hasSeparateSound, isMuted, volume]);
 
   return (
     <div className={`theme-background ${isTransitioning ? 'transitioning' : ''} ${isTransitioning ? `transition-${transitionDirection}` : ''}`}>
@@ -83,7 +103,7 @@ const ThemeBackground = ({ background, video, isTransitioning, transitionDirecti
           ref={videoRef}
           className={`theme-video ${isVideoLoaded ? 'loaded' : ''} ${isTransitioning ? 'transitioning' : ''}`}
           autoPlay 
-          muted 
+          muted={hasSeparateSound || isMuted}
           loop 
           playsInline
         >

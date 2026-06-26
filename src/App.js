@@ -11,7 +11,20 @@ import KTabletopPage from './components/KTabletopPage';
 import ItemsPage from './components/ItemsPage';
 import ContactPage from './components/ContactPage';
 import BlogPage from './components/BlogPage';
+import BlogPostPage from './components/BlogPostPage';
 import { useTranslation } from './hooks/useTranslation';
+
+const GoogleAnalytics = () => {
+  const location = useLocation();
+  React.useEffect(() => {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: location.pathname + location.search,
+      });
+    }
+  }, [location]);
+  return null;
+};
 
 // Language wrapper component to handle language detection from URL
 const LanguageWrapper = ({ children }) => {
@@ -47,6 +60,7 @@ function App() {
     <HelmetProvider>
       <Router>
         <LanguageWrapper>
+          <GoogleAnalytics />
           <div className="App">
             <NavigationBar />
             <Routes>
@@ -58,6 +72,7 @@ function App() {
               <Route path="/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
               <Route path="/items" element={<ItemsPage />} />
             <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/:collection/:slug" element={<BlogPostPage />} />
             <Route path="/contact" element={<ContactPage />} />
               
               {/* Korean routes */}
@@ -68,6 +83,7 @@ function App() {
               <Route path="/kr/k-tabletop/:theme/:dish" element={<KTabletopPage />} />
               <Route path="/kr/items" element={<ItemsPage />} />
             <Route path="/kr/blog" element={<BlogPage />} />
+            <Route path="/kr/blog/:collection/:slug" element={<BlogPostPage />} />
             <Route path="/kr/contact" element={<ContactPage />} />
             </Routes>
           </div>

@@ -32,8 +32,7 @@
   padding-top: 0px;
   opacity: 1;
   transition: opacity 1s ease-out;
-  font-family: 'PT Serif', serif;
-  font-style: italic;
+  font-family: var(--font-heading);
 }
 
 .theme-title.fade-out {
@@ -47,9 +46,8 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -116,7 +114,7 @@ body {
 
 .loading-container p {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 18px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
@@ -150,7 +148,7 @@ body {
 .error-container h2,
 .no-themes-container h2 {
   margin: 0 0 16px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-heading);
   font-size: 24px;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.95);
@@ -160,7 +158,7 @@ body {
 .error-container p,
 .no-themes-container p {
   margin: 0 0 32px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.8);
@@ -172,9 +170,9 @@ body {
   background: linear-gradient(135deg, #007AFF 0%, #0056CC 100%);
   color: white;
   border: none;
-  padding: 14px 28px;
+  padding: 12px 24px;
   border-radius: 12px;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
@@ -206,7 +204,7 @@ body {
 
 .error-help p {
   margin: 0 0 12px 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
@@ -216,7 +214,7 @@ body {
 .error-help ul {
   margin: 0;
   padding-left: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.6;
@@ -247,7 +245,7 @@ body {
 }
 
 .error-banner span {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.9);
@@ -260,7 +258,7 @@ body {
   border: none;
   padding: 8px 16px;
   border-radius: 8px;
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;

@@ -75,9 +75,8 @@ export const themeConfig = [
     notionThemeName: "Namdaemun Market",
     description: "Dive into the heart of Seoul's liveliest market with trending street eats, bold local flavors, and the buzzing energy of Namdaemun.",
     koreanDescription: "전통시장에서 먹던 분식과 길거리 음식은 어린 저에게 많은 추억이 있는 곳입니다. 언제 들려도 전통시장의 활기찬 에너지는 음식만큼이나 그리워집니다. 남대문 시장에서 가장 인기 있는 길거리 음식을 즐겨보세요.",
-    /*background: "/Themes/namdaemun-market.jpg",*/
-    video: "/Videos/namdaemun-market.mp4",
-    sound: "/Sounds/namdaemun-market.mp3",
+    /*background: "/Themes/namdaemunmarket.png",*/
+    video: "/Videos/namdaemunmarket.mp4",
     dishes: staticThemes.find(t => t.name === "Namdaemun Market")?.dishes || []
   },
   {

@@ -5,8 +5,38 @@
     "description": "Jeena's Kitchen is about Korean Home Cooking Story from my small kitchen in Sydney where every meal connects family and community.",
     "ctaButton": "Explore the Recipes"
   },
+  "animationGrid": {
+    "title": "Korean Tabletop Recipe",
+    "description": "Explore themed Korean recipes through an interactive tabletop experience. Discover dishes, stories, and cooking notes from Jeena's kitchen.",
+    "ctaButton": "Explore now"
+  },
+  "thingsWeLove": {
+    "title": "Things we love",
+    "description": "Let's eat a home-cooked meal together, and be grateful for it. Simple, everyday things that matter more than they seem to.",
+    "ctaButton": "About us"
+  },
+  "whatICook": {
+    "title": "What I Cook",
+    "description": "A glimpse into my daily cooking — from early morning lunch boxes to cozy weeknight meals shared on Instagram.",
+    "ctaButton": "Learn more",
+    "badge": "Jeena in Sydney",
+    "reels": [
+      { "title": "My in-law's reaction on the brakfast I made" },
+      { "title": "Making 10Kg Kimchi and sharing with my neighbors" },
+      { "title": "Marriaged wife needs her own time and salmon ockzake" },
+      { "title": "Making 10 Korean side dishes with 30 dollers" },
+      { "title": "Top 3 Korean holiday dishes: Nabak Kimchi, Galbi-jjim, and Gujeolpan" },
+      { "title": "Who said Korean dumplings suck? My Shanghainese husbands loves my Korean style Mandu!" },
+      { "title": "Marinated Salmon Rice Bowl with my husband at home" },
+      { "title": "New house and my own kitchen after 11 years" },
+      { "title": "Making Tteokbokki, and Korean street food at home" },
+      { "title": "New oak didning table" },
+      { "title": "How to versitile one dish to make multiple meals" },
+      { "title": "First time, living with my in-laws" }
+    ]
+  },
   "sections": {
-    "followInstagram": "A Glimpse into My Sydney Life",
+    "followInstagram": "More stories on Youtube",
     "ourKitchenItems": "Jeena's Kitchen Items",
     "kTabletopPreview": "K-Tabletop Preview",
     "watchLatestVideos": "Jeena's Perfect Recipes"
@@ -31,8 +61,8 @@
     }
   },
   "contact": {
-    "title": "Partner with Jeena's Kitchen to Grow Your Brand",
-    "description": "I collaborate with food, lifestyle, and wellness brands on various collaborations including:\n\nSponsored Content\n\nRecipe Development\n\nEvents\n\nLet's discuss how we can bring your brand's vision to life!",
+    "title": "Grow your brand with Jeena's Kitchen",
+    "description": "I collaborate with food, lifestyle, and wellness brands etc. on various collaborations including: Sponsored content recipe development events. Let's discuss how we can bring your brand's vision to life!'s vision to life!",
     "ctaButton": "Schedule a Chat",
     "emailButton": "Email Us"
   },

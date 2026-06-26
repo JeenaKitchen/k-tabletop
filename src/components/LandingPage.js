@@ -2,81 +2,76 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../hooks/useTranslation';
+import LottieAnimation from './landing/LottieAnimation';
+import VideoAnimation from './landing/VideoAnimation';
+import VerticalLottieCarousel from './landing/VerticalLottieCarousel';
+import ScrollReveal from './landing/ScrollReveal';
+import './landing/ScrollReveal.css';
 import './LandingPage.css';
+
+const VIDEO_CACHE_VERSION = '2025062315';
+
+const VIDEO_SOURCES = {
+  1: `/animations/video/animation-1.mp4?v=${VIDEO_CACHE_VERSION}`,
+  2: `/animations/video/animation-2.mp4?v=${VIDEO_CACHE_VERSION}`,
+  3: `/animations/video/animation-3.mp4?v=${VIDEO_CACHE_VERSION}`,
+  4: `/animations/video/animation-4.mp4?v=${VIDEO_CACHE_VERSION}`,
+  5: `/animations/video/animation-5.mp4?v=${VIDEO_CACHE_VERSION}`,
+  6: `/animations/video/animation-6.mp4?v=${VIDEO_CACHE_VERSION}`,
+};
+
+const LOTTIE_SOURCES = {
+  hero: '/animations/lottie/landing-hero.json',
+  11: '/animations/lottie/animation-11.json',
+  12: '/animations/lottie/animation-12.json',
+  13: '/animations/lottie/animation-13.json',
+  14: '/animations/lottie/animation-14.json',
+  15: '/animations/lottie/animation-15.json',
+};
+
+const KITCHEN_PICK_ITEMS = [
+  { src: '/items-images/Stagg EKG Electric Kettle.jpg', alt: 'Stagg EKG Electric Kettle' },
+  { src: '/items-images/Nespresso Vertuo Pop Solo Coconut White.jpg', alt: 'Nespresso Vertuo Pop Solo Coconut White' },
+  { src: '/items-images/Staub Round Cocotte 18cm Black.jpg', alt: 'Staub Round Cocotte 18cm Black' },
+  { src: '/items-images/Zwilling Four Star 6 Set.jpg', alt: 'Zwilling Four Star 6 Set' },
+  { src: '/items-images/Mino Pottery Mino Ware Curio 210 Deep Plate.jpg', alt: 'Mino Pottery Mino Ware Curio 210 Deep Plate' },
+  { src: '/items-images/Kinto Cast Iced Tea Glass.jpg', alt: 'Kinto Cast Iced Tea Glass' },
+  { src: '/items-images/Dusen Dusen Everybody Timer.png', alt: 'Dusen Dusen Everybody Timer' },
+  { src: '/items-images/airrmade ceramic butter mug.jpg', alt: 'Airrmade Ceramic Butter Mug' },
+];
 
 const LandingPage = () => {
   const navigate = useNavigate();
   const { t } = useTranslation('landing');
-  const heroTitleLines = t('hero.title').split('\n');
-  const showKTabletopPreview = false;
 
-  const handleExploreThemes = () => {
-    navigate('/k-tabletop');
-  };
-
-  // Blog in SYD carousel images reused for Instagram reels section
   const blogCarouselImages = [
-    {
-      image: '/about-image/carousel-about1.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about2.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about3.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about4.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about5.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about6.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about7.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about8.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about9.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about10.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about11.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    },
-    {
-      image: '/about-image/carousel-about12.jpg',
-      url: 'https://www.instagram.com/jeenas.kitchen/'
-    }
+    { image: '/about-image/reel-photos/reel-photo-1.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-2.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-3.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-4.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-5.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-6.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-7.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-8.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-9.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-10.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-11.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-12.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
   ];
 
   const instagramReels = blogCarouselImages.map(({ image, url }, index) => ({
     id: `blog-in-syd-${index + 1}`,
     url,
-    thumbnail: image
+    thumbnail: image,
+    titleKey: `whatICook.reels.${index}.title`,
+    theme: index % 2 === 0 ? 'light' : 'dark',
   }));
 
   const [reelsVisible, setReelsVisible] = useState(() => {
     if (typeof window !== 'undefined') {
-      return window.innerWidth <= 768 ? 2 : 4;
+      return window.innerWidth <= 768 ? 2 : 3;
     }
-    return 4;
+    return 3;
   });
   const [currentReelSlide, setCurrentReelSlide] = useState(0);
   const totalReels = instagramReels.length;
@@ -95,7 +90,7 @@ const LandingPage = () => {
 
     const updateVisible = () => {
       const mobile = window.innerWidth <= 768;
-      const visible = mobile ? 2 : 4;
+      const visible = mobile ? 2 : 3;
       setIsMobile(mobile);
       setReelsVisible(visible);
       setCurrentReelSlide((prev) => {
@@ -128,7 +123,10 @@ const LandingPage = () => {
     setCurrentReelSlide(index);
   };
 
-  const reelDotIndices = Array.from({ length: Math.ceil(totalReels / reelsVisible) }, (_, i) => i * reelsVisible);
+  const reelDotIndices = Array.from(
+    { length: Math.ceil(totalReels / reelsVisible) },
+    (_, i) => i * reelsVisible
+  );
 
   const handleReelsTouchStart = (event) => {
     if (event.touches && event.touches.length === 1) {
@@ -169,6 +167,121 @@ const LandingPage = () => {
     }
   };
 
+  const renderReelsCarousel = () => (
+    <div
+      className="instagram-reels-carousel"
+      onTouchStart={handleReelsTouchStart}
+      onTouchEnd={handleReelsTouchEnd}
+    >
+      <div className="reels-carousel-container">
+        <div className="reels-carousel-track">
+          {instagramReels.slice(currentReelSlide, currentReelSlide + reelsVisible).map((reel, index) => (
+            <div key={`${reel.id}-${index}`} className="reels-carousel-slide">
+              <div
+                className={`instagram-reel-item reel-card reel-card--${reel.theme}`}
+                onClick={() => handleInstagramClick(reel.url)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    handleInstagramClick(reel.url);
+                  }
+                }}
+              >
+                <div className="reel-card-header">
+                  <span className="reel-card-badge">{t('whatICook.badge')}</span>
+                  <p className="reel-card-title">{t(reel.titleKey)}</p>
+                </div>
+                <div className="reel-card-image">
+                  <img
+                    src={reel.thumbnail}
+                    alt={t(reel.titleKey)}
+                    className="reel-thumbnail"
+                  />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div className="reels-carousel-controls">
+          {isMobile ? (
+            <>
+              <div className="reels-carousel-status">
+                <span>
+                  {Math.floor(currentReelSlide / reelsVisible) + 1} /{' '}
+                  {Math.ceil(totalReels / reelsVisible)}
+                </span>
+              </div>
+              <div className="reels-carousel-arrows">
+                <button
+                  className="reels-carousel-arrow"
+                  onClick={handlePrevReels}
+                  aria-label="Previous Instagram reel slide"
+                  type="button"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                  </svg>
+                </button>
+                <button
+                  className="reels-carousel-arrow"
+                  onClick={handleNextReels}
+                  aria-label="Next Instagram reel slide"
+                  type="button"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                  </svg>
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <div className="reels-carousel-dots">
+                {reelDotIndices.map((index) => {
+                  const currentPage = Math.floor(currentReelSlide / reelsVisible);
+                  const dotPage = index / reelsVisible;
+                  return (
+                    <button
+                      key={index}
+                      className={`reels-carousel-dot ${currentPage === dotPage ? 'active' : ''}`}
+                      onClick={() => handleGoToReels(index)}
+                      aria-label={`Go to slide ${dotPage + 1}`}
+                      type="button"
+                    />
+                  );
+                })}
+              </div>
+              <div className="reels-carousel-arrows">
+                <button
+                  className="reels-carousel-arrow"
+                  onClick={handlePrevReels}
+                  aria-label="Previous Instagram reel slide"
+                  type="button"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+                  </svg>
+                </button>
+                <button
+                  className="reels-carousel-arrow"
+                  onClick={handleNextReels}
+                  aria-label="Next Instagram reel slide"
+                  type="button"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+                  </svg>
+                </button>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <>
       <Helmet>
@@ -184,450 +297,224 @@ const LandingPage = () => {
         <meta name="twitter:description" content={t('seo.twitterDescription')} />
         <meta name="twitter:image" content="https://www.jeenaskitchen.store/hero-image/hero-image.jpg" />
       </Helmet>
-      <div className="landing-page">
-        <div className="landing-content">
-          {/* Hero Section */}
-          <div 
-            className="landing-hero"
-          style={{
-            backgroundImage: 'url(/hero-image/hero-image.jpg)'
-          }}
-        >
-          <div className="hero-content">
-            <div className="hero-text">
-              <h1 className="hero-title">
-                {heroTitleLines.map((line, index) => (
-                  <React.Fragment key={index}>
-                    <span className={index === 0 ? 'highlight' : undefined}>{line}</span>
-                    {index < heroTitleLines.length - 1 && <br />}
-                  </React.Fragment>
-                ))}
-              </h1>
-              <p className="hero-description">
-                {t('hero.description')}
-              </p>
-              <button className="cta-button" onClick={handleExploreThemes}>
-                <span>{t('hero.ctaButton')}</span>
-                <div className="button-shine"></div>
-              </button>
-            </div>
-            <div className="hero-image">
-              <img src="/hero-image/mobile/hero-mobile.jpg" alt="Jeena's Kitchen" />
-            </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Values Section */}
-      <div className="values-section">
-        <div className="values-container">
-          <h3 className="values-section-title">{t('values.title')}</h3>
-          <div className="values-grid">
-            <div className="value-item">
-              <div className="value-image-container">
-                <img src="/values-images/warmth.jpg" alt={t('values.warmth.title')} className="value-image" />
-              </div>
-              <h4 className="value-title">{t('values.warmth.title')}</h4>
-              <p className="value-description">{t('values.warmth.description')}</p>
-            </div>
-            <div className="value-item">
-              <div className="value-image-container">
-                <img src="/values-images/connection.jpg" alt={t('values.connection.title')} className="value-image" />
-              </div>
-              <h4 className="value-title">{t('values.connection.title')}</h4>
-              <p className="value-description">{t('values.connection.description')}</p>
-            </div>
-            <div className="value-item">
-              <div className="value-image-container">
-                <img src="/values-images/comfort.jpg" alt={t('values.comfort.title')} className="value-image" />
-              </div>
-              <h4 className="value-title">{t('values.comfort.title')}</h4>
-              <p className="value-description">{t('values.comfort.description')}</p>
-            </div>
-            <div className="value-item">
-              <div className="value-image-container">
-                <img src="/values-images/thoughtfulness.jpg" alt={t('values.thoughtfulness.title')} className="value-image" />
-              </div>
-              <h4 className="value-title">{t('values.thoughtfulness.title')}</h4>
-              <p className="value-description">{t('values.thoughtfulness.description')}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* K-Tabletop Preview Section */}
-      {showKTabletopPreview && (
-        <div className="k-tabletop-preview">
-          <video 
-            className="k-tabletop-video-bg"
-            autoPlay 
-            muted 
-            loop 
-            playsInline
-          >
-            <source src="/Videos/korean-drama-night.mp4" type="video/mp4" />
-          </video>
-          <div className="k-tabletop-preview-content">
-            <div className="k-tabletop-text">
-              <h2 className="k-tabletop-title">{t('hero.subtitle')}</h2>
-              <p className="k-tabletop-description">
-                {t('hero.description')}
-              </p>
-              <button className="k-tabletop-cta" onClick={() => navigate('/k-tabletop')}>
+      <div className="landing-page">
+        {/* Hero — text + Lottie */}
+        <section className="hero-section">
+          <div className="hero-section-inner">
+            <ScrollReveal className="hero-text" delay={0}>
+              <h1 className="hero-title">{t('hero.title')}</h1>
+              <p className="hero-description">{t('hero.description')}</p>
+              <button className="cta-button" type="button" onClick={() => navigate('/k-tabletop')}>
                 <span>{t('hero.ctaButton')}</span>
-                <div className="button-shine"></div>
+                <div className="button-shine" />
               </button>
-            </div>
-            <div className="k-tabletop-image">
-              <img src="/custom-images/k-tabletop-preview-image.png" alt="K-Tabletop Preview Image" />
+            </ScrollReveal>
+            <ScrollReveal className="hero-lottie-wrap" delay={120}>
+              <LottieAnimation
+                src={LOTTIE_SOURCES.hero}
+                className="hero-lottie"
+                preserveAspectRatio="xMidYMid meet"
+              />
+            </ScrollReveal>
+          </div>
+        </section>
+
+        <section
+          className="animation-grid-section"
+          style={{ backgroundImage: 'url(/images/animation-grid-bg.png)' }}
+        >
+          <div className="landing-section-inner">
+            <div className="animation-grid">
+              <ScrollReveal className="animation-grid-cell animation-grid-cell--pos-3" delay={0}>
+                <VideoAnimation
+                  src={VIDEO_SOURCES[3]}
+                  className="animation-grid-cell"
+                />
+              </ScrollReveal>
+              <ScrollReveal className="animation-grid-cell animation-grid-cell--pos-4" delay={80}>
+                <VideoAnimation
+                  src={VIDEO_SOURCES[4]}
+                  className="animation-grid-cell"
+                />
+              </ScrollReveal>
+              <ScrollReveal className="animation-grid-text" delay={160}>
+                <h2 className="section-title">{t('animationGrid.title')}</h2>
+                <p className="section-description">{t('animationGrid.description')}</p>
+                <button className="cta-button" type="button" onClick={() => navigate('/k-tabletop')}>
+                  <span>{t('animationGrid.ctaButton')}</span>
+                  <div className="button-shine" />
+                </button>
+              </ScrollReveal>
+              <ScrollReveal className="animation-grid-cell animation-grid-cell--large" delay={240}>
+                <VideoAnimation
+                  src={VIDEO_SOURCES[2]}
+                  className="animation-grid-cell animation-grid-cell--large"
+                />
+              </ScrollReveal>
+              <ScrollReveal className="animation-grid-cell animation-grid-cell--pos-5" delay={320}>
+                <VideoAnimation
+                  src={VIDEO_SOURCES[5]}
+                  className="animation-grid-cell"
+                />
+              </ScrollReveal>
+              <ScrollReveal className="animation-grid-cell animation-grid-cell--pos-6" delay={400}>
+                <VideoAnimation
+                  src={VIDEO_SOURCES[6]}
+                  className="animation-grid-cell"
+                />
+              </ScrollReveal>
             </div>
           </div>
-        </div>
-      )}
-      
-      {/* Social Media Section */}
-      <div className="social-media-section">
-        <div className="social-media-container">
-          
-          <div className="embeds-grid">
-            {/* YouTube Videos Grid */}
-            <div className="youtube-videos-section">
-              <h3>{t('sections.watchLatestVideos')}</h3>
-              <div className="youtube-grid">
-                {/* Row 1 */}
-                <div className="youtube-row">
-                  <div className="youtube-embed-item">
-                    <iframe
-                      width="100%"
-                      height="auto"
-                      src="https://www.youtube.com/embed/bJgz1qTa8Cg?modestbranding=1&rel=0&showinfo=0&controls=0"
-                      title="Korean Gimbap Video"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div className="youtube-embed-item">
-                    <iframe
-                      width="100%"
-                      height="auto"
-                      src="https://www.youtube.com/embed/WjNX3pNa9Oo?modestbranding=1&rel=0&showinfo=0&controls=0"
-                      title="Korean Cooking Video 2"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
-                
-                {/* Row 2 */}
-                <div className="youtube-row">
-                  <div className="youtube-embed-item">
-                    <iframe
-                      width="100%"
-                      height="auto"
-                      src="https://www.youtube.com/embed/naS9csQ4inA?modestbranding=1&rel=0&showinfo=0&controls=0"
-                      title="Korean Cooking Video 3"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                  <div className="youtube-embed-item">
-                    <iframe
-                      width="100%"
-                      height="auto"
-                      src="https://www.youtube.com/embed/w_QVOV3VJwY?modestbranding=1&rel=0&showinfo=0&controls=0"
-                      title="Korean Cooking Video 4"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    ></iframe>
-                  </div>
-                </div>
-              </div>
+        </section>
+
+        {/* Things We Love — Animations 7–14 */}
+        <section className="things-we-love-section">
+          <div className="landing-section-inner">
+            <div className="things-we-love-grid">
+              <ScrollReveal className="things-we-love-left" delay={0}>
+                <h3 className="things-we-love-title">{t('thingsWeLove.title')}</h3>
+                <p className="things-we-love-description">{t('thingsWeLove.description')}</p>
+                <button className="cta-button" type="button" onClick={() => navigate('/about')}>
+                  <span>{t('thingsWeLove.ctaButton')}</span>
+                  <div className="button-shine" />
+                </button>
+              </ScrollReveal>
+              <ScrollReveal className="things-we-love-right" delay={100}>
+                <VerticalLottieCarousel
+                  sources={[
+                    LOTTIE_SOURCES[11],
+                    LOTTIE_SOURCES[12],
+                    LOTTIE_SOURCES[13],
+                    LOTTIE_SOURCES[14],
+                  ]}
+                />
+              </ScrollReveal>
             </div>
-            
-            {/* Instagram Reels with Custom Thumbnails */}
-            <div className="instagram-reels-section">
-              <div className="instagram-reels-header">
-                <h3 className="section-title section-title--h3">{t('sections.followInstagram')}</h3>
-                <div className="section-divider"></div>
-              </div>
-            <div
-              className="instagram-reels-carousel"
-              onTouchStart={handleReelsTouchStart}
-              onTouchEnd={handleReelsTouchEnd}
-            >
-              <div className="reels-carousel-container">
-                <div className="reels-carousel-track">
-                  {instagramReels.slice(currentReelSlide, currentReelSlide + reelsVisible).map((reel, index) => (
-                    <div
-                      key={`${reel.id}-${index}`}
-                      className="reels-carousel-slide"
-                    >
-                      <div
-                        className="instagram-reel-item"
-                        onClick={() => handleInstagramClick(reel.url)}
-                        role="button"
-                        tabIndex={0}
-                        onKeyDown={(event) => {
-                          if (event.key === 'Enter' || event.key === ' ') {
-                            event.preventDefault();
-                            handleInstagramClick(reel.url);
-                          }
-                        }}
-                      >
-                        <div className="reel-thumbnail-container">
-                          <img 
-                            src={reel.thumbnail}
-                            alt="Instagram reel thumbnail"
-                            className="reel-thumbnail"
-                          />
-                          <div className="reel-overlay" />
-                        </div>
+          </div>
+        </section>
+
+        {/* Kitchen Pick — unchanged */}
+        <div className="kitchen-items-section">
+          <div className="landing-section-inner">
+            <div className="kitchen-items-container">
+              <ScrollReveal className="kitchen-items-header" delay={0}>
+                <h3 className="kitchen-items-title">{t('sections.ourKitchenItems')}</h3>
+                <button className="kitchen-items-cta" type="button" onClick={() => navigate('/items')}>
+                  <span>{t('View All')}</span>
+                  <div className="button-shine" />
+                </button>
+              </ScrollReveal>
+
+              <div className="kitchen-items-grid">
+                <div className="kitchen-items-row">
+                  {KITCHEN_PICK_ITEMS.slice(0, 4).map((item, index) => (
+                    <ScrollReveal key={item.src} className="kitchen-item" delay={index * 80}>
+                      <div className="kitchen-item-image-container">
+                        <img src={item.src} alt={item.alt} className="kitchen-item-image" />
                       </div>
-                    </div>
+                    </ScrollReveal>
                   ))}
                 </div>
-                <div className="reels-carousel-controls">
-                  {isMobile ? (
-                    <>
-                      <div className="reels-carousel-status">
-                        <span>{Math.floor(currentReelSlide / reelsVisible) + 1} / {Math.ceil(totalReels / reelsVisible)}</span>
+                <div className="kitchen-items-row">
+                  {KITCHEN_PICK_ITEMS.slice(4, 8).map((item, index) => (
+                    <ScrollReveal key={item.src} className="kitchen-item" delay={(index + 4) * 80}>
+                      <div className="kitchen-item-image-container">
+                        <img src={item.src} alt={item.alt} className="kitchen-item-image" />
                       </div>
-                      <div className="reels-carousel-arrows">
-                        <button
-                          className="reels-carousel-arrow"
-                          onClick={handlePrevReels}
-                          aria-label="Previous Instagram reel slide"
-                          type="button"
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                          </svg>
-                        </button>
-                        <button
-                          className="reels-carousel-arrow"
-                          onClick={handleNextReels}
-                          aria-label="Next Instagram reel slide"
-                          type="button"
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                          </svg>
-                        </button>
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <div className="reels-carousel-dots">
-                        {reelDotIndices.map((index) => {
-                          const currentPage = Math.floor(currentReelSlide / reelsVisible);
-                          const dotPage = index / reelsVisible;
-                          return (
-                            <button
-                              key={index}
-                              className={`reels-carousel-dot ${currentPage === dotPage ? 'active' : ''}`}
-                              onClick={() => handleGoToReels(index)}
-                              aria-label={`Go to slide ${dotPage + 1}`}
-                              type="button"
-                            />
-                          );
-                        })}
-                      </div>
-                      <div className="reels-carousel-arrows">
-                        <button
-                          className="reels-carousel-arrow"
-                          onClick={handlePrevReels}
-                          aria-label="Previous Instagram reel slide"
-                          type="button"
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
-                          </svg>
-                        </button>
-                        <button
-                          className="reels-carousel-arrow"
-                          onClick={handleNextReels}
-                          aria-label="Next Instagram reel slide"
-                          type="button"
-                        >
-                          <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                            <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/>
-                          </svg>
-                        </button>
-                      </div>
-                    </>
-                  )}
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Kitchen Items Section */}
-      <div className="kitchen-items-section">
-        <div className="kitchen-items-container">
-          <div className="kitchen-items-header">
-            <h3 className="kitchen-items-title">{t('sections.ourKitchenItems')}</h3>
-            <button className="kitchen-items-cta" onClick={() => navigate('/items')}>
-              <span>{t('View All')}</span>
-              <div className="button-shine"></div>
-            </button>
-          </div>
-          
-          <div className="kitchen-items-grid">
-            {/* Row 1 */}
-            <div className="kitchen-items-row">
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Stagg EKG Electric Kettle.jpg" 
-                    alt="Stagg EKG Electric Kettle"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Nespresso Vertuo Pop Solo Coconut White.jpg" 
-                    alt="Nespresso Vertuo Pop Solo Coconut White"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Staub Round Cocotte 18cm Black.jpg" 
-                    alt="Staub Round Cocotte 18cm Black"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Zwilling Four Star 6 Set.jpg" 
-                    alt="Zwilling Four Star 6 Set"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-            </div>
-            
-            {/* Row 2 */}
-            <div className="kitchen-items-row">
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Mino Pottery Mino Ware Curio 210 Deep Plate.jpg" 
-                    alt="Mino Pottery Mino Ware Curio 210 Deep Plate"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Kinto Cast Iced Tea Glass.jpg" 
-                    alt="Kinto Cast Iced Tea Glass"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/Dusen Dusen Everybody Timer.png" 
-                    alt="Dusen Dusen Everybody Timer"
-                    className="kitchen-item-image"
-                  />
-                </div>
-              </div>
-              
-              <div className="kitchen-item">
-                <div className="kitchen-item-image-container">
-                  <img 
-                    src="/items-images/airrmade ceramic butter mug.jpg" 
-                    alt="Airrmade Ceramic Butter Mug"
-                    className="kitchen-item-image"
-                  />
+                    </ScrollReveal>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      
-      {/* Contact Me Section */}
-      <div className="contact-me-section">
-        <div className="contact-me-content">
-          <div className="contact-me-text">
-            <h2 className="contact-me-title">{t('contact.title')}</h2>
-            <p className="contact-me-description">
-              {t('contact.description')}
-            </p>
-            
-            {/* Social Media and Email Buttons */}
-            <div className="contact-me-social-buttons">
-              <button 
-                className="contact-social-button"
-                onClick={() => handleSocialClick('instagram')}
-                title="Instagram"
-              >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </button>
-              
-              <button 
-                className="contact-social-button"
-                onClick={() => handleSocialClick('youtube')}
-                title="YouTube"
-              >
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                </svg>
-              </button>
-              
-              <button 
-                className="contact-social-button"
-                onClick={() => window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer')}
-                title="Email"
-              >
-                <img src="/icons/email-icon.svg" alt="Email" width="28" height="28" />
-              </button>
-            </div>
-            
-            {/* CTA Buttons */}
-            <div className="contact-me-cta-buttons">
-              <button className="contact-me-cta" onClick={handleContactClick}>
-                <span>{t('contact.ctaButton')}</span>
-                <div className="button-shine"></div>
-              </button>
-              
-              <button className="contact-me-cta-secondary" onClick={() => window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer')}>
-                <span>{t('contact.emailButton')}</span>
-              </button>
+
+        {/* What I Cook */}
+        <section className="what-i-cook-section">
+          <div className="landing-section-inner">
+            <div className="what-i-cook-content">
+              <ScrollReveal className="what-i-cook-text" delay={0}>
+                <h2 className="section-title">{t('whatICook.title')}</h2>
+                <p className="section-description">{t('whatICook.description')}</p>
+                <button
+                  className="cta-button"
+                  type="button"
+                  onClick={() => handleSocialClick('instagram')}
+                >
+                  <span>{t('whatICook.ctaButton')}</span>
+                  <div className="button-shine" />
+                </button>
+              </ScrollReveal>
+              <ScrollReveal className="what-i-cook-carousel" delay={120}>
+                {renderReelsCarousel()}
+              </ScrollReveal>
             </div>
           </div>
-          <div className="contact-me-image">
-            <img src="/contact-images/contact-me-landing.png" alt="Contact Jeena's Kitchen" />
+        </section>
+
+        {/* Grow Your Brand — Animation 15 */}
+        <div className="contact-me-section grow-brand-section">
+          <div className="contact-me-content">
+            <ScrollReveal className="contact-me-text" delay={0}>
+              <h2 className="contact-me-title">{t('contact.title')}</h2>
+              <p className="contact-me-description">{t('contact.description')}</p>
+
+              <div className="contact-me-social-buttons">
+                <button
+                  className="contact-social-button"
+                  onClick={() => handleSocialClick('instagram')}
+                  title="Instagram"
+                  type="button"
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                  </svg>
+                </button>
+                <button
+                  className="contact-social-button"
+                  onClick={() => handleSocialClick('youtube')}
+                  title="YouTube"
+                  type="button"
+                >
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                  </svg>
+                </button>
+                <button
+                  className="contact-social-button"
+                  onClick={() => window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer')}
+                  title="Email"
+                  type="button"
+                >
+                  <img src="/icons/email-icon.svg" alt="Email" width="28" height="28" />
+                </button>
+              </div>
+
+              <div className="contact-me-cta-buttons">
+                <button className="contact-me-cta" type="button" onClick={handleContactClick}>
+                  <span>{t('contact.ctaButton')}</span>
+                  <div className="button-shine" />
+                </button>
+                <button
+                  className="contact-me-cta-secondary"
+                  type="button"
+                  onClick={() => window.open('mailto:jeenaskitchen153@gmail.com', '_blank', 'noopener,noreferrer')}
+                >
+                  <span>{t('contact.emailButton')}</span>
+                </button>
+              </div>
+            </ScrollReveal>
+            <ScrollReveal className="contact-me-image grow-brand-animation" delay={120}>
+              <LottieAnimation
+                src={LOTTIE_SOURCES[15]}
+                className="grow-brand-lottie"
+                preserveAspectRatio="xMidYMid slice"
+              />
+            </ScrollReveal>
           </div>
         </div>
       </div>
-      </div>
-    </div>
     </>
   );
 };

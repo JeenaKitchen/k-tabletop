@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './ItemsPage.css';
 import { itemsData, categories } from '../data/itemsData';
 import { useTranslation } from '../hooks/useTranslation';
+import ItemsFeaturedCollection from './ItemsFeaturedCollection';
 
 const ItemsPage = () => {
   const { currentLanguage } = useTranslation();
@@ -16,6 +17,10 @@ const ItemsPage = () => {
 
   return (
     <div className="items-page">
+      <ItemsFeaturedCollection
+        currentLanguage={currentLanguage}
+        variant="preview"
+      />
       <div className="items-page-content">
         {/* Page Header */}
         <div className="items-header">

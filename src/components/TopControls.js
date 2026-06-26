@@ -12,7 +12,8 @@ const TopControls = ({
   isMuted, 
   volume, 
   onMuteToggle, 
-  onVolumeChange 
+  onVolumeChange,
+  isHidden = false,
 }) => {
   const { t, currentLanguage } = useTranslation('common');
   const [searchQuery, setSearchQuery] = useState('');
@@ -104,6 +105,12 @@ const TopControls = ({
     };
   }, [isSearchOpen]);
 
+  useEffect(() => {
+    if (isHidden) {
+      setIsSearchOpen(false);
+    }
+  }, [isHidden]);
+
   // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
@@ -148,7 +155,7 @@ const TopControls = ({
   };
 
   return (
-    <div className="top-controls">
+    <div className={`top-controls ${isHidden ? 'top-controls--hidden' : ''}`}>
       <div className="top-controls-left">
         <div className="search-control" ref={searchContainerRef}>
           <div className="search-input-container">

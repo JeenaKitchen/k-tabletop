@@ -1,0 +1,136 @@
+.blog-post-page {
+  min-height: 100vh;
+  background: #ffffff;
+  padding-top: 60px;
+}
+
+.blog-post-body {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.blog-post-body-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  box-sizing: border-box;
+}
+
+.blog-post-intro,
+.blog-post-recipe {
+  max-width: 34rem;
+  text-align: left;
+}
+
+.blog-post-recipe {
+  margin-top: 8px;
+}
+
+.blog-post-heading {
+  margin: 0 0 16px;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 1);
+  text-align: left;
+}
+
+.blog-post-recipe .blog-post-heading:first-child,
+.blog-post-intro .blog-post-heading:first-child {
+  margin-top: 0;
+}
+
+.blog-post-recipe .blog-post-heading:not(:first-child) {
+  margin-top: 40px;
+}
+
+.blog-post-paragraph {
+  margin: 0 0 20px;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.72);
+  text-align: left;
+}
+
+.blog-post-steps {
+  margin: 0 0 20px;
+  padding-left: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.75;
+  color: rgba(0, 0, 0, 0.72);
+  text-align: left;
+}
+
+.blog-post-steps li + li {
+  margin-top: 8px;
+}
+
+.blog-post-figure {
+  margin: 0 0 24px;
+}
+
+.blog-post-image {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+.blog-post-caption {
+  margin-top: 8px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: rgba(0, 0, 0, 0.55);
+  text-align: left;
+}
+
+.blog-post-video {
+  position: relative;
+  width: 100%;
+  max-width: 34rem;
+  aspect-ratio: 16 / 9;
+  margin: 0 0 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.blog-post-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.blog-post-video-link {
+  display: inline-flex;
+  margin-bottom: 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.blog-post-partnership {
+  min-height: auto;
+}
+
+@media (max-width: 768px) {
+  .blog-post-body-inner {
+    padding: 32px 16px 48px;
+  }
+
+  .blog-post-intro,
+  .blog-post-recipe {
+    max-width: none;
+  }
+
+  .blog-post-heading {
+    font-size: 1.25rem;
+  }
+
+  .blog-post-video {
+    max-width: none;
+  }
+}

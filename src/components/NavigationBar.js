@@ -10,6 +10,9 @@ const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t } = useTranslation('common');
 
+  const isBlogActive =
+    location.pathname === '/blog' || location.pathname.startsWith('/blog/');
+
   const handleSocialClick = (platform) => {
     if (platform === 'instagram') {
       window.open('https://www.instagram.com/jeenas.kitchen/reels/', '_blank');
@@ -49,7 +52,9 @@ const NavigationBar = () => {
     };
   }, [isMenuOpen]);
 
-  const isKTabletopPage = location.pathname === '/k-tabletop';
+  const isKTabletopPage =
+    location.pathname.startsWith('/k-tabletop') ||
+    location.pathname.startsWith('/kr/k-tabletop');
 
   return (
     <nav className={`navigation-bar ${isKTabletopPage ? 'compact' : ''} ${isMenuOpen ? 'menu-open' : ''}`}>
@@ -74,7 +79,7 @@ const NavigationBar = () => {
             {t('navigation.about')}
           </button>
           <button 
-            className={`nav-item ${location.pathname === '/k-tabletop' ? 'active' : ''}`}
+            className={`nav-item ${isKTabletopPage ? 'active' : ''}`}
             onClick={() => handleNavigate('/k-tabletop')}
           >
             {t('navigation.kTabletop')}
@@ -86,7 +91,7 @@ const NavigationBar = () => {
             {t('navigation.items')}
           </button>
           <button 
-            className={`nav-item ${location.pathname === '/blog' ? 'active' : ''}`}
+            className={`nav-item ${isBlogActive ? 'active' : ''}`}
             onClick={() => handleNavigate('/blog')}
           >
             {t('navigation.blog')}
@@ -166,7 +171,7 @@ const NavigationBar = () => {
               {t('navigation.about')}
             </button>
             <button
-              className={`mobile-menu-item ${location.pathname === '/k-tabletop' ? 'active' : ''}`}
+              className={`mobile-menu-item ${isKTabletopPage ? 'active' : ''}`}
               onClick={() => handleNavigate('/k-tabletop')}
             >
               {t('navigation.kTabletop')}
@@ -178,7 +183,7 @@ const NavigationBar = () => {
               {t('navigation.items')}
             </button>
             <button
-              className={`mobile-menu-item ${location.pathname === '/blog' ? 'active' : ''}`}
+              className={`mobile-menu-item ${isBlogActive ? 'active' : ''}`}
               onClick={() => handleNavigate('/blog')}
             >
               {t('navigation.blog')}

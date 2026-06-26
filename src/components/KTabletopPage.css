@@ -4,7 +4,42 @@
   min-height: 100vh;
   position: relative;
   overflow-x: visible;
-  overflow-y: hidden;
+  overflow-y: auto;
+  cursor: url('../assets/cursor/spoon-cursor.png') 21 51, auto;
+}
+
+.k-tabletop-stage {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.k-tabletop-partnership {
+  position: relative;
+  z-index: 50;
+  cursor: auto;
+  padding-bottom: 0px;
+}
+
+.k-tabletop-page :is(
+  button,
+  a,
+  input,
+  textarea,
+  select,
+  label,
+  [role='button'],
+  .dish-item
+) {
+  cursor: pointer;
+}
+
+.k-tabletop-page .dock-container {
+  cursor: grab;
+}
+
+.k-tabletop-page .dock-container:active {
+  cursor: grabbing;
 }
 
 /* Ensure the page takes full height and the navigation doesn't interfere */
@@ -14,4 +49,10 @@
 
 .k-tabletop-page .top-controls {
   top: 50px; /* Account for fixed navigation bar */
+}
+
+.k-tabletop-page .contact-me-cta,
+.k-tabletop-page .contact-me-cta-secondary,
+.k-tabletop-page .retry-button {
+  padding: 12px 24px;
 }

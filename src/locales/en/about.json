@@ -2,21 +2,27 @@
   "hero": {
     "title": "G'day and Welcome!",
     "koreanTitle": "지나키친"
-
-
-
   },
   "intro": {
-    "paragraph1": "Hi everyone, and welcome to Jeena’s Kitchen! I grew up in Korea, and I’ve been living here in Australia for the last 11 years. When I first settled in Sydney, I often found myself feeling a deep sense of longing at my own table. It wasn't the scenery of home I missed, but the comfort of my mother’s cooking and the simple joy of sharing a meal with friends. This feeling ignited a purpose in me: to connect people through the food I cook.",
-    "paragraph2Title": "Bringing Home Cooking to the Community",
-    "paragraph2": "Now, I focus on creating tablescapes using traditional Korean home-style recipes, adapted using the fantastic local ingredients we find here in Sydney, and shared with my family, friends, and neighbours. Through my YouTube and Instagram channels, I share not just the recipes themselves, but the genuine, warm stories and moments that happen around the table. I truly hope Jeena’s Kitchen becomes much more than a cooking channel—I want it to be a community built and connected by home cooking.",
-    "paragraph3Title": "Sharing My Table  with Yours",
-    "paragraph3": "Looking ahead, I plan to launch my own line of tableware and home accessories. This way, you can bring the beautiful, welcoming atmosphere of my tablescapes right into your home. I'll also be sharing honest and relatable stories about my family and the community I’ve found here in Australia, all tied together by food. My hope is that the plates, the dishes, and the stories you see will extend all the way to your dining room.",
-    "paragraph4Title": "Say Hello to Jeena's Kitchen Today",
-    "paragraph4": "I firmly believe that the dining table is there for sharing. Why not join the conversation? Subscribe, share your stories in the comments, and discover a piece of our shared food experience at ‘Jeena’s Kitchen."
+    "paragraph1Title": "The Start of My Life in Australia",
+    "paragraph1": "In 2014, I landed in Sydney with two suitcases and not a single person I knew. The share house I'd arranged from Korea turned out to be nothing like I'd pictured. After a quick hello to my new roommate, I unpacked into an empty room, then headed back down the stairs to the shopping centre nearby.\n\nThat's when it hit me — the loneliness.\n\n\"Okay. Be brave. Just make dinner. I'll feel better once I eat something.\"\n\"Focus on what you can control. School starts tomorrow — get some food ready tonight.\"",
+    "paragraph2Title": "A $30 Pot, a Bowl of Doenjang-jjigae brings me home",
+    "paragraph2": "On a tight budget, the first thing I thought to cook was doenjang-jjigae. I picked up a pot and a few basics — zucchini, tofu, spring onion, chili, doenjang paste. With every vegetable I chopped, some of the tension melted away. And as the ingredients went into the pot one by one, it started looking like an actual meal. I felt lighter.\n\nWhen the stew began to bubble in that unfamiliar kitchen, the smell brought me straight back to my mum's table — that same doenjang-jjigae, that same feeling of home. With every spoonful, the strangeness of my first night in Sydney softened, just a little.",
+    "paragraph3Title": "One Pot, Two Pots, Three Pots",
+    "paragraph3": "That single pot is where Jeena's Kitchen really begins.\n\nCooking for myself, with just one pot, in a country I barely knew — that was its own small act of courage. Some days, figuring out what to eat and making it myself felt lonely, even exhausting. But every time I sat down to a meal I'd made, I felt better. Stronger. I wanted my whole life in Australia to feel that way.\n\nA pot, to me, is about connection. The one I once used only for myself slowly became the one I cooked for partners and friends with. As I moved between schools and share houses, one pot turned into two, then more — and cooking became my way of connecting with people from completely different cultures and languages. It gave me something to hold onto in an unfamiliar place.",
+    "paragraph4Title": "Things Jeena's Kitchen Loves",
+    "paragraph4": "Even on the worst days, just touching the vegetables, smelling them, taking the time to cook properly — it felt like taking care of myself. And sharing that food with a friend or a partner is when I'd really feel connected to them. Those relationships are what made my life here feel full. Let's eat a home-cooked meal together, and be grateful for it. The things Jeena's Kitchen loves are simple, everyday things that matter more than they seem to. Saying hello to a neighbour. Cooking a meal at home. Sharing food and feeling thankful for it. It might sound ordinary — but it's where I feel most at peace, and most happy.",
+    "image1Alt": "Jeena arriving in Sydney",
+    "image2Alt": "Cooking doenjang-jjigae in Sydney",
+    "image3Alt": "Pots and connection through cooking",
+    "image4Alt": "Community and cooking"
   },
   "sections": {
     "followInstagram": "A Glimpse into My Sydney Life"
+  },
+  "carousel": {
+    "description": "A glimpse into my daily cooking — from early morning lunch boxes to cozy weeknight meals shared on Instagram.",
+    "ctaButton": "Follow on Instagram"
   },
   "seo": {
     "title": "About Jeena - Korean Cooking Journey | Jeena's Kitchen"

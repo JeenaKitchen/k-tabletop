@@ -1931,9 +1931,7 @@ export const themes = [
   },
   {
     name: "Namdaemun Market",
-    background: "/Themes/namdaemun-market.jpg",
-    video: "/Videos/namdaemun-market.mp4",
-    sound: "/Sounds/namdaemun-market.mp3",
+    video: "/Videos/namdaemunmarket.mp4",
     dishes: [
       {
         name: "Korean Street Toast",

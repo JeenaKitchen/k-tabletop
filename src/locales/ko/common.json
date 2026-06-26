@@ -3,7 +3,7 @@
     "home": "홈",
     "about": "소개",
     "items": "아이템",
-    "kTabletop": "K-테이블탑",
+    "kTabletop": "한국 밥상 레시피",
     "contact": "문의",
     "blog": "블로그"
   },
@@ -14,7 +14,9 @@
     "refresh": "새로고침",
     "viewAll": "모두 보기",
     "mute": "음소거",
-    "unmute": "음소거 해제"
+    "unmute": "음소거 해제",
+    "soundOn": "소리 켜기",
+    "soundOff": "소리 끄기"
   },
   "search": {
     "placeholder": "레시피 검색...",

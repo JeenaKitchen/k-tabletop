@@ -3,7 +3,7 @@
     "home": "Home",
     "about": "About",
     "items": "Items",
-    "kTabletop": "K-Tabletop",
+    "kTabletop": "Korean Tabletop Recipe",
     "contact": "Contact",
     "blog": "Blog"
   },
@@ -14,7 +14,9 @@
     "refresh": "Refresh",
     "viewAll": "View All Items",
     "mute": "Mute",
-    "unmute": "Unmute"
+    "unmute": "Unmute",
+    "soundOn": "Sound on",
+    "soundOff": "Sound off"
   },
   "search": {
     "placeholder": "Search recipes...",

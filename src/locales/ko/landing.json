@@ -1,43 +1,54 @@
 {
   "hero": {
     "title": "G'day and 안녕하세요!",
-    "description": "Jeena’s Kitchen 지나키친은 음식으로 가족과 이웃이 연결되길 바라는 따뜻한 일상이 가득한 공간입니다.",
+    "description": "Jeena’s Kitchen 지나키친은 집밥과 함께 가족과 이웃으로 연결된 따뜻한 일상이 가득한 공간입니다.",
     "ctaButton": "레시피 보러가기"
   },
+  "animationGrid": {
+    "title": "한국 밥상 레시피",
+    "description": "다양한 한국의 식문화와 밥상 레시피를 인터렉티브하게 경험해 보세요.",
+    "ctaButton": "지금 둘러보기"
+  },
+  "thingsWeLove": {
+    "title": "내가 사랑하는 것들",
+    "description": "집밥을 함께 나누고 감사하는 순간들. 이웃에게 인사하기, 집에서 요리하기, 음식을 나누며 감사하는 것 — 소박하지만 가장 평화롭고 행복한 일상입니다.",
+    "ctaButton": "소개 보기"
+  },
+  "whatICook": {
+    "title": "나름 재밌는 일상",
+    "description": "새벽 도시락부터 따뜻한 저녁 식사까지 — 유투브 영상에 담긴 제 일상 요리를 만나보세요.",
+    "ctaButton": "더 알아보기",
+    "badge": "Jeena in Sydney",
+    "reels": [
+      { "title": "시부모님과 6주 살기 - 시부모님에게 아침상 차려드리기" },
+      { "title": "나혼자 김장 레벨업! 10Kg 김치 담그기" },
+      { "title": "결혼하면 혼자만의 시간이 더 소중해지는 이유 with 연어 오차즈케" },
+      { "title": "30불로 10가지 한국 반찬 만들기" },
+      { "title": "명절 대표 한국 요리 TOP 3: 나박김치, 갈비찜, 구절판" },
+      { "title": "상하이 출신 남편도 좋아한 한국식 김치&고기만두" },
+      { "title": "연어장 덮밥으로 남편이랑 집에서 데이트" },
+      { "title": "11년 만에 생긴 작지만 나만의 주방" },
+      { "title": "이사하고 방구석 분식먹방 시간" },
+      { "title": "11년 만에 우리집이 생겼어요! 식탁장만 이야기" },
+      { "title": "시부모님과 6주 - 메뉴 하나로 매끼 새로운 음식 만들기" },
+      { "title": "시부모님과 6주 - 식사준비 팁" }
+    ]
+  },
   "sections": {
-    "followInstagram": "시드니 일상 보기",
-    "ourKitchenItems": "지나키친 주방 아이템",
-    "kTabletopPreview": "K-테이블탑 미리보기",
+    "followInstagram": "영상 더 보기",
+    "ourKitchenItems": "주방 아이템",
+    "kTabletopPreview": "한국 밥상 레시피 보기",
     "watchLatestVideos": "최신 영상 보기"
   },
-  "values": {
-    "title": "우리가 사랑하는 것들",
-    "warmth": {
-      "title": "따뜻함",
-      "description": "모든 요리에 담긴 정겨운 환대의 마음."
-    },
-    "connection": {
-      "title": "연결고리",
-      "description": "사람들을 하나로 모으는 음식과 공감 가득한 이야기."
-    },
-    "comfort": {
-      "title": "편안함",
-      "description": "소박하지만 영양 가득한 한끼 식사."
-    },
-    "thoughtfulness": {
-      "title": "배려",
-      "description": "진심이 담긴 디테일, 눈이 즐거운 식탁."
-    }
-  },
   "contact": {
-    "title": "지나의 키친과 함께 브랜드를 성장시키세요.",
+    "title": "지나의 키친과 함께 브랜드를 성장시키세요",
     "description": "저는 푸드, 라이프스타일, 웰니스(건강) 분야의 브랜드들과 함께 다음과 같은 다양한 협업을 진행하고 있습니다.\n\n스폰서 콘텐츠 제작 (Sponsored Content)\n\n레시피 개발 (Recipe Development)\n\n이벤트 진행 (Events)\n\n브랜드의 비전을 현실로 구현하기 위해 함께 논의해 봅시다!",
     "ctaButton": "상담 예약하기",
     "emailButton": "이메일 보내기"
   },
   "seo": {
     "title": "지나키친 - 한국 레시피 비디오 & 인터랙티브 요리 가이드",
-    "description": "지나키친과 함께 진정한 한국 레시피를 발견하세요. 인터랙티브한 테마 요리 경험과 비디오 튜토리얼로 한국 바베큐, 떡볶이, 김치 등을 요리하는 방법을 배우세요.",
+    "description": "진짜 한국인이 즐겨찾는 밥상 레시피를 소리와 영상을 통해 느끼는 한국 밥상 레시피! 딸기라떼, 떡볶이, 김밥 레시피 그냥 드려요",
     "ogTitle": "지나키친 - 한국 레시피 비디오 & 인터랙티브 요리 가이드",
     "ogDescription": "비디오 튜토리얼과 인터랙티브한 테마 요리 경험으로 진정한 한국 레시피를 발견하세요.",
     "twitterTitle": "지나키친 - 한국 레시피 비디오",

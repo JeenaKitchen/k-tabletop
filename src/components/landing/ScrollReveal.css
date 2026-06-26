@@ -1,0 +1,38 @@
+.scroll-reveal {
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.scroll-reveal--active:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+  transition-delay: var(--scroll-reveal-delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.scroll-reveal--active:not(.is-visible),
+  .scroll-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.scroll-reveal.animation-grid-cell,
+.scroll-reveal.animation-grid-cell--large {
+  min-width: 0;
+}
+
+.scroll-reveal.animation-grid-cell .video-animation,
+.scroll-reveal.animation-grid-cell--large .video-animation {
+  width: 100%;
+  height: 100%;
+}

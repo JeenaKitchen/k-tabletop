@@ -8,6 +8,175 @@
   flex-direction: column;
 }
 
+/* Featured Collection Block */
+.items-featured-collection {
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  vertical-align: top;
+}
+
+.items-featured-collection-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 48px 24px 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+.items-featured-collection-content {
+  min-width: 0;
+}
+
+.items-featured-breadcrumb {
+  margin: 0 0 20px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.items-featured-title {
+  margin: 0 0 20px;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 1);
+}
+
+.items-featured-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.items-featured-meta-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.items-featured-description {
+  margin: 0 0 20px;
+  max-width: 34rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(0, 0, 0, 0.72);
+}
+
+.items-featured-collection--blog .items-featured-description {
+  margin-bottom: 32px;
+}
+
+.items-featured-blog-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.items-featured-blog-button:hover {
+  background: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+}
+
+.items-featured-ingredients-header {
+  margin-bottom: 20px;
+}
+
+.items-featured-ingredients-title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.3;
+  color: rgba(0, 0, 0, 1);
+}
+
+.items-featured-ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px 16px;
+}
+
+.items-featured-ingredient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+a.items-featured-ingredient {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+a.items-featured-ingredient:hover {
+  transform: translateY(-2px);
+}
+
+a.items-featured-ingredient:hover .items-featured-ingredient-name {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.items-featured-ingredient-image-wrap {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f7f7f7;
+}
+
+.items-featured-ingredient-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.items-featured-ingredient-name {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.items-featured-media {
+  min-width: 0;
+  width: 100%;
+}
+
+.items-featured-hero-image {
+  width: 100%;
+  aspect-ratio: 584 / 730;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 16px;
+}
+
 .items-page-content {
   flex: 1;
   display: flex;
@@ -30,13 +199,7 @@
   color: rgb(0, 0, 0);
   margin-bottom: 16px;
   letter-spacing: -0.02em;
-  font-family: 'PT Serif', serif;
-  font-style: italic;
-}
-
-body[data-lang="ko"] .items-title {
-  font-family: 'Maruburi Bold', 'PT Serif', serif;
-  font-style: normal;
+  font-family: var(--font-heading);
 }
 
 .items-description {
@@ -172,6 +335,7 @@ a.item-card:visited {
 }
 
 .item-name {
+  font-family: var(--font-body);
   font-size: 14px;
   font-weight: 400;
   color: rgb(0, 0, 0);
@@ -202,8 +366,27 @@ a.item-card:visited {
 
 /* Responsive Design */
 
-/* Tablet - 3 columns */
+@media (min-width: 1025px) {
+  .items-featured-collection-inner {
+    grid-template-columns: minmax(0, 1fr) 584px;
+  }
+}
+
 @media (max-width: 1024px) {
+  .items-featured-collection-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 20px 48px;
+  }
+
+  .items-featured-media {
+    order: -1;
+  }
+
+  .items-featured-ingredients-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .items-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
@@ -233,10 +416,19 @@ a.item-card:visited {
   }
 }
 
-/* Mobile - 2 columns */
 @media (max-width: 768px) {
   .items-page {
     padding-top: 80px;
+  }
+
+  .items-featured-collection-inner {
+    padding: 32px 16px 40px;
+    gap: 28px;
+  }
+
+  .items-featured-ingredients-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
   }
 
   .items-page-content {
@@ -291,6 +483,14 @@ a.item-card:visited {
 
 /* Small Mobile - 2 columns (narrower) */
 @media (max-width: 480px) {
+  .items-featured-collection-inner {
+    padding: 24px 24px 32px;
+  }
+
+  .items-featured-title {
+    font-size: 2rem;
+  }
+
   .items-page-content {
     padding: 30px 24px;
   }
