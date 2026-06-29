@@ -22,18 +22,18 @@ const AboutPage = () => {
   const { t: tLanding } = useTranslation('landing');
 
   const blogCarouselImages = [
-    { image: '/about-image/reel-photos/reel-photo-1.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-2.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-3.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-4.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-5.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-6.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-7.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-8.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-9.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-10.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-11.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
-    { image: '/about-image/reel-photos/reel-photo-12.jpg', url: 'https://www.instagram.com/jeenas.kitchen/' },
+    { image: '/about-image/reel-photos/reel-photo-1.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-2.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-3.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-4.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-5.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-6.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-7.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-8.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-9.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-10.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-11.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
+    { image: '/about-image/reel-photos/reel-photo-12.jpg', url: 'https://www.youtube.com/@Jeena.s.kitchen' },
   ];
 
   const instagramReels = blogCarouselImages.map(({ image, url }, index) => ({
@@ -133,7 +133,7 @@ const AboutPage = () => {
   };
 
   const handleInstagramCtaClick = () => {
-    window.open('https://www.instagram.com/jeenas.kitchen/reels/', '_blank', 'noopener,noreferrer');
+    window.open('https://www.youtube.com/@Jeena.s.kitchen', '_blank', 'noopener,noreferrer');
   };
 
   const renderReelsCarousel = () => (
