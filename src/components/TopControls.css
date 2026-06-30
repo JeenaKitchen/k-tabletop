@@ -391,7 +391,8 @@
   
   .theme-accordion {
     width: 340px;
-    height: 64px;
+    min-height: 64px;
+    height: auto;
     box-sizing: border-box;
   }
   
@@ -450,19 +451,29 @@
   }
 
   /* Ensure consistent sizing for related controls on web */
-  .sound-control,
-  .theme-accordion {
+  .sound-control {
     width: 340px;
     height: 64px;
+  }
+
+  .theme-accordion {
+    width: 340px;
+    min-height: 64px;
+    height: auto;
   }
 
   /* Keep the same sizes on mobile view */
   @media (max-width: 768px) {
     .search-control,
-    .sound-control,
-    .theme-accordion {
+    .sound-control {
       width: 340px;
       height: 64px;
+    }
+
+    .theme-accordion {
+      width: 340px;
+      min-height: 64px;
+      height: auto;
     }
   }
 
@@ -497,11 +508,17 @@
     justify-content: center;
   }
   
-  .theme-accordion,
   .sound-control,
   .search-control {
     width: 340px;
     height: 64px;
+    box-sizing: border-box;
+  }
+
+  .theme-accordion {
+    width: 340px;
+    min-height: 64px;
+    height: auto;
     box-sizing: border-box;
   }
 }
