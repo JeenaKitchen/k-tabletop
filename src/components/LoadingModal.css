@@ -3,7 +3,9 @@
   position: fixed;
   inset: 0;
   z-index: 2000;
-  background: rgba(255, 255, 255, 0.6);
+  /* Warm white base so initial page load looks intentional, not blank.
+     backdrop-filter adds blur when there is content behind the overlay. */
+  background: rgba(245, 242, 237, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   display: flex;
@@ -22,6 +24,8 @@
 .loading-modal-lottie .lottie-animation-wrapper {
   width: 200px;
   height: 160px;
+  /* Pull the text up to cancel the Lottie's internal bottom whitespace */
+  margin-bottom: -32px;
 }
 
 /* Clip so characters slide in from below the baseline */
