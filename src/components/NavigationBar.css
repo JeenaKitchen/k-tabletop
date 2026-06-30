@@ -181,13 +181,27 @@
   background: rgba(0, 0, 0, 0.05);
 }
 
-/* Hide logo, social buttons, and language switcher when menu is open */
-.navigation-bar.menu-open .home-button,
+/* Hide social buttons and language switcher when menu is open, but keep logo visible */
 .navigation-bar.menu-open .mobile-nav .social-button,
 .navigation-bar.menu-open .mobile-nav .language-switcher {
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.2s ease;
+}
+
+/* Make nav bar fully white when menu is open */
+.navigation-bar.menu-open,
+.navigation-bar.compact.menu-open {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+/* Ensure logo stays visible and left-aligned when menu is open */
+.navigation-bar.menu-open .home-button {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Mobile Menu Container - Apple Style */
