@@ -16,7 +16,7 @@ const LoadingModal = () => (
           <span
             key={i}
             className="loading-modal-char"
-            style={{ animationDelay: `${i * 0.07}s` }}
+            style={{ animationDelay: `${i * 0.04}s` }}
           >
             {char}
           </span>
