@@ -185,7 +185,7 @@ const KTabletopPage = () => {
       const themeName = themes[newIndex].name.toLowerCase().replace(/\s+/g, '-');
       const newUrl = `/k-tabletop/${themeName}`;
       window.history.pushState({}, '', newUrl);
-    }, 400); // Match the CSS transition duration (0.4s)
+    }, 600);
   };
 
   const handleDishClick = (dish) => {
@@ -437,6 +437,9 @@ const KTabletopPage = () => {
         </div>
       )}
     </div>
+
+    {/* Theme-switch loading overlay */}
+    {isThemeTransitioning && <LoadingModal />}
     </>
   );
 };
