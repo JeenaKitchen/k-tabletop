@@ -242,11 +242,29 @@ const KTabletopPage = () => {
 
   // Loading state
   if (isLoading) {
+    const loadingText = 'Loading...';
     return (
-      <div className="k-tabletop-page loading-state">
-        <div className="loading-container">
-          <div className="loading-spinner"></div>
-          <p>Loading Korean recipes...</p>
+      <div className="ktabletop-loading-modal">
+        <div className="ktabletop-loading-content">
+          <video
+            className="ktabletop-loading-video"
+            src="/animations/video/animation-4.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          <div className="ktabletop-loading-text" aria-label="Loading">
+            {loadingText.split('').map((char, i) => (
+              <span
+                key={i}
+                className="ktabletop-loading-char"
+                style={{ animationDelay: `${i * 0.07}s` }}
+              >
+                {char}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     );

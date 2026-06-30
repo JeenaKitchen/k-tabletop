@@ -56,3 +56,58 @@
 .k-tabletop-page .retry-button {
   padding: 12px 24px;
 }
+
+/* ── Loading Modal ─────────────────────────────────────────── */
+.ktabletop-loading-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: #1b2f1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ktabletop-loading-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+.ktabletop-loading-video {
+  width: 280px;
+  height: 280px;
+  object-fit: contain;
+  border-radius: 24px;
+}
+
+/* Text row — clips overflow so chars slide in from below */
+.ktabletop-loading-text {
+  display: flex;
+  overflow: hidden;
+  line-height: 1;
+}
+
+.ktabletop-loading-char {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.06em;
+  font-family: var(--font-body, sans-serif);
+  opacity: 0;
+  transform: translateY(100%);
+  animation: ktabletop-char-up 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes ktabletop-char-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
