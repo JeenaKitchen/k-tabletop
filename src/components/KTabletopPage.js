@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useTranslation } from '../hooks/useTranslation';
 import LottieAnimation from './landing/LottieAnimation';
+import LoadingModal from './LoadingModal';
 import ScrollReveal from './landing/ScrollReveal';
 import './landing/ScrollReveal.css';
 import './LandingPage.css';
@@ -242,28 +243,7 @@ const KTabletopPage = () => {
 
   // Loading state
   if (isLoading) {
-    const loadingText = 'Loading...';
-    return (
-      <div className="ktabletop-loading-modal">
-        <div className="ktabletop-loading-content">
-          <LottieAnimation
-            src="/animations/lottie/loading-pot.json"
-            className="ktabletop-loading-lottie"
-          />
-          <div className="ktabletop-loading-text" aria-label="Loading">
-            {loadingText.split('').map((char, i) => (
-              <span
-                key={i}
-                className="ktabletop-loading-char"
-                style={{ animationDelay: `${i * 0.07}s` }}
-              >
-                {char}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-    );
+    return <LoadingModal />;
   }
 
   // Error state
