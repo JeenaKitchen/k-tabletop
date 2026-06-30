@@ -246,13 +246,9 @@ const KTabletopPage = () => {
     return (
       <div className="ktabletop-loading-modal">
         <div className="ktabletop-loading-content">
-          <video
-            className="ktabletop-loading-video"
-            src="/animations/video/animation-4.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
+          <LottieAnimation
+            src="/animations/lottie/loading-pot.json"
+            className="ktabletop-loading-lottie"
           />
           <div className="ktabletop-loading-text" aria-label="Loading">
             {loadingText.split('').map((char, i) => (

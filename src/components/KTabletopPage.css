@@ -75,11 +75,10 @@
   gap: 36px;
 }
 
-.ktabletop-loading-video {
+.ktabletop-loading-lottie,
+.ktabletop-loading-lottie .lottie-animation-wrapper {
   width: 280px;
   height: 280px;
-  object-fit: contain;
-  border-radius: 24px;
 }
 
 /* Text row — clips overflow so chars slide in from below */
