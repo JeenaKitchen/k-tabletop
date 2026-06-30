@@ -462,21 +462,6 @@
     height: auto;
   }
 
-  /* Keep the same sizes on mobile view */
-  @media (max-width: 768px) {
-    .search-control,
-    .sound-control {
-      width: 340px;
-      height: 64px;
-    }
-
-    .theme-accordion {
-      width: 340px;
-      min-height: 64px;
-      height: auto;
-    }
-  }
-
   .search-input-container {
     padding: 16px 16px;
     min-height: 50px;
@@ -519,6 +504,16 @@
     width: 340px;
     min-height: 64px;
     height: auto;
+    box-sizing: border-box;
+  }
+}
+
+/* Sound control width for mid-range mobile (601–768px).
+   search-control and theme-accordion already have width: 340px in base styles. */
+@media (max-width: 768px) {
+  .sound-control {
+    width: 340px;
+    height: 64px;
     box-sizing: border-box;
   }
 }
